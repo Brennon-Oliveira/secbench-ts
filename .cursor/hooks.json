@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "command": "node .cursor/hooks/harness-guard.mjs preToolUse",
+        "matcher": "Write|StrReplace|Delete|EditNotebook",
+        "failClosed": true
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": "node .cursor/hooks/harness-guard.mjs afterFileEdit",
+        "failClosed": false
+      }
+    ],
+    "beforeReadFile": [
+      {
+        "command": "node .cursor/hooks/harness-guard.mjs beforeReadFile",
+        "failClosed": false
+      }
+    ],
+    "stop": [
+      {
+        "command": "node .cursor/hooks/harness-guard.mjs stop",
+        "failClosed": false
+      }
+    ]
+  }
+}

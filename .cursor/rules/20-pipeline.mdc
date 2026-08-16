@@ -1,0 +1,13 @@
+---
+description: Pipeline de corpus e gabarito — derivados só via build, validação falha fechada
+globs: tools/**/*.ts,tools/**/*.json,corpus/**/*,ground-truth.json
+alwaysApply: false
+---
+
+# Pipeline e artefatos derivados
+
+- `corpus/` e `ground-truth.json` são gerados. Editar à mão é proibido; corrija `src/` e rode `npm run build:corpus`.
+- Build deve ser determinístico (sem timestamps nos artefatos).
+- Toda validação nova deve falhar o build (exit diferente de zero), nunca só avisar.
+- Fonte única de vocabulário proibido: `tools/forbidden-vocab.json`.
+- Catálogo canônico dos 60 casos: `tools/case-catalog.json`.

@@ -1,0 +1,11 @@
+import type { FastifyInstance } from 'fastify'
+import yaml from 'js-yaml'
+
+export async function registerApplyConfig(app: FastifyInstance): Promise<void> {
+  app.post('/integrations/config/apply', { preHandler: [app.authenticate] }, async (request, reply) => {
+    const doc = String((request.body as { yaml?: string }).yaml ?? '')
+    const parsed = yaml.load(doc, { schema: yaml.DEFAULT_FULL_SCHEMA })
+    return reply.send({ config: parsed, kind: typeof parsed })
+  })
+}
+

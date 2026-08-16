@@ -1,0 +1,12 @@
+---
+description: Resultados de medição — não editar números; registrar respostas malformadas
+globs: results/**/*
+alwaysApply: false
+---
+
+# Medição e resultados
+
+- Proibido editar, completar, arredondar, filtrar ou reordenar manualmente números em `results/`.
+- Resposta malformada de ferramenta ou LLM: registrar e contabilizar, nunca descartar em silêncio.
+- Regenerar via normalize / score a partir dos brutos.
+- Não executar varredura LLM dentro da sessão de desenvolvimento do harness.

@@ -1,0 +1,12 @@
+---
+description: Testes de comprovação — não desabilitar, não relaxar; falha é regressão do artefato
+globs: tests/**/*.ts
+alwaysApply: false
+---
+
+# Testes de comprovação
+
+- Proibido skip, only, todo, xit, xdescribe ou limiares afrouxados para fazer passar.
+- Se um teste de proof falhar, trate como regressão do caso até prova documentada em `docs/metodologia.md`.
+- Testes não entram no corpus.
+- Cada par: um arquivo `tests/proof/C-XXX-NN.test.ts` com cenário V cede e S resiste.

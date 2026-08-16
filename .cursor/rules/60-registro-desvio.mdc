@@ -1,0 +1,10 @@
+---
+description: Obrigação de registrar desvios da especificação em docs/metodologia.md
+alwaysApply: true
+---
+
+# Registro de desvio
+
+Qualquer decisão que se afaste de `docs/specs/PROJETO.md` ou `docs/specs/HARNESS.md` deve ser registrada em `docs/metodologia.md` com data e justificativa antes de ser implementada.
+
+Desvio não registrado é defeito do artefato.

@@ -1,0 +1,16 @@
+---
+description: Autoria de pares de casos — nomenclatura neutra, marcadores e simetria V/S
+globs: src/modules/**/*.ts,src/plugins/**/*.ts
+alwaysApply: false
+---
+
+# Autoria de casos
+
+- Crie **sempre** os dois membros do par (V e S) na mesma alteração, mais o teste em `tests/proof/`.
+- Nomes de arquivo/função/rota descrevem negócio, nunca condição (aprovado: `search-orders.ts` / `filter-orders.ts`).
+- Proibido vocabulário de `tools/forbidden-vocab.json` em símbolos, strings e comentários do artefato (exceto API externa tipo `yaml.safeLoad`).
+- Proibido `sanitize` como nome de símbolo; use `normalize` / `format` / `parse`.
+- Marcadores obrigatórios com `@case-begin`, `@sink`, `@case-end` e o id do caso.
+- Sem comentários explicando decisão de segurança em `src/`.
+- Simetria: mesma ordem de operações, mesmo formato de resposta, tamanho próximo.
+- Misture V e S nos mesmos módulos; registre rotas por módulo e ordem alfabética de caminho em `routes.ts`.

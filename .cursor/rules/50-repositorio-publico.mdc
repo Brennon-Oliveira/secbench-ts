@@ -1,0 +1,12 @@
+---
+description: Metadados públicos — aviso de segurança, sem dados reais, citação
+globs: README.md,SECURITY.md,LICENSE,CITATION.cff,docs/**/*.md
+alwaysApply: false
+---
+
+# Repositório público
+
+- README deve manter aviso destacado PT+EN: código deliberadamente inseguro, não usar em produção/rede.
+- Proibido credencial real, dado pessoal real ou serviço real; use exemplo.invalido / reservados.
+- Manter LICENSE (MIT), SECURITY.md e CITATION.cff coerentes.
+- Desvios metodológicos em docs/metodologia.md com data.
