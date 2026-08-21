@@ -96,6 +96,11 @@ function allow(extra = {}) {
   return { permission: 'allow', ...extra }
 }
 
+function isSandboxOkMarker(filePath) {
+  const r = rel(filePath)
+  return r === '.sandbox-ok' || r.endsWith('/.sandbox-ok')
+}
+
 async function handlePreToolUse(input) {
   const toolName = input.tool_name || input.toolName || ''
   const toolInput = input.tool_input || input.arguments || input || {}
@@ -103,6 +108,13 @@ async function handlePreToolUse(input) {
     toolInput.path || toolInput.filePath || toolInput.target_notebook || ''
 
   if (!filePath) return allow()
+
+  if (isSandboxOkMarker(filePath)) {
+    const msg =
+      'Criação de .sandbox-ok bloqueada no checkout de trabalho. Esse marcador só pode existir em clone descartável para o modo destrutivo de measurement:prepare.'
+    audit('block-sandbox-ok', { file: rel(filePath), toolName })
+    return deny(msg)
+  }
 
   if (isDerived(filePath)) {
     const msg =
@@ -119,6 +131,14 @@ async function handleAfterFileEdit(input) {
   if (!filePath) return {}
 
   const r = rel(filePath)
+
+  if (r === '.sandbox-ok' || r.endsWith('/.sandbox-ok')) {
+    const msg =
+      'Arquivo .sandbox-ok detectado no checkout de trabalho. Remova-o; use apenas em clone descartável para o modo destrutivo.'
+    audit('block-sandbox-ok-edit', { file: r })
+    return { additional_context: msg }
+  }
+
   // Only check artifact source and corpus
   if (
     !(
@@ -187,15 +207,6 @@ async function handleBeforeReadFile(input) {
   return allow()
 }
 
-async function handleStop(_input) {
-  // Non-blocking reminder; full verify is for CI / explicit runs
-  audit('stop', { note: 'cycle-end' })
-  return {
-    followup_message:
-      'Antes de encerrar: confirme `npm run build:corpus` e que os testes de proof do par alterado passam. Não edite corpus/ nem ground-truth.json.',
-  }
-}
-
 async function main() {
   const mode = process.argv[2] || 'preToolUse'
   const input = await readStdin()
@@ -203,7 +214,6 @@ async function main() {
   if (mode === 'preToolUse') out = await handlePreToolUse(input)
   else if (mode === 'afterFileEdit') out = await handleAfterFileEdit(input)
   else if (mode === 'beforeReadFile') out = await handleBeforeReadFile(input)
-  else if (mode === 'stop') out = await handleStop(input)
   else out = allow()
 
   process.stdout.write(JSON.stringify(out))

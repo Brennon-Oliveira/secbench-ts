@@ -9,4 +9,5 @@ alwaysApply: false
 - Proibido editar, completar, arredondar, filtrar ou reordenar manualmente números em `results/`.
 - Resposta malformada de ferramenta ou LLM: registrar e contabilizar, nunca descartar em silêncio.
 - Regenerar via normalize / score a partir dos brutos.
-- Não executar varredura LLM dentro da sessão de desenvolvimento do harness.
+- Não executar nenhuma varredura (determinística ou LLM) fora do ambiente preparado por `measurement:prepare`.
+- Normalização e pontuação só no repositório completo (com `ground-truth.json`), nunca no ambiente de medição.

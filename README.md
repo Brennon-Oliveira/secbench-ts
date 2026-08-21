@@ -31,15 +31,20 @@ cp .env.example .env
 | `npm test` | Testes (proof + smoke) |
 | `npm run test:proof` | Só comprovação |
 | `npm run scan:semgrep` / `codeql` / `njsscan` / `eslint` | Varreduras SAST |
-| `npm run scan:llm` | Protocolo LLM (**ambiente limpo** — ver `docs/reproducao.md`) |
-| `npm run normalize` | Normaliza `results/raw` |
-| `npm run score` | Calcula indicadores |
+| `npm run scan:llm` | Protocolo LLM (**somente no ambiente de medição**) |
+| `npm run measurement:prepare` | Monta ambiente de medição por lista de inclusão |
+| `npm run measurement:verify` | Conferência do hash do corpus (sem alterar nada) |
+| `npm run normalize` | Normaliza `results/raw` (fora do ambiente de medição) |
+| `npm run score` | Calcula indicadores (fora do ambiente de medição) |
 | `npm run verify` | `build:corpus` + testes |
 
 ## Estrutura
 
 Ver `docs/specs/PROJETO.md`. Harness do agente: `docs/specs/HARNESS.md` e `docs/harness-plan.md`.
 
-## Reprodução da medição
+## Medição e reprodução
 
-Passo a passo em `docs/reproducao.md`.
+- Protocolo pré-registrado (regras de correspondência, ambiente isolado, LLM, indicadores): `docs/PROTOCOLO-MEDICAO.md`.
+- Roteiro operacional (clone → `measurement:prepare` → varreduras → retorno dos brutos → normalize/score): `docs/reproducao.md`.
+
+Não execute varreduras no checkout de desenvolvimento com harness carregado.

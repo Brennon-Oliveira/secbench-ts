@@ -23,3 +23,24 @@ O catálogo descreve verificação de alcance via comando de shell. Em ambientes
 
 O par C-1104-01 usa `ms` (faixa `^`) no membro V e `escape-html` (versão exata) no membro S. Não são o mesmo pacote; a prova do caso é inspeção do manifesto, conforme o catálogo.
 
+### 2026-08-16 — C-1104-01 saída escolhida (saída 1)
+
+Antes da implementação: escolhida a **saída 1 (preferida)** da ordem de correção. O par será reconstruído para a mesma operação de negócio (converter carimbo de agenda em epoch ms); o membro V importa `moment` (projeto legado em modo de manutenção — CWE-1104 aplicável) e o membro S importa `dayjs` (equivalente mantido). Removem-se `ms` e `escape-html` do manifesto se deixarem de ser usados; o campo `dependency` some do corpo da resposta. A entrada anterior sobre `ms`/`escape-html` fica historicamente superada por esta decisão.
+
+### 2026-08-16 — Auditoria adversarial cega (pós-correção)
+
+Após as tarefas 1–6, auditoria cega restrita a `corpus/` (subagent `blind-auditor`), sem gabarito/especificação/testes/catálogo.
+
+- **Data:** 2026-08-16
+- **Acerto:** 30 regiões FAILING e 30 PROTECTED alinhadas aos 30 pares do artefato (análise por sink/API); `health.ts` tratado como benigno.
+- **Pistas declaradas:** predominantemente técnicas (fluxo a sinks, crypto/KDF, authZ, encoding, PRNG). Tamanho de arquivo e ordem de registro em `routes.ts` **não** foram decisivos. Pares de nomes de negócio sinônimos foram usados para navegação/comparação diferencial (desenho intencional do catálogo, sem sufixos V/S); o auditor notou influência parcial no eixo login/signin (log de senha vs omissão), residual compartilhado já previsto no par.
+- **Conclusão:** acerto compatível com análise técnica legítima; sem atalho por tamanho ou ordem de registro. Helper `withEntityMeta` unificado entre membros para evitar assimetria de boilerplate como pista.
+
+### 2026-08-21 — Tarefa 8: ambiente de medição isolado
+
+Implementação do protocolo pré-registrado (`docs/PROTOCOLO-MEDICAO.md`, commit isolado anterior) e de `tools/prepare-measurement.ts` (lista de inclusão, atestado, verificação de vazamento). Scripts `measurement:prepare` / `measurement:verify`. Documentação de reprodução reescrita; harness atualizado (proibição de varredura fora do ambiente preparado; proibição de ampliar inclusão sem desvio; bloqueio de `.sandbox-ok` no checkout de trabalho).
+
+### 2026-08-21 — Lista de inclusão vs estado pós-tarefas 1–7
+
+Conferidos `INCLUDE_TREES` (`corpus`) e `INCLUDE_FILES` (`tools/llm/prompt.md`, `tools/llm/run-llm.ts`, `scripts/scan-semgrep.ts`, `scripts/scan-codeql.ts`, `scripts/scan-njsscan.ts`, `scripts/scan-eslint.ts`, `scripts/eslint.corpus.config.mjs`, `package-lock.json`) contra o projeto após as correções 1–7. Todos os caminhos existem; executores de varredura permanecem em `scripts/` como no script recebido. **Nenhum ajuste** na lista de inclusão.
+

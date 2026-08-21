@@ -1,10 +1,3 @@
-/**
- * LLM measurement runner.
- *
- * IMPORTANT (HARNESS §8): do not run this from a development agent session
- * that has SecBench harness rules/skills loaded. Execute in a clean environment
- * with only corpus files + this prompt. See docs/reproducao.md.
- */
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -74,7 +67,7 @@ async function main() {
   for (const file of corpusFiles) {
     const rel = path.relative(path.join(ROOT, 'corpus'), file).split(path.sep).join('/')
     const content = fs.readFileSync(file, 'utf8')
-    const prompt = template.replace('{{PATH}}', rel).replace('{{CONTENT}}', content)
+    const prompt = template.replace('{{CAMINHO}}', rel).replace('{{CONTEUDO}}', content)
     for (let runId = 1; runId <= 3; runId++) {
       const raw = await callModel(prompt)
       let parsed: unknown

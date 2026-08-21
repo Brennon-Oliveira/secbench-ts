@@ -3,6 +3,7 @@ dist/
 data/
 *.sqlite
 .env
+.sandbox-ok
 .cursor/logs/
 results/raw/**/*
 !results/raw/.gitkeep

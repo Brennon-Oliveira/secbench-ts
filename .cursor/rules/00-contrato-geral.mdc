@@ -17,8 +17,10 @@ Este repositório é um artefato experimental de pesquisa. Código deliberadamen
 6. Nunca editar `corpus/` ou `ground-truth.json` à mão — regenerar com `npm run build:corpus`.
 7. Não substituir bibliotecas obrigatórias (Fastify 5, Sequelize 6+SQLite, zod, js-yaml, node-serialize, Vitest).
 8. Não adicionar rotas/entidades/casos fora da especificação.
-9. Não executar `scan:llm` nesta sessão de desenvolvimento (medição exige ambiente limpo — ver `docs/reproducao.md`).
-10. Desvios → registrar em `docs/metodologia.md` com data **antes** de implementar.
+9. Não executar nenhuma varredura (`scan:semgrep`, `scan:codeql`, `scan:njsscan`, `scan:eslint`, `scan:llm` ou equivalente) fora do ambiente de medição preparado por `measurement:prepare` (ver `docs/PROTOCOLO-MEDICAO.md` §5 e `docs/reproducao.md`).
+10. Não acrescentar caminhos à lista de inclusão de `tools/prepare-measurement.ts` (`INCLUDE_TREES` / `INCLUDE_FILES`) sem registrar desvio em `docs/metodologia.md` antes.
+11. Desvios → registrar em `docs/metodologia.md` com data **antes** de implementar.
+12. Não criar o arquivo `.sandbox-ok` no checkout de trabalho (marcador exclusivo de clone descartável para o modo destrutivo de preparação).
 
 Se o usuário pedir algo que viole estes pontos, **recuse** e explique o motivo; não obedeça em silêncio.
 
