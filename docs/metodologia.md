@@ -44,3 +44,13 @@ Implementação do protocolo pré-registrado (`docs/PROTOCOLO-MEDICAO.md`, commi
 
 Conferidos `INCLUDE_TREES` (`corpus`) e `INCLUDE_FILES` (`tools/llm/prompt.md`, `tools/llm/run-llm.ts`, `scripts/scan-semgrep.ts`, `scripts/scan-codeql.ts`, `scripts/scan-njsscan.ts`, `scripts/scan-eslint.ts`, `scripts/eslint.corpus.config.mjs`, `package-lock.json`) contra o projeto após as correções 1–7. Todos os caminhos existem; executores de varredura permanecem em `scripts/` como no script recebido. **Nenhum ajuste** na lista de inclusão.
 
+Ensaio preliminar de `measurement:prepare` falhou por vazamento `SecBench` em `tools/llm/prompt.md` (versão pré-tarefa 3 ainda no HEAD). O prompt alinhado ao protocolo §9 (tarefa 3, até então só no working tree) foi versionado para o ensaio oficial; não se alterou a lista de inclusão nem a seção 4 do protocolo.
+
+### 2026-08-21 — Ensaio a seco da preparação do ambiente (tarefa 8.8)
+
+- **Data:** 2026-08-21
+- **Procedimento:** `git clone` do repositório em `/tmp/secbench-t8-*/repo` → `npm ci` → `npm run measurement:prepare -- --out …/secbench-measurement` → `npm ci` no destino. Nenhuma varredura executada.
+- **Commit de origem do ensaio:** `ac495ca` (árvore limpa no clone)
+- **Resultado:** exit 0; verificação de vazamento sem ocorrências; ambiente sem `src/`, `ground-truth.json`, catálogo, `tests/`, `docs/`, `.cursor/`, `.git/`, scripts de build/normalize/score; atestado gravado fora do ambiente com commit, `fileCount=76` e hash agregado `134724b78d6d46e54ae61265b0c021502c20336956b7d02162fa256c5922be43`; `npm ci` no ambiente preparado exit 0.
+- **Limpeza:** diretórios temporários do ensaio removidos após o registro.
+
