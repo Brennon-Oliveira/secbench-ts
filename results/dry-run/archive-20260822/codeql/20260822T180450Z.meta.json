@@ -1,0 +1,11 @@
+{
+  "tool": "codeql",
+  "version": "2.26.3",
+  "image": "sast-codeql:2.26.3",
+  "digest": "sha256:507b46f951a0a698a238ae1454465f217b92e9890dce1febc905ca5a980a8c6d",
+  "command": "docker compose -f /home/brennon/studies/secbench-ts/docker/compose.yml run --rm --no-deps codeql",
+  "date": "2026-08-22T18:05:39.874Z",
+  "durationSec": 49,
+  "exitCode": 0,
+  "scanTarget": "/home/brennon/studies/secbench-ts/tools/dry-run-fixture"
+}

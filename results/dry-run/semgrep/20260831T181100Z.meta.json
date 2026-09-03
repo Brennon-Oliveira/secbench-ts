@@ -1,0 +1,12 @@
+{
+  "tool": "semgrep",
+  "version": "1.174.0",
+  "image": "sast-semgrep:1.174.0",
+  "digest": "sha256:0943b6dff0650b0ba9d18014608002e97060bfa2b0694262c4b8dd3b595b5d23",
+  "rulesCommit": "40b8c63f75dc7c22c8a77482d73bfb864b146f7e",
+  "command": "docker compose -f /home/brennon/studies/secbench-ts/docker/compose.yml run --rm --no-deps semgrep",
+  "date": "2026-08-31T18:13:06.090Z",
+  "durationSec": 126,
+  "exitCode": 0,
+  "scanTarget": "/home/brennon/studies/secbench-ts/tools/dry-run-fixture"
+}

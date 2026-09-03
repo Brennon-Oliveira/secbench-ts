@@ -1,0 +1,11 @@
+{
+  "tool": "njsscan",
+  "version": "0.3.2",
+  "image": "opensecurity/njsscan:0.3.2",
+  "digest": "sha256:a0df16158116df639fb33a5fbf7ffc070b8baff2d40fd2956b1433e7c9267af1",
+  "command": "docker compose -f /home/brennon/studies/secbench-ts/docker/compose.yml run --rm --no-deps njsscan",
+  "date": "2026-08-22T18:04:38.246Z",
+  "durationSec": 7,
+  "exitCode": 1,
+  "scanTarget": "/home/brennon/studies/secbench-ts/tools/dry-run-fixture"
+}
