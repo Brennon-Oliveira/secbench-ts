@@ -64,15 +64,12 @@ export function verifyToken(token: string, secret: string): AuthUser | null {
   }
 }
 
-export function resolveSigningSecret(requireDefined: boolean): string {
+export function resolveSigningSecret(): string {
   const env = loadEnv()
-  if (requireDefined) {
-    if (!env.jwtSecret) {
-      throw new Error('JWT_SECRET is required')
-    }
-    return env.jwtSecret
+  if (!env.jwtSecret) {
+    throw new Error('JWT_SECRET is required')
   }
-  return env.jwtSecret ?? 'dev-secret-please-change'
+  return env.jwtSecret
 }
 
 const authPlugin: FastifyPluginAsync = async (app) => {
@@ -82,7 +79,7 @@ const authPlugin: FastifyPluginAsync = async (app) => {
       return reply.code(401).send({ error: 'authentication required' })
     }
     const token = header.slice('Bearer '.length)
-    const secret = resolveSigningSecret(false)
+    const secret = resolveSigningSecret()
     const user = verifyToken(token, secret)
     if (!user) {
       return reply.code(401).send({ error: 'invalid token' })

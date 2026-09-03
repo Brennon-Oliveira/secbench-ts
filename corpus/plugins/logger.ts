@@ -10,9 +10,7 @@ export function clearTestLogBuffer(): void {
 }
 
 const loggerPlugin: FastifyPluginAsync = async (app) => {
-  app.addHook('onRequest', async () => {
-    /* no global redaction */
-  })
+  app.addHook('onRequest', async () => {})
 }
 
 export function createTestLoggerDestination() {

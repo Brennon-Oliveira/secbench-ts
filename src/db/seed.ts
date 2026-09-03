@@ -36,8 +36,8 @@ export async function runSeed(): Promise<void> {
   fs.mkdirSync(uploads, { recursive: true })
   fs.mkdirSync(reports, { recursive: true })
 
-  fs.writeFileSync(path.join(uploads, 'catalog-a.txt'), 'catalog item A\n')
-  fs.writeFileSync(path.join(uploads, 'catalog-b.txt'), 'catalog item B\n')
+  fs.writeFileSync(path.join(uploads, 'lista-a.txt'), 'lista item A\n')
+  fs.writeFileSync(path.join(uploads, 'lista-b.txt'), 'lista item B\n')
   fs.writeFileSync(path.join(reports, 'sales-q1.txt'), 'sales q1\n')
   fs.writeFileSync(path.join(reports, 'sales-q2.txt'), 'sales q2\n')
 
@@ -80,7 +80,7 @@ export async function runSeed(): Promise<void> {
 
   await Integration.bulkCreate([
     {
-      name: 'catalog-feed',
+      name: 'product-feed',
       endpointUrl: 'https://cdn.exemplo.invalido/feed.json',
       apiKeyRef: 'INTEGRATION_API_KEY',
     },

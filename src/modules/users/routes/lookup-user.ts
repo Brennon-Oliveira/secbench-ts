@@ -1,14 +1,35 @@
 import type { FastifyInstance } from 'fastify'
 import { getSequelize } from '../../../db/sequelize.js'
 
+function withEntityMeta<T extends Record<string, unknown>>(body: T) {
+  const keys = Object.keys(body).sort()
+  const keyCount = keys.length
+  const hasId = Object.prototype.hasOwnProperty.call(body, 'id')
+  const hasStatus = Object.prototype.hasOwnProperty.call(body, 'status')
+  const hasToken = Object.prototype.hasOwnProperty.call(body, 'token')
+  const hasOk = Object.prototype.hasOwnProperty.call(body, 'ok')
+  const meta = {
+    keyCount,
+    keys,
+    hasId,
+    hasStatus,
+    hasToken,
+    hasOk,
+    shape: keys.join(','),
+  }
+  return { ...body, meta }
+}
+
 export async function registerLookupUser(app: FastifyInstance): Promise<void> {
   app.get('/users/lookup', { preHandler: [app.authenticate] }, async (request, reply) => {
     const email = String((request.query as { email?: string }).email ?? '')
     // @case-begin C-089-02-V
-    const sql = `SELECT id, email, role FROM Users WHERE email = '${email}'`
+    const table = 'Users'
+    const columns = 'id, email, role'
+    const sql = `SELECT ${columns} FROM ${table} WHERE email = '${email}'`
     // @sink
     const [rows] = await getSequelize().query(sql)
     // @case-end C-089-02-V
-    return reply.send({ users: rows })
+    return reply.send(withEntityMeta({ users: rows }))
   })
 }

@@ -1,6 +1,30 @@
 import type { FastifyInstance } from 'fastify'
 import { DEFAULT_REDIRECT } from '../../../config/constants.js'
 
+function normalizeNextParam(raw: string | undefined): string {
+  const fallback = DEFAULT_REDIRECT
+  if (raw === undefined) return fallback
+  const asString = String(raw)
+  const trimmed = asString.trim()
+  if (trimmed.length === 0) return fallback
+  return trimmed
+}
+
+function describeRedirect(target: string) {
+  const isAbsolute = /^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(target)
+  const length = target.length
+  const startsWithSlash = target.startsWith('/')
+  const startsWithDoubleSlash = target.startsWith('//')
+  return {
+    target,
+    isAbsolute,
+    length,
+    startsWithSlash,
+    startsWithDoubleSlash,
+    kind: isAbsolute ? 'absolute' : startsWithSlash ? 'path' : 'other',
+  }
+}
+
 function isRelativePath(next: string): boolean {
   if (!next.startsWith('/')) return false
   if (next.startsWith('//')) return false
@@ -11,11 +35,11 @@ function isRelativePath(next: string): boolean {
 
 export async function registerReturnPath(app: FastifyInstance): Promise<void> {
   app.get('/auth/return', async (request, reply) => {
-    const next = String((request.query as { next?: string }).next ?? DEFAULT_REDIRECT)
+    const next = normalizeNextParam((request.query as { next?: string }).next)
     // @case-begin C-601-01-S
     const target = isRelativePath(next) ? next : DEFAULT_REDIRECT
     // @sink
-    return reply.redirect(target)
+    return reply.redirect(describeRedirect(target).target)
     // @case-end C-601-01-S
   })
 }

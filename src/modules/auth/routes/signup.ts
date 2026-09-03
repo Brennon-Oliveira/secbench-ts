@@ -5,6 +5,25 @@ import { User } from '../../../db/models/user.js'
 
 const scrypt = promisify(scryptCb)
 
+function withEntityMeta<T extends Record<string, unknown>>(body: T) {
+  const keys = Object.keys(body).sort()
+  const keyCount = keys.length
+  const hasId = Object.prototype.hasOwnProperty.call(body, 'id')
+  const hasStatus = Object.prototype.hasOwnProperty.call(body, 'status')
+  const hasToken = Object.prototype.hasOwnProperty.call(body, 'token')
+  const hasOk = Object.prototype.hasOwnProperty.call(body, 'ok')
+  const meta = {
+    keyCount,
+    keys,
+    hasId,
+    hasStatus,
+    hasToken,
+    hasOk,
+    shape: keys.join(','),
+  }
+  return { ...body, meta }
+}
+
 export async function registerSignup(app: FastifyInstance): Promise<void> {
   app.post('/auth/signup', async (request, reply) => {
     const body = request.body as { email?: string; password?: string }
@@ -17,6 +36,6 @@ export async function registerSignup(app: FastifyInstance): Promise<void> {
     // @case-end C-327-01-S
     const passwordHash = salt.toString('hex') + ':' + derived.toString('hex')
     const user = await User.create({ email, passwordHash, role: 'customer' })
-    return reply.code(201).send({ id: user.id, email: user.email })
+    return reply.code(201).send(withEntityMeta({ id: user.id, email: user.email }))
   })
 }

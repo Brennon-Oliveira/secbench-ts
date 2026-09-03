@@ -68,7 +68,6 @@ import { registerProfileValidate } from './modules/users/routes/profile-validate
 import { registerSaveDocument } from './modules/users/routes/save-document.js'
 import { registerStoreDocument } from './modules/users/routes/store-document.js'
 
-/** Register by module, then alphabetical path within the module (PROJETO §7.8). */
 export async function registerRoutes(app: FastifyInstance): Promise<void> {
   await registerCallback(app)
   await registerLogin(app)

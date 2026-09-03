@@ -3,8 +3,11 @@ import { loadEnv } from './config/env.js'
 
 async function main() {
   const env = loadEnv()
+  if (!env.jwtSecret) {
+    throw new Error('JWT_SECRET is required')
+  }
   const app = await buildApp({
-    jwtSecret: env.jwtSecret ?? 'dev-secret-please-change',
+    jwtSecret: env.jwtSecret,
     documentKey: env.documentKey ?? '0123456789abcdef0123456789abcdef',
     integrationApiKey: env.integrationApiKey ?? 'env-integration-key',
   })

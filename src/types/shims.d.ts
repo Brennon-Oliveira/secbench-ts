@@ -14,13 +14,3 @@ declare module 'node-serialize' {
   }
   export = serialize
 }
-
-declare module 'ms' {
-  function ms(value: string): number | undefined
-  export = ms
-}
-
-declare module 'escape-html' {
-  function escapeHtml(input: string): string
-  export = escapeHtml
-}

@@ -7,6 +7,25 @@ import { REPORTS_DIR } from '../../../config/constants.js'
 
 const execFileAsync = promisify(execFile)
 
+function withEntityMeta<T extends Record<string, unknown>>(body: T) {
+  const keys = Object.keys(body).sort()
+  const keyCount = keys.length
+  const hasId = Object.prototype.hasOwnProperty.call(body, 'id')
+  const hasStatus = Object.prototype.hasOwnProperty.call(body, 'status')
+  const hasToken = Object.prototype.hasOwnProperty.call(body, 'token')
+  const hasOk = Object.prototype.hasOwnProperty.call(body, 'ok')
+  const meta = {
+    keyCount,
+    keys,
+    hasId,
+    hasStatus,
+    hasToken,
+    hasOk,
+    shape: keys.join(','),
+  }
+  return { ...body, meta }
+}
+
 export async function registerTransformReport(app: FastifyInstance): Promise<void> {
   app.post('/reports/transform', { preHandler: [app.authenticate] }, async (request, reply) => {
     const fileName = String((request.body as { fileName?: string }).fileName ?? '')
@@ -17,7 +36,7 @@ export async function registerTransformReport(app: FastifyInstance): Promise<voi
     }
     const out = path.join(dir, 'out-' + fileName)
     await execFileAsync('cp', [path.join(dir, fileName), out])
-    return reply.send({ output: out })
+    return reply.send(withEntityMeta({ output: out }))
   })
 }
 

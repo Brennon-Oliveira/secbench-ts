@@ -1,6 +1,25 @@
 import type { FastifyInstance } from 'fastify'
 import { Order } from '../../../db/models/order.js'
 
+function withEntityMeta<T extends Record<string, unknown>>(body: T) {
+  const keys = Object.keys(body).sort()
+  const keyCount = keys.length
+  const hasId = Object.prototype.hasOwnProperty.call(body, 'id')
+  const hasStatus = Object.prototype.hasOwnProperty.call(body, 'status')
+  const hasToken = Object.prototype.hasOwnProperty.call(body, 'token')
+  const hasOk = Object.prototype.hasOwnProperty.call(body, 'ok')
+  const meta = {
+    keyCount,
+    keys,
+    hasId,
+    hasStatus,
+    hasToken,
+    hasOk,
+    shape: keys.join(','),
+  }
+  return { ...body, meta }
+}
+
 export async function registerSettle(app: FastifyInstance): Promise<void> {
   app.post('/orders/:id/settle', { preHandler: [app.authenticate] }, async (request, reply) => {
     const id = Number((request.params as { id: string }).id)
@@ -14,6 +33,6 @@ export async function registerSettle(app: FastifyInstance): Promise<void> {
     // @case-end C-532-02-S
     order.status = 'paid'
     await order.save()
-    return reply.send({ id: order.id, status: order.status })
+    return reply.send(withEntityMeta({ id: order.id, status: order.status }))
   })
 }

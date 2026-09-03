@@ -1,13 +1,16 @@
 import type { FastifyInstance } from 'fastify'
-import escapeHtml from 'escape-html'
+import dayjs from 'dayjs'
 
 export async function registerTimingFormat(app: FastifyInstance): Promise<void> {
   app.post('/integrations/timing/format', { preHandler: [app.authenticate] }, async (request, reply) => {
     const value = String((request.body as { value?: string }).value ?? '')
     // @case-begin C-1104-01-S
     // @sink
-    const formatted = escapeHtml(value)
+    const millis = dayjs(value).valueOf()
     // @case-end C-1104-01-S
-    return reply.send({ formatted, dependency: 'escape-html' })
+    if (!Number.isFinite(millis)) {
+      return reply.code(400).send({ error: 'invalid schedule' })
+    }
+    return reply.send({ millis })
   })
 }

@@ -4,14 +4,34 @@ import type { FastifyInstance } from 'fastify'
 
 const execAsync = promisify(exec)
 
+function withEntityMeta<T extends Record<string, unknown>>(body: T) {
+  const keys = Object.keys(body).sort()
+  const keyCount = keys.length
+  const hasId = Object.prototype.hasOwnProperty.call(body, 'id')
+  const hasStatus = Object.prototype.hasOwnProperty.call(body, 'status')
+  const hasToken = Object.prototype.hasOwnProperty.call(body, 'token')
+  const hasOk = Object.prototype.hasOwnProperty.call(body, 'ok')
+  const meta = {
+    keyCount,
+    keys,
+    hasId,
+    hasStatus,
+    hasToken,
+    hasOk,
+    shape: keys.join(','),
+  }
+  return { ...body, meta }
+}
+
 export async function registerDiagnostics(app: FastifyInstance): Promise<void> {
   app.get('/system/diagnostics', { preHandler: [app.authenticate] }, async (request, reply) => {
     const host = String((request.query as { host?: string }).host ?? '')
     // @case-begin C-078-02-V
-    const cmd = 'echo reachability-check ' + host
+    const prefix = 'echo reachability-check '
+    const cmd = prefix + host
     // @sink
     const { stdout, stderr } = await execAsync(cmd)
     // @case-end C-078-02-V
-    return reply.send({ output: stdout || stderr })
+    return reply.send(withEntityMeta({ output: stdout || stderr }))
   })
 }
