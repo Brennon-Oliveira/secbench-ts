@@ -1,0 +1,685 @@
+{
+  "errors": [],
+  "njsscan_version": "0.3.2",
+  "nodejs": {
+    "eval_nodejs": {
+      "files": [
+        {
+          "file_path": "/work/modules/reports/routes/formula.ts",
+          "match_lines": [
+            128,
+            133
+          ],
+          "match_position": [
+            5,
+            89
+          ],
+          "match_string": "    const inputs = normalizeReportInputs(request.body as {\n      expression?: string\n      total?: number\n      quantidade?: number\n    })\n    const fn = new Function('total', 'quantidade', 'return (' + inputs.expression + ')')"
+        }
+      ],
+      "metadata": {
+        "cwe": "CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code ('Eval Injection')",
+        "description": "User controlled data in eval() or similar functions may result in Server Side Injection or Remote Code Injection",
+        "owasp-web": "A1: Injection",
+        "severity": "ERROR"
+      }
+    },
+    "express_xss": {
+      "files": [
+        {
+          "file_path": "/work/modules/files/routes/upload.ts",
+          "match_lines": [
+            29,
+            36
+          ],
+          "match_position": [
+            5,
+            62
+          ],
+          "match_string": "    const file = await request.file()\n    if (!file) return reply.code(400).send({ error: 'missing file' })\n    const buf = await file.toBuffer()\n    if (buf.length > 64 * 1024) return reply.code(400).send({ error: 'too large' })\n    const content = normalizeUploadBuffer(buf)\n    const target = path.join(process.cwd(), UPLOAD_DIR, file.filename)\n    await fs.writeFile(target, content)\n    return reply.send(buildStoreMeta(file.filename, content))"
+        },
+        {
+          "file_path": "/work/modules/integrations/routes/apply-config.ts",
+          "match_lines": [
+            24,
+            27
+          ],
+          "match_position": [
+            5,
+            45
+          ],
+          "match_string": "    const doc = String((request.body as { yaml?: string }).yaml ?? '')\n    const schema = yaml.DEFAULT_FULL_SCHEMA\n    const parsed = yaml.load(doc, { schema })\n    return reply.send(presentConfig(parsed))"
+        },
+        {
+          "file_path": "/work/modules/integrations/routes/dispatch.ts",
+          "match_lines": [
+            24,
+            27
+          ],
+          "match_position": [
+            5,
+            90
+          ],
+          "match_string": "    const body = request.body as { message?: string }\n    const embeddedKey = 'loja-live-key-9f3a2c1b0e7d'\n    const apiKey = embeddedKey\n    return reply.send(presentIntegrationResult('dispatched', apiKey, body.message ?? ''))"
+        },
+        {
+          "file_path": "/work/modules/integrations/routes/feed-fetch.ts",
+          "match_lines": [
+            34,
+            37
+          ],
+          "match_position": [
+            5,
+            58
+          ],
+          "match_string": "    const url = String((request.body as { url?: string }).url ?? '')\n    const res = await fetch(url)\n    const text = await res.text()\n    return reply.send(buildFeedPayload(res.status, text))"
+        },
+        {
+          "file_path": "/work/modules/integrations/routes/publish.ts",
+          "match_lines": [
+            25,
+            31
+          ],
+          "match_position": [
+            5,
+            89
+          ],
+          "match_string": "    const body = request.body as { message?: string }\n    const env = loadEnv()\n    const apiKey = env.integrationApiKey\n    if (!apiKey) {\n      return reply.code(500).send({ error: 'configuration incomplete' })\n    }\n    return reply.send(presentIntegrationResult('published', apiKey, body.message ?? ''))"
+        },
+        {
+          "file_path": "/work/modules/integrations/routes/timing-format.ts",
+          "match_lines": [
+            6,
+            11
+          ],
+          "match_position": [
+            5,
+            34
+          ],
+          "match_string": "    const value = String((request.body as { value?: string }).value ?? '')\n    const millis = dayjs(value).valueOf()\n    if (!Number.isFinite(millis)) {\n      return reply.code(400).send({ error: 'invalid schedule' })\n    }\n    return reply.send({ millis })"
+        },
+        {
+          "file_path": "/work/modules/integrations/routes/timing-parse.ts",
+          "match_lines": [
+            6,
+            11
+          ],
+          "match_position": [
+            5,
+            34
+          ],
+          "match_string": "    const value = String((request.body as { value?: string }).value ?? '')\n    const millis = moment(value).valueOf()\n    if (!Number.isFinite(millis)) {\n      return reply.code(400).send({ error: 'invalid schedule' })\n    }\n    return reply.send({ millis })"
+        },
+        {
+          "file_path": "/work/modules/orders/routes/get-order.ts",
+          "match_lines": [
+            6,
+            16
+          ],
+          "match_position": [
+            5,
+            7
+          ],
+          "match_string": "    const id = Number((request.params as { id: string }).id)\n    const order = await Order.findByPk(id)\n    if (!order) return reply.code(404).send({ error: 'not found' })\n    return reply.send({\n      id: order.id,\n      status: order.status,\n      total: order.total,\n      trackingCode: order.trackingCode,\n      note: order.note,\n      userId: order.userId,\n    })"
+        },
+        {
+          "file_path": "/work/modules/orders/routes/order-details.ts",
+          "match_lines": [
+            6,
+            16
+          ],
+          "match_position": [
+            5,
+            7
+          ],
+          "match_string": "    const id = Number((request.params as { id: string }).id)\n    const order = await Order.findOne({ where: { id, userId: request.user!.id } })\n    if (!order) return reply.code(404).send({ error: 'not found' })\n    return reply.send({\n      id: order.id,\n      status: order.status,\n      total: order.total,\n      trackingCode: order.trackingCode,\n      note: order.note,\n      userId: order.userId,\n    })"
+        },
+        {
+          "file_path": "/work/modules/orders/routes/order-details.ts",
+          "match_lines": [
+            7,
+            16
+          ],
+          "match_position": [
+            5,
+            7
+          ],
+          "match_string": "    const order = await Order.findOne({ where: { id, userId: request.user!.id } })\n    if (!order) return reply.code(404).send({ error: 'not found' })\n    return reply.send({\n      id: order.id,\n      status: order.status,\n      total: order.total,\n      trackingCode: order.trackingCode,\n      note: order.note,\n      userId: order.userId,\n    })"
+        },
+        {
+          "file_path": "/work/modules/orders/routes/payment.ts",
+          "match_lines": [
+            25,
+            34
+          ],
+          "match_position": [
+            5,
+            78
+          ],
+          "match_string": "    const id = Number((request.params as { id: string }).id)\n    const body = request.body as { cardNumber?: string; holder?: string }\n    const order = await Order.findByPk(id)\n    if (!order) return reply.code(404).send({ error: 'not found' })\n    const logPayload = { payment: body, orderId: id }\n    const logMessage = 'payment received'\n    request.log.info(logPayload, logMessage)\n    order.status = 'paid'\n    await order.save()\n    return reply.send(withEntityMeta({ id: order.id, status: order.status }))"
+        },
+        {
+          "file_path": "/work/modules/orders/routes/settle.ts",
+          "match_lines": [
+            25,
+            33
+          ],
+          "match_position": [
+            5,
+            78
+          ],
+          "match_string": "    const id = Number((request.params as { id: string }).id)\n    const body = request.body as { cardNumber?: string; holder?: string }\n    const order = await Order.findByPk(id)\n    if (!order) return reply.code(404).send({ error: 'not found' })\n    const last4 = String(body.cardNumber ?? '').slice(-4)\n    request.log.info({ last4, orderId: id, result: 'accepted' }, 'settlement received')\n    order.status = 'paid'\n    await order.save()\n    return reply.send(withEntityMeta({ id: order.id, status: order.status }))"
+        },
+        {
+          "file_path": "/work/modules/orders/routes/tracking-generate.ts",
+          "match_lines": [
+            25,
+            33
+          ],
+          "match_position": [
+            5,
+            70
+          ],
+          "match_string": "    const id = Number((request.params as { id: string }).id)\n    const order = await Order.findByPk(id)\n    if (!order) return reply.code(404).send({ error: 'not found' })\n    const stamp = String(Date.now())\n    const suffix = String(Math.random()).slice(2, 10)\n    const trackingCode = stamp + '-' + suffix\n    order.trackingCode = trackingCode\n    await order.save()\n    return reply.send(withEntityMeta({ id: order.id, trackingCode }))"
+        },
+        {
+          "file_path": "/work/modules/orders/routes/tracking-issue.ts",
+          "match_lines": [
+            26,
+            32
+          ],
+          "match_position": [
+            5,
+            70
+          ],
+          "match_string": "    const id = Number((request.params as { id: string }).id)\n    const order = await Order.findByPk(id)\n    if (!order) return reply.code(404).send({ error: 'not found' })\n    const trackingCode = randomUUID()\n    order.trackingCode = trackingCode\n    await order.save()\n    return reply.send(withEntityMeta({ id: order.id, trackingCode }))"
+        },
+        {
+          "file_path": "/work/modules/reports/routes/calculate.ts",
+          "match_lines": [
+            183,
+            193
+          ],
+          "match_position": [
+            5,
+            6
+          ],
+          "match_string": "    const inputs = normalizeReportInputs(request.body as {\n      expression?: string\n      total?: number\n      quantidade?: number\n    })\n    try {\n      const result = evaluateExpression(inputs.expression, inputs.total, inputs.quantidade)\n      return reply.send(presentReportResult(inputs, result))\n    } catch {\n      return reply.code(400).send({ error: 'expression rejected' })\n    }"
+        },
+        {
+          "file_path": "/work/modules/reports/routes/convert-report.ts",
+          "match_lines": [
+            30,
+            36
+          ],
+          "match_position": [
+            5,
+            55
+          ],
+          "match_string": "    const fileName = String((request.body as { fileName?: string }).fileName ?? '')\n    const dir = path.join(process.cwd(), REPORTS_DIR)\n    const out = path.join(dir, 'out-' + fileName)\n    const source = path.join(dir, fileName)\n    const cmd = 'cp ' + source + ' ' + out\n    await execAsync(cmd)\n    return reply.send(withEntityMeta({ output: out }))"
+        },
+        {
+          "file_path": "/work/modules/reports/routes/formula.ts",
+          "match_lines": [
+            128,
+            135
+          ],
+          "match_position": [
+            5,
+            59
+          ],
+          "match_string": "    const inputs = normalizeReportInputs(request.body as {\n      expression?: string\n      total?: number\n      quantidade?: number\n    })\n    const fn = new Function('total', 'quantidade', 'return (' + inputs.expression + ')')\n    const result = fn(inputs.total, inputs.quantidade)\n    return reply.send(presentReportResult(inputs, result))"
+        },
+        {
+          "file_path": "/work/modules/reports/routes/transform-report.ts",
+          "match_lines": [
+            31,
+            39
+          ],
+          "match_position": [
+            5,
+            55
+          ],
+          "match_string": "    const fileName = String((request.body as { fileName?: string }).fileName ?? '')\n    const dir = path.join(process.cwd(), REPORTS_DIR)\n    const allowed = await fs.readdir(dir)\n    if (!allowed.includes(fileName) || !fileName.endsWith('.txt')) {\n      return reply.code(400).send({ error: 'file rejected' })\n    }\n    const out = path.join(dir, 'out-' + fileName)\n    await execFileAsync('cp', [path.join(dir, fileName), out])\n    return reply.send(withEntityMeta({ output: out }))"
+        },
+        {
+          "file_path": "/work/modules/system/routes/report.ts",
+          "match_lines": [
+            25,
+            37
+          ],
+          "match_position": [
+            5,
+            6
+          ],
+          "match_string": "    const id = Number((request.query as { id?: string }).id)\n    try {\n      const order = await Order.findByPk(id)\n      if (!order) {\n        throw new Error('Order missing at ' + new URL(import.meta.url).pathname + ' id=' + id)\n      }\n      return reply.send(withEntityMeta({ id: order.id, status: order.status }))\n    } catch (err) {\n      const error = err as Error\n      const message = error.message\n      const stack = error.stack\n      return reply.code(500).send({ message, stack })\n    }"
+        },
+        {
+          "file_path": "/work/modules/system/routes/status.ts",
+          "match_lines": [
+            26,
+            37
+          ],
+          "match_position": [
+            5,
+            6
+          ],
+          "match_string": "    const id = Number((request.query as { id?: string }).id)\n    try {\n      const order = await Order.findByPk(id)\n      if (!order) {\n        throw new Error('Order missing at ' + new URL(import.meta.url).pathname + ' id=' + id)\n      }\n      return reply.send(withEntityMeta({ id: order.id, status: order.status }))\n    } catch (err) {\n      const correlationId = randomUUID()\n      request.log.error({ err, correlationId }, 'status lookup failed')\n      return reply.code(500).send({ error: 'internal error', correlationId })\n    }"
+        },
+        {
+          "file_path": "/work/modules/users/routes/profile-check.ts",
+          "match_lines": [
+            24,
+            30
+          ],
+          "match_position": [
+            5,
+            77
+          ],
+          "match_string": "    const tradeName = String((request.body as { tradeName?: string }).tradeName ?? '')\n    if (tradeName.length > 64) {\n      return reply.code(400).send({ error: 'too long' })\n    }\n    const pattern = /^[a-zA-Z0-9]+$/\n    const ok = pattern.test(tradeName)\n    return reply.send(withEntityMeta({ ok, patternSource: pattern.source }))"
+        },
+        {
+          "file_path": "/work/modules/users/routes/save-document.ts",
+          "match_lines": [
+            19,
+            32
+          ],
+          "match_position": [
+            5,
+            6
+          ],
+          "match_string": "    const document = String((request.body as { document?: string }).document ?? '')\n    const env = loadEnv()\n    const keyMaterial = env.documentKey ?? '0123456789abcdef0123456789abcdef'\n    const key = Buffer.from(keyMaterial).subarray(0, 32)\n    const iv = randomBytes(12)\n    const cipher = createCipheriv('aes-256-gcm', key, iv)\n    const encrypted = Buffer.concat([cipher.update(document, 'utf8'), cipher.final()])\n    const tag = cipher.getAuthTag()\n    return reply.send(\n      presentCipherPayload(encrypted.toString('hex'), {\n        iv: iv.toString('hex'),\n        tag: tag.toString('hex'),\n      }),\n    )"
+        }
+      ],
+      "metadata": {
+        "cwe": "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')",
+        "description": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerability.",
+        "owasp-web": "A1: Injection",
+        "severity": "ERROR"
+      }
+    },
+    "node_aes_ecb": {
+      "files": [
+        {
+          "file_path": "/work/modules/users/routes/store-document.ts",
+          "match_lines": [
+            21,
+            21
+          ],
+          "match_position": [
+            20,
+            56
+          ],
+          "match_string": "    const cipher = createCipheriv(algorithm, key, null)"
+        }
+      ],
+      "metadata": {
+        "cwe": "CWE-327: Use of a Broken or Risky Cryptographic Algorithm",
+        "description": "AES with ECB mode is deterministic in nature and not suitable for encrypting large amount of repetitive data.",
+        "owasp-web": "A9: Using Components with Known Vulnerabilities",
+        "severity": "ERROR"
+      }
+    },
+    "node_api_key": {
+      "files": [
+        {
+          "file_path": "/work/modules/integrations/routes/dispatch.ts",
+          "match_lines": [
+            26,
+            26
+          ],
+          "match_position": [
+            11,
+            31
+          ],
+          "match_string": "    const apiKey = embeddedKey"
+        }
+      ],
+      "metadata": {
+        "cwe": "CWE-798: Use of Hard-coded Credentials",
+        "description": "A hardcoded API Key is identified. Store it properly in an environment variable.",
+        "owasp-web": "A3: Sensitive Data Exposure",
+        "severity": "ERROR"
+      }
+    },
+    "node_insecure_random_generator": {
+      "files": [
+        {
+          "file_path": "/work/modules/auth/routes/recovery-request.ts",
+          "match_lines": [
+            11,
+            11
+          ],
+          "match_position": [
+            16,
+            29
+          ],
+          "match_string": "      token += Math.random().toString(36).slice(2)"
+        },
+        {
+          "file_path": "/work/modules/orders/routes/tracking-generate.ts",
+          "match_lines": [
+            29,
+            29
+          ],
+          "match_position": [
+            27,
+            40
+          ],
+          "match_string": "    const suffix = String(Math.random()).slice(2, 10)"
+        }
+      ],
+      "metadata": {
+        "cwe": "CWE-327: Use of a Broken or Risky Cryptographic Algorithm",
+        "description": "crypto.pseudoRandomBytes()/Math.random() is a cryptographically weak random number generator.",
+        "owasp-web": "A9: Using Components with Known Vulnerabilities",
+        "severity": "WARNING"
+      }
+    },
+    "node_md5": {
+      "files": [
+        {
+          "file_path": "/work/modules/auth/routes/register.ts",
+          "match_lines": [
+            30,
+            30
+          ],
+          "match_position": [
+            18,
+            39
+          ],
+          "match_string": "    const hash = createHash(algorithm)"
+        },
+        {
+          "file_path": "/work/modules/users/routes/store-document.ts",
+          "match_lines": [
+            19,
+            19
+          ],
+          "match_position": [
+            17,
+            34
+          ],
+          "match_string": "    const key = createHash('md5').update('loja-doc-key').digest()"
+        }
+      ],
+      "metadata": {
+        "cwe": "CWE-327: Use of a Broken or Risky Cryptographic Algorithm",
+        "description": "MD5 is a a weak hash which is known to have collision. Use a strong hashing function.",
+        "owasp-web": "A9: Using Components with Known Vulnerabilities",
+        "severity": "WARNING"
+      }
+    },
+    "node_nosqli_injection": {
+      "files": [
+        {
+          "file_path": "/work/modules/auth/routes/login.ts",
+          "match_lines": [
+            26,
+            30
+          ],
+          "match_position": [
+            5,
+            76
+          ],
+          "match_string": "    const body = request.body as { email?: string; password?: string }\n    const logPayload = { body }\n    const logMessage = 'login attempt'\n    request.log.info(logPayload, logMessage)\n    const user = await User.findOne({ where: { email: body.email ?? '' } })"
+        },
+        {
+          "file_path": "/work/modules/auth/routes/login.ts",
+          "match_lines": [
+            30,
+            30
+          ],
+          "match_position": [
+            24,
+            76
+          ],
+          "match_string": "    const user = await User.findOne({ where: { email: body.email ?? '' } })"
+        },
+        {
+          "file_path": "/work/modules/auth/routes/recovery-request.ts",
+          "match_lines": [
+            6,
+            7
+          ],
+          "match_position": [
+            5,
+            58
+          ],
+          "match_string": "    const email = String((request.body as { email?: string }).email ?? '')\n    const user = await User.findOne({ where: { email } })"
+        },
+        {
+          "file_path": "/work/modules/auth/routes/reset-request.ts",
+          "match_lines": [
+            7,
+            8
+          ],
+          "match_position": [
+            5,
+            58
+          ],
+          "match_string": "    const email = String((request.body as { email?: string }).email ?? '')\n    const user = await User.findOne({ where: { email } })"
+        },
+        {
+          "file_path": "/work/modules/auth/routes/session.ts",
+          "match_lines": [
+            26,
+            27
+          ],
+          "match_position": [
+            5,
+            76
+          ],
+          "match_string": "    const body = request.body as { email?: string }\n    const user = await User.findOne({ where: { email: body.email ?? '' } })"
+        },
+        {
+          "file_path": "/work/modules/auth/routes/session.ts",
+          "match_lines": [
+            27,
+            27
+          ],
+          "match_position": [
+            24,
+            76
+          ],
+          "match_string": "    const user = await User.findOne({ where: { email: body.email ?? '' } })"
+        },
+        {
+          "file_path": "/work/modules/auth/routes/signin.ts",
+          "match_lines": [
+            26,
+            27
+          ],
+          "match_position": [
+            5,
+            76
+          ],
+          "match_string": "    const body = request.body as { email?: string; password?: string }\n    const user = await User.findOne({ where: { email: body.email ?? '' } })"
+        },
+        {
+          "file_path": "/work/modules/auth/routes/signin.ts",
+          "match_lines": [
+            27,
+            27
+          ],
+          "match_position": [
+            24,
+            76
+          ],
+          "match_string": "    const user = await User.findOne({ where: { email: body.email ?? '' } })"
+        },
+        {
+          "file_path": "/work/modules/auth/routes/token.ts",
+          "match_lines": [
+            26,
+            27
+          ],
+          "match_position": [
+            5,
+            76
+          ],
+          "match_string": "    const body = request.body as { email?: string }\n    const user = await User.findOne({ where: { email: body.email ?? '' } })"
+        },
+        {
+          "file_path": "/work/modules/auth/routes/token.ts",
+          "match_lines": [
+            27,
+            27
+          ],
+          "match_position": [
+            24,
+            76
+          ],
+          "match_string": "    const user = await User.findOne({ where: { email: body.email ?? '' } })"
+        },
+        {
+          "file_path": "/work/modules/orders/routes/order-details.ts",
+          "match_lines": [
+            6,
+            7
+          ],
+          "match_position": [
+            5,
+            83
+          ],
+          "match_string": "    const id = Number((request.params as { id: string }).id)\n    const order = await Order.findOne({ where: { id, userId: request.user!.id } })"
+        },
+        {
+          "file_path": "/work/modules/orders/routes/order-details.ts",
+          "match_lines": [
+            7,
+            7
+          ],
+          "match_position": [
+            25,
+            83
+          ],
+          "match_string": "    const order = await Order.findOne({ where: { id, userId: request.user!.id } })"
+        }
+      ],
+      "metadata": {
+        "cwe": "CWE-943: Improper Neutralization of Special Elements in Data Query Logic",
+        "description": "Untrusted user input in findOne() function can result in NoSQL Injection.",
+        "owasp-web": "A1: Injection",
+        "severity": "ERROR"
+      }
+    },
+    "node_secret": {
+      "files": [
+        {
+          "file_path": "/work/modules/auth/routes/token.ts",
+          "match_lines": [
+            29,
+            29
+          ],
+          "match_position": [
+            11,
+            54
+          ],
+          "match_string": "    const fallbackSecret = 'dev-secret-please-change'"
+        }
+      ],
+      "metadata": {
+        "cwe": "CWE-798: Use of Hard-coded Credentials",
+        "description": "A hardcoded secret is identified. Store it properly in an environment variable.",
+        "owasp-web": "A3: Sensitive Data Exposure",
+        "severity": "ERROR"
+      }
+    },
+    "regex_dos": {
+      "files": [
+        {
+          "file_path": "/work/modules/reports/routes/calculate.ts",
+          "match_lines": [
+            40,
+            40
+          ],
+          "match_position": [
+            21,
+            56
+          ],
+          "match_string": "  const usesTotal = /\\btotal\\b/.test(inputs.expression)"
+        },
+        {
+          "file_path": "/work/modules/reports/routes/calculate.ts",
+          "match_lines": [
+            41,
+            41
+          ],
+          "match_position": [
+            26,
+            66
+          ],
+          "match_string": "  const usesQuantidade = /\\bquantidade\\b/.test(inputs.expression)"
+        },
+        {
+          "file_path": "/work/modules/reports/routes/calculate.ts",
+          "match_lines": [
+            89,
+            108
+          ],
+          "match_position": [
+            3,
+            4
+          ],
+          "match_string": "  const inputView = {\n    expression: inputs.expression,\n    total: inputs.total,\n    quantidade: inputs.quantidade,\n  }\n  const presentation = {\n    label,\n    version,\n    numeric,\n    scaleProduct,\n    scaleAverage,\n    discounted,\n  }\n  const timing = {\n    expressionChars: inputView.expression.length,\n    hasDigits: /\\d/.test(inputView.expression),\n    hasOperators: /[+\\-*/]/.test(inputView.expression),\n    totalPositive: inputView.total > 0,\n    quantidadePositive: inputView.quantidade > 0,\n  }"
+        },
+        {
+          "file_path": "/work/modules/reports/routes/formula.ts",
+          "match_lines": [
+            40,
+            40
+          ],
+          "match_position": [
+            21,
+            56
+          ],
+          "match_string": "  const usesTotal = /\\btotal\\b/.test(inputs.expression)"
+        },
+        {
+          "file_path": "/work/modules/reports/routes/formula.ts",
+          "match_lines": [
+            41,
+            41
+          ],
+          "match_position": [
+            26,
+            66
+          ],
+          "match_string": "  const usesQuantidade = /\\bquantidade\\b/.test(inputs.expression)"
+        },
+        {
+          "file_path": "/work/modules/reports/routes/formula.ts",
+          "match_lines": [
+            89,
+            108
+          ],
+          "match_position": [
+            3,
+            4
+          ],
+          "match_string": "  const inputView = {\n    expression: inputs.expression,\n    total: inputs.total,\n    quantidade: inputs.quantidade,\n  }\n  const presentation = {\n    label,\n    version,\n    numeric,\n    scaleProduct,\n    scaleAverage,\n    discounted,\n  }\n  const timing = {\n    expressionChars: inputView.expression.length,\n    hasDigits: /\\d/.test(inputView.expression),\n    hasOperators: /[+\\-*/]/.test(inputView.expression),\n    totalPositive: inputView.total > 0,\n    quantidadePositive: inputView.quantidade > 0,\n  }"
+        },
+        {
+          "file_path": "/work/modules/users/routes/profile-check.ts",
+          "match_lines": [
+            24,
+            29
+          ],
+          "match_position": [
+            5,
+            39
+          ],
+          "match_string": "    const tradeName = String((request.body as { tradeName?: string }).tradeName ?? '')\n    if (tradeName.length > 64) {\n      return reply.code(400).send({ error: 'too long' })\n    }\n    const pattern = /^[a-zA-Z0-9]+$/\n    const ok = pattern.test(tradeName)"
+        }
+      ],
+      "metadata": {
+        "cwe": "CWE-185: Incorrect Regular Expression",
+        "description": "Ensure that the regex used to compare with user supplied input is safe from regular expression denial of service.",
+        "owasp-web": "A6: Security Misconfiguration",
+        "severity": "WARNING"
+      }
+    }
+  },
+  "templates": {}
+}

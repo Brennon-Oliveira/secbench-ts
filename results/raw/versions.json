@@ -1,0 +1,28 @@
+{
+  "semgrepRulesCommit": "40b8c63f75dc7c22c8a77482d73bfb864b146f7e",
+  "semgrep": {
+    "image": "sast-semgrep:1.174.0",
+    "digest": "sha256:11a9a194b5c44c55512944fd0b91313d825ac272ccb88a08b07532c00169b71f",
+    "toolVersion": "1.174.0",
+    "resolvedAt": "2026-09-03T17:46:40.940Z",
+    "rulesCommit": "40b8c63f75dc7c22c8a77482d73bfb864b146f7e"
+  },
+  "njsscan": {
+    "image": "opensecurity/njsscan:0.3.2",
+    "digest": "sha256:a0df16158116df639fb33a5fbf7ffc070b8baff2d40fd2956b1433e7c9267af1",
+    "toolVersion": "0.3.2",
+    "resolvedAt": "2026-09-03T17:46:40.940Z"
+  },
+  "codeql": {
+    "image": "sast-codeql:2.26.3",
+    "digest": "sha256:cb885acf93d44de22ab16c038a07e47508a168c694fe13c7a6fc07d888a5e16e",
+    "toolVersion": "2.26.3",
+    "resolvedAt": "2026-09-03T17:46:40.940Z"
+  },
+  "eslint": {
+    "image": "node:22-bookworm",
+    "digest": "sha256:0557ac14e0d45d02ed563067b82856ca5e7aa3437fa28d98d4350ea9c3d9494a",
+    "toolVersion": "22.23.2",
+    "resolvedAt": "2026-09-03T17:46:40.940Z"
+  }
+}

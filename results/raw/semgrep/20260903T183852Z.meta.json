@@ -1,0 +1,12 @@
+{
+  "tool": "semgrep",
+  "version": "1.174.0",
+  "image": "sast-semgrep:1.174.0",
+  "digest": "sha256:11a9a194b5c44c55512944fd0b91313d825ac272ccb88a08b07532c00169b71f",
+  "rulesCommit": "40b8c63f75dc7c22c8a77482d73bfb864b146f7e",
+  "command": "docker compose -f /home/brennon/studies/loja-measurement/docker/compose.yml run --rm --no-deps semgrep",
+  "date": "2026-09-03T18:43:00.468Z",
+  "durationSec": 248,
+  "exitCode": 0,
+  "scanTarget": "/home/brennon/studies/loja-measurement/corpus"
+}

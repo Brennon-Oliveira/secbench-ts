@@ -1,0 +1,11 @@
+{
+  "tool": "codeql",
+  "version": "2.26.3",
+  "image": "sast-codeql:2.26.3",
+  "digest": "sha256:cb885acf93d44de22ab16c038a07e47508a168c694fe13c7a6fc07d888a5e16e",
+  "command": "docker compose -f /home/brennon/studies/loja-measurement/docker/compose.yml run --rm --no-deps codeql",
+  "date": "2026-09-03T18:44:26.959Z",
+  "durationSec": 36,
+  "exitCode": 0,
+  "scanTarget": "/home/brennon/studies/loja-measurement/corpus"
+}
