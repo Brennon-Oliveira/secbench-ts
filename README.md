@@ -13,12 +13,14 @@ Artefato experimental do TCC *Detecção de vulnerabilidades em sistemas de soft
 ## Requisitos
 
 - Node.js 22 LTS ou superior (registrado na execução)
+- Docker Engine com Compose v2 (ferramentas SAST determinísticas rodam em contêiner; ver `docs/reproducao.md`)
 
 ## Instalação
 
 ```bash
 npm install
 cp .env.example .env
+npm run docker:versions   # imagens SAST + docker/versions.json
 ```
 
 ## Comandos
@@ -30,8 +32,9 @@ cp .env.example .env
 | `npm run build:corpus` | Gera `corpus/` e `ground-truth.json` |
 | `npm test` | Testes (proof + smoke) |
 | `npm run test:proof` | Só comprovação |
-| `npm run scan:semgrep` / `codeql` / `njsscan` / `eslint` | Varreduras SAST |
-| `npm run scan:llm` | Protocolo LLM (**somente no ambiente de medição**) |
+| `npm run docker:build` / `docker:versions` | Imagens SAST e arquivo de versões pinadas |
+| `npm run scan:semgrep` / `codeql` / `njsscan` / `eslint` | Varreduras SAST via contêiner |
+| `npm run scan:llm` | Protocolo LLM (**somente no ambiente de medição**, na máquina do operador — não conteinerizado) |
 | `npm run measurement:prepare` | Monta ambiente de medição por lista de inclusão |
 | `npm run measurement:verify` | Conferência do hash do corpus (sem alterar nada) |
 | `npm run normalize` | Normaliza `results/raw` (fora do ambiente de medição) |
@@ -45,6 +48,6 @@ Ver `docs/specs/PROJETO.md`. Harness do agente: `docs/specs/HARNESS.md` e `docs/
 ## Medição e reprodução
 
 - Protocolo pré-registrado (regras de correspondência, ambiente isolado, LLM, indicadores): `docs/PROTOCOLO-MEDICAO.md`.
-- Roteiro operacional (clone → `measurement:prepare` → varreduras → retorno dos brutos → normalize/score): `docs/reproducao.md`.
+- Roteiro operacional (imagens Docker → `measurement:prepare` → varreduras em contêiner → retorno dos brutos → normalize/score): `docs/reproducao.md`.
 
 Não execute varreduras no checkout de desenvolvimento com harness carregado.
