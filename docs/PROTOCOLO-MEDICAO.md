@@ -1,6 +1,6 @@
 # Protocolo de medição
 
-**Projeto:** SecBench-TS **Documento:** protocolo pré-registrado de medição **Versão:** 1.1 **Registro original:** 16/08/2026 **Última alteração:** 16/08/2026 (ver seção 11) **Estado na data do registro:** artefato em construção, nenhuma varredura executada, nenhum resultado observado
+**Projeto:** SecBench-TS **Documento:** protocolo pré-registrado de medição **Versão:** 1.3 **Registro original:** 16/08/2026 **Última alteração:** 03/09/2026 (ver seção 11) **Estado na data do registro:** artefato em construção, nenhuma varredura executada, nenhum resultado observado
 
 Este documento faz parte do repositório e deve ser versionado. Sua data de commit é o que sustenta a validade do pré-registro. Ele é deliberadamente excluído do ambiente de medição, conforme a seção 5.
 
@@ -16,6 +16,8 @@ Registrar as regras antes da coleta elimina o problema pela raiz. Alteração po
 
 ---
 
+
+
 ## 2. Objeto da medição
 
 O corpus gerado a partir do código-fonte do artefato, contendo sessenta casos, sendo trinta com vulnerabilidade implantada e trinta protegidos, distribuídos em vinte categorias CWE, conforme o catálogo da especificação técnica.
@@ -25,6 +27,8 @@ O registro de classificação é o arquivo `ground-truth.json`, gerado pelo pipe
 A identidade do corpus medido é dada pelo seu resumo criptográfico agregado, calculado sobre o conteúdo de todos os arquivos do diretório `corpus` em ordem determinística. Esse valor é registrado no atestado descrito na seção 5.4 e permite comprovar, depois da coleta, que o material analisado é exatamente o mesmo que consta no repositório.
 
 ---
+
+
 
 ## 3. Ferramentas avaliadas e condições de execução
 
@@ -38,11 +42,15 @@ njsscan, em configuração padrão.
 
 ESLint com plugin de segurança, em configuração dedicada que não herda regras de estilo.
 
-Modelo de linguagem, conforme o protocolo da seção 6.
+Três assistentes de codificação de fornecedores distintos, conforme o protocolo da seção 6.
+
+As quatro ferramentas determinísticas executam em contêiner de versão fixada por digest, sem acesso à rede durante a análise, de modo que o resultado não dependa do estado de um serviço externo no momento da execução. Os digests, as versões reportadas por cada ferramenta e o commit do conjunto de regras utilizado ficam registrados em arquivo próprio do repositório, gerado por script.
 
 Para cada execução são registrados nome da ferramenta, versão exata, comando completo, data e hora, tempo total decorrido e código de saída. Ferramenta que não puder ser instalada é declarada ausente, com o motivo, e a lacuna é reportada no trabalho. Substituição silenciosa de ferramenta é proibida.
 
 ---
+
+
 
 ## 4. Regra de correspondência
 
@@ -71,6 +79,8 @@ A justificativa é a seguinte. O corpus contém código de infraestrutura que n�
 **4.6. Achado sem CWE.** Quando a ferramenta não informar CWE, o mapeamento da seção 7 é aplicado sobre o identificador da regra. Se ainda assim não houver correspondência, o achado é classificado como não mapeado e não gera verdadeiro positivo. A contagem de não mapeados por ferramenta é reportada, porque uma taxa alta indica limitação do mapeamento, e não da ferramenta.
 
 ---
+
+
 
 ## 5. Ambiente de medição
 
@@ -114,23 +124,31 @@ Ao copiar, confira que o resumo agregado do corpus do repositório coincide com 
 
 ---
 
-## 6. Protocolo do modelo de linguagem
 
-**6.1. Isolamento.** A execução ocorre no ambiente de medição descrito na seção 5, sem regras de agente carregadas, sem skills disponíveis e sem acesso ao restante do repositório. O modelo recebe apenas o caminho relativo e o conteúdo do arquivo analisado.
 
-**6.2. Unidade de análise.** Um arquivo por requisição, sem contexto de outros arquivos.
+## 6. Protocolo dos assistentes de codificação
 
-**6.3. Repetição.** Três execuções independentes de cada arquivo, sem memória compartilhada, identificadas por 1, 2 e 3.
+**6.1. Objeto e justificativa da modalidade.** O instrumento avaliado é o assistente de codificação em sua forma de uso corrente, e não o modelo de linguagem isolado. A razão é de comparabilidade. Do outro lado da comparação estão ferramentas maduras, com regras curadas, motor de análise e configuração própria. Confrontá-las com um modelo acessado diretamente por interface de programação mede a distância entre um produto e um insumo, e não capacidade de detecção. A modalidade adotada coloca instrumento contra instrumento, cada um na configuração em que é efetivamente empregado.
 
-**6.4. Parâmetros registrados.** Modelo, versão, temperatura e demais parâmetros de amostragem, além de data e hora. Configuração idêntica nas três execuções.
+**6.2. Instrumentos avaliados.** Três assistentes de fornecedores distintos: Claude Code com modelo Opus, Cursor com modelo Grok e Google Antigravity. Cada um é identificado no relatório com nome do produto, versão da interface utilizada e identificador do modelo subjacente quando exposto. A escolha de três fornecedores permite observar dispersão entre instrumentos, e não apenas diferença entre dois pontos, o que sustenta com mais firmeza a discussão sobre o peso relativo da instrumentação e do modelo que a sustenta.
 
-**6.5. Consolidação.** O resultado principal do modelo é calculado sobre a união dos achados das três execuções, critério declarado aqui e não alterável depois. Adicionalmente, e apenas para fins de discussão, são reportados o resultado por execução individual e o resultado sob critério de maioria, em que o achado precisa aparecer em ao menos duas das três execuções.
+**6.3. Isolamento.** A execução ocorre exclusivamente sobre o ambiente de medição descrito na seção 5. O assistente é aberto tendo esse ambiente como diretório de trabalho, e nenhum outro diretório é alcançável. Como o assistente percorre o sistema de arquivos por conta própria, o isolamento é garantido pela ausência de material, e não por restrição de leitura. A distribuição do ambiente ocorre por branch órfã em repositório remoto, contendo um único commit sem ancestral. O clone é feito com profundidade um e referência única, de modo que o histórico do projeto e as demais referências não acompanham a cópia. Esta condição é parte do isolamento, e não detalhe operacional: sem ela, o material excluído do diretório permanece alcançável pelo banco de objetos do repositório.
 
-**6.6. Estabilidade.** Definida como a proporção de achados presentes nas três execuções em relação ao total de achados distintos observados. Reportada globalmente e por categoria.
+**6.4. Unidade de análise.** O conjunto do corpus, e não um arquivo por requisição. Esta é a diferença central em relação à modalidade de modelo isolado, e é deliberada, pois as ferramentas determinísticas também analisam a árvore inteira, de modo que a análise em nível de repositório torna a comparação mais equivalente, e não menos.
 
-**6.7. Resposta malformada.** Registrada integralmente, contabilizada e reportada. Nunca descartada em silêncio. Não é permitido reexecutar uma requisição por insatisfação com o resultado. Reexecução só é admitida em caso de falha de transporte, e precisa ser registrada.
+**6.5. Instrução.** Texto fixo, reproduzido na subseção 9.1, idêntico nas nove execuções. A instrução determina varredura arquivo a arquivo, proíbe alteração de qualquer arquivo do ambiente, proíbe execução de comandos e exige que o resultado seja gravado em arquivo próprio, no esquema declarado, com contagem final de arquivos examinados.
 
-**6.8. Prompt.** Texto fixo, reproduzido na seção 9, idêntico em todas as requisições, variando apenas o caminho e o conteúdo do arquivo.
+**6.6. Repetição.** Três execuções independentes por assistente, em sessão nova a cada uma, sem memória compartilhada, sem histórico da execução anterior e sobre ambiente recém-preparado. Identificadas por 1, 2 e 3.
+
+**6.7. Consolidação.** O resultado principal de cada assistente é calculado sobre a união dos achados das três execuções, critério declarado aqui e não alterável depois. Adicionalmente, e apenas para discussão, são reportados o resultado por execução individual e o resultado sob critério de maioria, em que o achado precisa aparecer em ao menos duas das três execuções.
+
+**6.8. Estabilidade.** Definida como a proporção de achados presentes nas três execuções em relação ao total de achados distintos observados. Reportada globalmente e por categoria.
+
+**6.9. Resposta malformada ou incompleta.** Registrada integralmente, contabilizada e reportada. Execução que declare ter examinado menos arquivos do que o corpus contém é registrada como cobertura parcial, com o número declarado, e permanece no cálculo. Não é permitido repetir uma execução por insatisfação com o resultado. Repetição só é admitida em caso de falha de transporte ou interrupção técnica, e precisa ser registrada.
+
+**6.10. Parâmetros registrados.** Nome do produto, versão, modelo subjacente quando exposto, data e hora de cada execução, duração, caminho do ambiente de medição utilizado e resumo criptográfico agregado do corpus analisado.
+
+**6.11. Limitação declarada.** A instrução de sistema do assistente não é controlada nem publicável, e pode variar entre versões do produto sem aviso. Essa limitação é inerente à modalidade e deve constar no relatório final. Ela é o preço de medir o instrumento como ele é usado, e não uma falha de desenho que possa ser corrigida.
 
 ---
 
@@ -188,6 +206,8 @@ Componente de terceiros: CWE-1104 e CWE-1395.
 
 ---
 
+
+
 ## 8. Indicadores calculados
 
 Verdadeiros positivos, falsos positivos de par, falsos negativos, achados fora de escopo, achados redundantes, achados sem localização e achados não mapeados, todos por ferramenta.
@@ -214,7 +234,9 @@ Casos declarados fora do cálculo principal, se houver, são reportados separada
 
 ---
 
-## 9. Prompt fixo da análise por modelo de linguagem
+
+
+## 9. Textos fixos entregues aos instrumentos
 
 O texto abaixo é o prompt oficial e corresponde ao conteúdo de `tools/llm/prompt.md`. Ele não pode ser alterado durante a coleta. Qualquer alteração exige nova coleta completa.
 
@@ -264,7 +286,63 @@ O prompt instrui a retornar lista vazia quando não houver problema, porque sem 
 
 A instrução de não relatar estilo existe porque, sem ela, boa parte da saída viria em forma de sugestão de qualidade, poluindo a normalização.
 
+
+### 9.1. Instrução fixa dos assistentes de codificação
+
+O texto abaixo é a instrução oficial entregue aos assistentes. Ela não pode ser alterada durante a coleta. Qualquer alteração exige nova coleta completa.
+
+```
+Analise o código deste diretório e identifique vulnerabilidades de segurança.
+
+Regras de execução:
+1. Não altere, crie ou remova nenhum arquivo do diretório analisado, exceto o arquivo de saída indicado na regra 11.
+2. Não execute comandos, testes, instalações nem qualquer programa deste diretório.
+3. Não faça perguntas. Conduza a análise do início ao fim sem qualquer interação.
+4. Não peça confirmação para prosseguir em nenhuma etapa.
+5. Diante de ambiguidade, adote a interpretação que julgar mais razoável, registre-a no campo rationale do achado correspondente e siga adiante.
+6. Percorra todos os arquivos com extensão .ts do diretório, um a um, sem amostragem e sem parar antes do fim.
+7. Relate apenas problemas de segurança. Não relate estilo, desempenho, legibilidade ou organização.
+8. Para cada problema, informe o caminho do arquivo relativo à raiz do diretório e a linha exata em que ele ocorre.
+9. Não relate o mesmo problema mais de uma vez.
+10. Arquivo sem problema de segurança não gera entrada alguma.
+11. Grave o resultado no arquivo auditoria.json, na raiz do diretório, contendo exclusivamente um objeto JSON válido no formato abaixo, sem texto antes ou depois e sem marcação de bloco.
+
+{
+  "filesExamined": <numero inteiro de arquivos que voce examinou>,
+  "findings": [
+    {
+      "file": "<caminho relativo do arquivo>",
+      "line": <numero inteiro da linha>,
+      "cwe": "<identificador CWE no formato CWE-000>",
+      "severity": "<low | medium | high | critical>",
+      "title": "<titulo curto do problema>",
+      "rationale": "<justificativa em no maximo duas frases>"
+    }
+  ]
+}
+
+O campo filesExamined deve refletir a contagem real de arquivos que voce abriu e leu.
+```
+
+Observações sobre o desenho da instrução, registradas para justificar as escolhas.
+
+A instrução não informa quantas falhas existem nem quais categorias procurar, pelas mesmas razões registradas para o prompt da seção 9.
+
+A exigência de percorrer todos os arquivos sem amostragem existe porque a análise em nível de repositório tende a produzir resumo em vez de varredura, e um instrumento que examina metade do material não é comparável a um que examina o todo.
+
+A contagem declarada de arquivos examinados existe para tornar a cobertura parcial visível e mensurável, em vez de silenciosa.
+
+A proibição de alterar arquivos e de executar comandos existe porque o assistente tem capacidade de fazer ambos, e qualquer alteração no ambiente invalidaria o resumo criptográfico registrado no atestado.
+
+A gravação em arquivo próprio, e não em resposta de conversa, existe para que o registro bruto seja obtido sem transcrição manual.
+
+A proibição de fazer perguntas e de pedir confirmação existe porque o assistente, ao interromper para consultar o operador, obriga o operador a responder, e a resposta é contexto adicional que a medição não pode conter. Proibir a interrupção na origem é mais seguro do que administrar seu efeito depois.
+
+Os caminhos informados pelos assistentes são relativos à raiz do ambiente que receberam, no qual o código está na raiz e não sob o diretório usado no repositório. A normalização acrescenta o prefixo correspondente antes de aplicar a regra de correspondência da seção 4. Esta é a única transformação aplicada a resultado bruto, e existe porque o nome do diretório usado no repositório revelaria a natureza do material.
+
 ---
+
+
 
 ## 10. Regras de integridade dos dados
 
@@ -282,15 +360,27 @@ Amostra de verificação manual: ao menos vinte por cento das classificações p
 
 ---
 
+
+
 ## 11. Registro de alterações
 
 **16/08/2026, versão 1.1.** Acrescentada a seção 5, que define o ambiente de medição, o procedimento de preparação por lista de inclusão, o atestado criptográfico e o retorno dos resultados. Acrescentado à seção 2 o conceito de resumo agregado do corpus como identidade da medição. Acrescentados à seção 7 os conjuntos de derivação de senha e de referência direta a objeto, que estavam implícitos, e a regra 7.2 sobre construção da tabela a partir de execução de ensaio. Acrescentado à seção 8 o tratamento de casos excluídos do cálculo principal. Corrigida na seção 2 a contagem de categorias CWE, de dezessete para vinte, que era erro de contagem do registro original.
 
 Justificativa: nenhuma coleta havia ocorrido nesta data. As alterações não afetam critério de classificação já aplicado a dado observado, uma vez que não existe dado observado. A regra de correspondência da seção 4, que é o critério sensível, permanece idêntica ao registro original.
 
+**22/08/2026, versão 1.2.** Substituída integralmente a seção 6, que tratava do protocolo de um modelo de linguagem acessado por interface de programação, pelo protocolo de dois assistentes de codificação avaliados em sua forma de uso corrente. As mudanças de conteúdo são: o objeto avaliado passa a ser o assistente, e não o modelo isolado; a unidade de análise passa de um arquivo por requisição para o conjunto do corpus; passam a ser dois instrumentos, de fornecedores distintos, em vez de um; acrescenta-se o tratamento de cobertura parcial declarada; e acrescenta-se a limitação de instrução de sistema não controlada. Acrescentada a subseção 9.1 com a instrução fixa entregue aos assistentes. Atualizada a seção 3 para refletir os dois assistentes e as condições de execução em contêiner das ferramentas determinísticas.
+
+Justificativa: comparar ferramentas maduras com um modelo sem camada de instrumentação mede a distância entre produto e insumo, e não capacidade de detecção. A modalidade anterior produziria resultado de leitura ambígua e pouco representativo do uso real. Nenhuma coleta havia ocorrido nesta data, de modo que a alteração não afeta critério já aplicado a dado observado. A regra de correspondência da seção 4, os conjuntos de equivalência da seção 7 e os indicadores da seção 8 permanecem idênticos ao registro original.
+
+**03/09/2026, versão 1.3.** Os instrumentos avaliados passam de dois para três assistentes de codificação, com a inclusão do Google Antigravity ao lado do Claude Code e do Cursor, elevando o total de execuções de seis para nove. Acrescentadas à instrução da subseção 9.1 três regras que proíbem perguntas, proíbem pedido de confirmação e determinam o registro da interpretação adotada diante de ambiguidade. Acrescentada à seção 6.3 a condição de distribuição por branch órfã com clone de referência única e profundidade um. Acrescentada à subseção 9.1 a observação sobre normalização de caminho.
+
+Justificativa: três fornecedores permitem observar dispersão entre instrumentos, e não apenas diferença entre dois pontos. A ampliação preserva as três execuções por instrumento, e com elas a medida de estabilidade e o critério de maioria, que seriam perdidos caso o total de sessões fosse mantido em seis. As regras acrescentadas à instrução eliminam a interrupção do assistente para consulta ao operador, que é via de contaminação por contexto. A condição de branch órfã fecha uma via de vazamento que a exclusão de arquivos sozinha não fecha. Nenhuma coleta havia ocorrido nesta data. A regra de correspondência da seção 4, os conjuntos de equivalência da seção 7 e os indicadores da seção 8 permanecem idênticos ao registro original.
+
 **Formato obrigatório para alterações futuras:** data, item alterado, redação anterior, redação nova, justificativa, e indicação de se a coleta anterior permanece válida ou precisa ser refeita.
 
 ---
+
+
 
 ## 12. Declaração
 
