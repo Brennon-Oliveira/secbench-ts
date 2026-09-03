@@ -148,3 +148,13 @@ Constatação (resultado do estudo, não defeito a corrigir): na configuração 
 
 `tools/normalize.ts` passou a aplicar a ordem de resolução do protocolo (CWE explícito → identificador de regra → rótulo textual normalizado → não mapeado), a gravar `mappingSource` em cada achado e a reportar `unmapped by tool` (também em `results/normalized/unmapped-by-tool.json` quando há brutos em `results/raw/`). Teste automatizado: `tests/normalize-resolution.test.ts`, sobre as saídas do ensaio em `results/dry-run/`.
 
+### 2026-09-03 — Tarefa 12: consolidação da árvore antes da coleta
+
+A árvore de trabalho das tarefas 9 e 10 foi versionada antes do início da coleta definitiva, para que o atestado de medição amarre o resultado a um commit concreto.
+
+- **Commits de consolidação criados nesta passagem (5):** `79c2701` (conteinerização SAST), `b208aa9` (fixture e dry-run), `afb6465` (tabela CWE e normalizador), `8ab4191` (src/corpus/gabarito), `411ede8` (docs e asymmetry-check).
+- **Commit final sobre o qual a coleta será executada:** o tip de `main` após este registro (SHA deste commit, preenchido na linha seguinte após a criação do objeto git).
+- **Pré-checagens:** `npm run build:corpus` coincidiu byte a byte com o corpus e o gabarito já presentes na árvore; `npm run verify` e `npm run check:asymmetry` passaram.
+- **Descartes (não versionados), com motivo:**
+  - Alteração proposta em `.gitignore` que acrescentava `results/dry-run/**/*` (com exceção só de `.gitkeep`): **descartada**. O ensaio de calibração e o arquivo `archive-20260822/` são evidência citada no diagnóstico da tabela de identificadores; ignorá-los no versionamento tornaria essas referências irrecuperáveis. A árvore ficou com o `.gitignore` anterior a essa proposta.
+  - Nenhum outro arquivo da árvore suja foi descartado. Não havia `node_modules/` pendente de adição, `.env`, `.sandbox-ok`, ambiente de medição preparado nem segredo real a excluir. Credenciais no fixture de dry-run são fictícias de ensaio (`sk-live-dryrun-…`) e foram versionadas de propósito.
