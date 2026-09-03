@@ -1,0 +1,17 @@
+# Semgrep with pinned upstream image and local rule packs (no --config=auto).
+ARG SEMGREP_BASE=semgrep/semgrep:1.174.0
+FROM ${SEMGREP_BASE}
+
+ARG SEMGREP_RULES_COMMIT=40b8c63f75dc7c22c8a77482d73bfb864b146f7e
+
+USER root
+RUN apk add --no-cache git \
+  && git clone https://github.com/semgrep/semgrep-rules /tmp/semgrep-rules \
+  && cd /tmp/semgrep-rules \
+  && git checkout "${SEMGREP_RULES_COMMIT}" \
+  && mkdir -p /rules \
+  && cp -a javascript typescript /rules/ \
+  && rm -rf /tmp/semgrep-rules \
+  && apk del git
+
+USER semgrep

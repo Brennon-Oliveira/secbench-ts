@@ -35,7 +35,7 @@ const SANDBOX_NAME = 'loja-api'
  * esquecimento.
  * ------------------------------------------------------------------ */
 
-const INCLUDE_TREES: string[] = ['corpus']
+const INCLUDE_TREES: string[] = ['corpus', 'docker']
 
 const INCLUDE_FILES: string[] = [
   'tools/llm/prompt.md',
@@ -44,6 +44,7 @@ const INCLUDE_FILES: string[] = [
   'scripts/scan-codeql.ts',
   'scripts/scan-njsscan.ts',
   'scripts/scan-eslint.ts',
+  'scripts/scan-docker-common.ts',
   'scripts/eslint.corpus.config.mjs',
   'package-lock.json',
 ]

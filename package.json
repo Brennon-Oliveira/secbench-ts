@@ -18,6 +18,8 @@
     "scan:njsscan": "tsx scripts/scan-njsscan.ts",
     "scan:eslint": "tsx scripts/scan-eslint.ts",
     "scan:llm": "tsx tools/llm/run-llm.ts",
+    "docker:build": "docker compose -f docker/compose.yml build semgrep codeql",
+    "docker:versions": "npm run docker:build && tsx docker/generate-versions.ts",
     "measurement:prepare": "tsx tools/prepare-measurement.ts",
     "measurement:verify": "tsx tools/prepare-measurement.ts --verify-only",
     "normalize": "tsx tools/normalize.ts",

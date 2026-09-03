@@ -1,0 +1,76 @@
+# SAST scan services. Image digests are pinned — regenerate with `npm run docker:versions`.
+# Do not use floating tags. Scan services use network_mode: none (no downloads during analysis).
+
+name: sast-scan
+
+x-scan-user: &scan-user
+  user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+
+x-scan-network: &scan-network
+  network_mode: none
+
+services:
+  semgrep:
+    build:
+      context: .
+      dockerfile: Dockerfile.semgrep
+      args:
+        SEMGREP_BASE: semgrep/semgrep:1.174.0
+        SEMGREP_RULES_COMMIT: 40b8c63f75dc7c22c8a77482d73bfb864b146f7e
+    image: sast-semgrep:1.174.0
+    entrypoint: ["/bin/sh", "/entrypoint/semgrep-scan.sh"]
+    <<: [*scan-user, *scan-network]
+    volumes:
+      - ./entrypoints/semgrep-scan.sh:/entrypoint/semgrep-scan.sh:ro
+      - ${SCAN_WORK:-./.empty-work}:/work:ro
+      - ${SCAN_OUT:-./.empty-out}:/out:rw
+
+  njsscan:
+    image: opensecurity/njsscan@sha256:a0df16158116df639fb33a5fbf7ffc070b8baff2d40fd2956b1433e7c9267af1
+    entrypoint: ["/bin/sh", "/entrypoint/njsscan-scan.sh"]
+    <<: [*scan-user, *scan-network]
+    volumes:
+      - ./entrypoints/njsscan-scan.sh:/entrypoint/njsscan-scan.sh:ro
+      - ${SCAN_WORK:-./.empty-work}:/work:ro
+      - ${SCAN_OUT:-./.empty-out}:/out:rw
+
+  codeql:
+    build:
+      context: .
+      dockerfile: Dockerfile.codeql
+      args:
+        CODEQL_BUNDLE_TAG: codeql-bundle-v2.26.3
+        CODEQL_BUNDLE_URL: https://github.com/github/codeql-action/releases/download/codeql-bundle-v2.26.3/codeql-bundle-linux64.tar.zst
+    image: sast-codeql:2.26.3
+    entrypoint: ["/bin/sh", "/entrypoint/codeql-scan.sh"]
+    # Runs as image root: named volume /db must be writable; /out ownership fixed by executor.
+    network_mode: none
+    volumes:
+      - ./entrypoints/codeql-scan.sh:/entrypoint/codeql-scan.sh:ro
+      - ${SCAN_WORK:-./.empty-work}:/work:ro
+      - ${SCAN_OUT:-./.empty-out}:/out:rw
+      - sast-codeql-db:/db
+
+  eslint-deps:
+    image: node@sha256:0557ac14e0d45d02ed563067b82856ca5e7aa3437fa28d98d4350ea9c3d9494a
+    entrypoint: ["/bin/sh", "/entrypoint/eslint-deps.sh"]
+    user: root
+    volumes:
+      - ./entrypoints/eslint-deps.sh:/entrypoint/eslint-deps.sh:ro
+      - ${PROJECT_ROOT:-..}:/project:rw
+      - sast-eslint-modules:/project/node_modules
+
+  eslint-scan:
+    image: node@sha256:0557ac14e0d45d02ed563067b82856ca5e7aa3437fa28d98d4350ea9c3d9494a
+    entrypoint: ["/bin/sh", "/entrypoint/eslint-scan.sh"]
+    <<: [*scan-user, *scan-network]
+    volumes:
+      - ./entrypoints/eslint-scan.sh:/entrypoint/eslint-scan.sh:ro
+      - ${PROJECT_ROOT:-..}:/project:ro
+      - sast-eslint-modules:/project/node_modules:ro
+      - ${SCAN_WORK:-./.empty-work}:/work:ro
+      - ${SCAN_OUT:-./.empty-out}:/out:rw
+
+volumes:
+  sast-codeql-db:
+  sast-eslint-modules:
