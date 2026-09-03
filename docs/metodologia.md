@@ -158,3 +158,31 @@ A árvore de trabalho das tarefas 9 e 10 foi versionada antes do início da cole
 - **Descartes (não versionados), com motivo:**
   - Alteração proposta em `.gitignore` que acrescentava `results/dry-run/**/*` (com exceção só de `.gitkeep`): **descartada**. O ensaio de calibração e o arquivo `archive-20260822/` são evidência citada no diagnóstico da tabela de identificadores; ignorá-los no versionamento tornaria essas referências irrecuperáveis. A árvore ficou com o `.gitignore` anterior a essa proposta.
   - Nenhum outro arquivo da árvore suja foi descartado. Não havia `node_modules/` pendente de adição, `.env`, `.sandbox-ok`, ambiente de medição preparado nem segredo real a excluir. Credenciais no fixture de dry-run são fictícias de ensaio (`sk-live-dryrun-…`) e foram versionadas de propósito.
+
+### 2026-09-03 — Tarefa 12: coleta determinística e branches de medição
+
+- **Commit de origem da coleta (atestado):** `cc42cd7ec1e574f382eee0b6b03e8284e9cfb2e2` (`cc42cd7`). Árvore limpa. Ambiente preparado em `/home/brennon/studies/loja-measurement`; atestado fora do ambiente (`results/raw/attestation.json`).
+- **Resumo agregado do código do corpus:** `7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6` (76 arquivos). Coincidiu entre repositório, atestado, ambiente preparado e as nove branches (hash sobre os mesmos arquivos, sem o prefixo `corpus/`).
+- **Mapeamento branch → produto e execução** (somente nesta branch principal; jamais nas branches de medição):
+
+| Branch | Produto | Execução |
+|---|---|---|
+| `snapshot/01` | Claude Code (Opus) | 1 |
+| `snapshot/02` | Cursor (Grok) | 1 |
+| `snapshot/03` | Google Antigravity | 1 |
+| `snapshot/04` | Claude Code (Opus) | 2 |
+| `snapshot/05` | Cursor (Grok) | 2 |
+| `snapshot/06` | Google Antigravity | 2 |
+| `snapshot/07` | Claude Code (Opus) | 3 |
+| `snapshot/08` | Cursor (Grok) | 3 |
+| `snapshot/09` | Google Antigravity | 3 |
+
+- **Identificadores de commit das branches** (um commit órfão cada): `snapshot/01` `166ddeac0ae8eb052689ce1b35bfe348c4b503ca`; `snapshot/02` `18c9167343b4e23800b34af3c16ee5b551fd557c`; `snapshot/03` `01b39ea202986ea3fff3eccd803c00a37585d4c3`; `snapshot/04` `35268265a1d48c1d2ca1b536c55aab0bd2bc392c`; `snapshot/05` `a4d63c009c5a723360c3c9510ffd592b54909f53`; `snapshot/06` `035da70a79dd757da8289c845ddf9c4b4cecfad1`; `snapshot/07` `e973ec8571766f375524e4488ba8d4cfcc03d4d0`; `snapshot/08` `3ceb0503103190ecb13e8496dd877f849c49579f`; `snapshot/09` `58e2738d19c559539b2a178f6cfe49bdf4313c34`.
+- **Verificações D.4 (as nove):** uma commit e nenhum ancestral; árvore sem caminhos `src/`, `tests/`, `docs/`, `tools/`, `scripts/` ou `corpus/`, sem gabarito e sem catálogo; varredura de vazamento (mesmos padrões do `prepare-measurement`) sem ocorrências; resumo agregado idêntico ao do corpus. Todas passaram.
+- **Clone para o operador** (substituir o número da sessão). URL: `git@github.com:Brennon-Oliveira/secbench-ts.git`
+
+```
+git clone --single-branch --branch snapshot/01 --depth 1 git@github.com:Brennon-Oliveira/secbench-ts.git run01
+```
+
+Clone sem `--single-branch` e sem `--depth 1` traz o restante do repositório (histórico, gabarito, protocolo) e **invalida a sessão**.
