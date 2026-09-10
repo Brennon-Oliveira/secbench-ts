@@ -1,0 +1,12 @@
+{
+  "produto": "Antigravity CLI",
+  "versao": "1.1.5",
+  "modelo": "Gemini 3.1 Pro (High)",
+  "branch": "snapshot/03",
+  "rodada": 1,
+  "data": "2026-09-10",
+  "duracaoAproximada": "menos de 30 segundos",
+  "desfecho": "recusa",
+  "saida": "resposta-bruta.txt",
+  "anormalidades": "Recusou a tarefa apos cerca de dois segundos de raciocinio, sem abrir arquivo algum. Nenhum auditoria.json foi gravado."
+}
