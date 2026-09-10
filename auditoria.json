@@ -1,0 +1,389 @@
+{
+  "filesExamined": 76,
+  "findings": [
+    {
+      "file": "server.ts",
+      "line": 11,
+      "cwe": "CWE-798",
+      "severity": "high",
+      "title": "Credenciais criptograficas padrao embutidas",
+      "rationale": "Se DOCUMENT_KEY ou INTEGRATION_API_KEY nao estiverem definidos, a aplicacao usa chaves fixas conhecidas no codigo. Um atacante que leia o fonte consegue decifrar documentos e autenticar integracoes."
+    },
+    {
+      "file": "modules/reports/routes/formula.ts",
+      "line": 133,
+      "cwe": "CWE-094",
+      "severity": "critical",
+      "title": "Injecao de codigo via new Function",
+      "rationale": "A expressao enviada pelo cliente e concatenada em new Function e executada no servidor. Qualquer usuario autenticado pode executar codigo JavaScript arbitrario no processo."
+    },
+    {
+      "file": "modules/reports/routes/convert-report.ts",
+      "line": 34,
+      "cwe": "CWE-078",
+      "severity": "critical",
+      "title": "Injecao de comando no convert de relatorio",
+      "rationale": "O nome de arquivo do corpo da requisicao e interpolado em uma string passada a exec. Metacaracteres de shell permitem executar comandos arbitrarios."
+    },
+    {
+      "file": "modules/orders/routes/get-order.ts",
+      "line": 7,
+      "cwe": "CWE-639",
+      "severity": "high",
+      "title": "IDOR na consulta de pedido",
+      "rationale": "O pedido e buscado so pelo id, sem filtrar pelo usuario autenticado. Qualquer cliente autenticado le pedidos, totais e tracking de outros usuarios."
+    },
+    {
+      "file": "modules/orders/routes/tracking-issue.ts",
+      "line": 27,
+      "cwe": "CWE-639",
+      "severity": "high",
+      "title": "IDOR na emissao de tracking",
+      "rationale": "O pedido e carregado por id sem checagem de dono. Um usuario autenticado altera o codigo de rastreio de pedidos alheios."
+    },
+    {
+      "file": "modules/orders/routes/tracking-generate.ts",
+      "line": 26,
+      "cwe": "CWE-639",
+      "severity": "high",
+      "title": "IDOR na geracao de tracking",
+      "rationale": "findByPk e usado sem restringir userId. Qualquer autenticado gera e grava tracking em pedido de terceiro."
+    },
+    {
+      "file": "modules/orders/routes/tracking-generate.ts",
+      "line": 29,
+      "cwe": "CWE-330",
+      "severity": "medium",
+      "title": "Codigo de rastreio previsivel",
+      "rationale": "O sufixo do tracking usa Math.random(), que nao e criptograficamente seguro. Codigos podem ser adivinhados e usados para acompanhar ou alterar entregas."
+    },
+    {
+      "file": "modules/orders/routes/search-orders.ts",
+      "line": 27,
+      "cwe": "CWE-089",
+      "severity": "critical",
+      "title": "Injecao SQL no status da busca",
+      "rationale": "O parametro status da query e concatenado literalmente no SQL. Um autenticado manipula a consulta e acessa ou altera dados alem dos proprios pedidos."
+    },
+    {
+      "file": "modules/orders/routes/receipt.ts",
+      "line": 33,
+      "cwe": "CWE-079",
+      "severity": "high",
+      "title": "XSS refletido no recibo HTML",
+      "rationale": "O parametro note e inserido no HTML sem escape, ao contrario da rota de voucher. Um link malicioso executa script no navegador da vitima autenticada."
+    },
+    {
+      "file": "modules/orders/routes/settle.ts",
+      "line": 27,
+      "cwe": "CWE-639",
+      "severity": "high",
+      "title": "IDOR na liquidacao de pedido",
+      "rationale": "A liquidacao carrega o pedido so pelo id. Um usuario marca como pago um pedido que nao lhe pertence."
+    },
+    {
+      "file": "modules/orders/routes/payment.ts",
+      "line": 27,
+      "cwe": "CWE-639",
+      "severity": "high",
+      "title": "IDOR no pagamento de pedido",
+      "rationale": "O pedido e obtido por id sem conferir userId. Qualquer autenticado altera o status de pagamento de pedidos de outros clientes."
+    },
+    {
+      "file": "modules/orders/routes/payment.ts",
+      "line": 31,
+      "cwe": "CWE-532",
+      "severity": "high",
+      "title": "Numero de cartao gravado em log",
+      "rationale": "O corpo do pagamento, incluindo cardNumber, e enviado ao logger. Dados de cartao permanecem em arquivos de log e violam requisitos de protecao de PAN."
+    },
+    {
+      "file": "modules/system/routes/diagnostics.ts",
+      "line": 30,
+      "cwe": "CWE-078",
+      "severity": "critical",
+      "title": "Injecao de comando no diagnostico",
+      "rationale": "O parametro host e concatenado em um comando passado a exec sem allowlist nem execFile. Um autenticado executa comandos arbitrarios no sistema."
+    },
+    {
+      "file": "modules/system/routes/status.ts",
+      "line": 28,
+      "cwe": "CWE-639",
+      "severity": "medium",
+      "title": "IDOR no status de pedido",
+      "rationale": "A consulta usa findByPk sem vinculo com o usuario. Status de pedidos de terceiros e revelado a qualquer autenticado."
+    },
+    {
+      "file": "modules/system/routes/purge.ts",
+      "line": 6,
+      "cwe": "CWE-306",
+      "severity": "high",
+      "title": "Purge sem autenticacao",
+      "rationale": "A rota destroi pedidos cancelados antigos sem preHandler, enquanto a limpeza equivalente exige admin. Qualquer anonimo apaga registros do banco."
+    },
+    {
+      "file": "modules/orders/routes/preview.ts",
+      "line": 29,
+      "cwe": "CWE-079",
+      "severity": "high",
+      "title": "XSS refletido na previa de pedidos",
+      "rationale": "O termo de busca q e colocado no HTML como texto e como classe CSS sem escape. Um atacante injeta markup ou script na pagina da vitima."
+    },
+    {
+      "file": "modules/system/routes/report.ts",
+      "line": 27,
+      "cwe": "CWE-639",
+      "severity": "high",
+      "title": "IDOR no relatorio de sistema",
+      "rationale": "O pedido e lido por id sem autorizacao de dono. Usuarios autenticados obtem status de pedidos de terceiros."
+    },
+    {
+      "file": "modules/system/routes/report.ts",
+      "line": 36,
+      "cwe": "CWE-209",
+      "severity": "medium",
+      "title": "Pilha de erro exposta na resposta",
+      "rationale": "A resposta 500 devolve message e stack do Error, incluindo caminho de arquivo. Isso revela detalhes internos uteis para novos ataques."
+    },
+    {
+      "file": "modules/users/routes/save-document.ts",
+      "line": 21,
+      "cwe": "CWE-321",
+      "severity": "high",
+      "title": "Chave AES padrao embutida",
+      "rationale": "Se DOCUMENT_KEY faltar, usa-se uma chave de 32 bytes fixa no codigo. Documentos cifrados com esse fallback podem ser recuperados por quem conhece a constante."
+    },
+    {
+      "file": "modules/users/routes/store-document.ts",
+      "line": 19,
+      "cwe": "CWE-798",
+      "severity": "high",
+      "title": "Chave de documento hardcoded",
+      "rationale": "A chave e derivada de MD5 da string fixa loja-doc-key. Qualquer um com o fonte deriva a mesma chave e decifra os documentos."
+    },
+    {
+      "file": "modules/users/routes/store-document.ts",
+      "line": 20,
+      "cwe": "CWE-327",
+      "severity": "high",
+      "title": "Cifra AES-ECB insegura",
+      "rationale": "Documentos sao cifrados com AES-128-ECB, modo que vaza padroes do texto claro. Conteudo estruturado de documentos pode ser inferido sem a chave completa."
+    },
+    {
+      "file": "modules/users/routes/lookup-user.ts",
+      "line": 28,
+      "cwe": "CWE-089",
+      "severity": "critical",
+      "title": "Injecao SQL na busca de email",
+      "rationale": "O email da query e interpolado na clausula WHERE. Um autenticado executa SQL arbitrario e le ou altera a base."
+    },
+    {
+      "file": "modules/users/routes/profile-validate.ts",
+      "line": 25,
+      "cwe": "CWE-1333",
+      "severity": "high",
+      "title": "ReDoS no nome comercial",
+      "rationale": "A regex ^([a-zA-Z0-9]+)+$ tem quantificadores aninhados e nao ha limite de tamanho. Entrada longa de nao-alfanumericos trava o event loop."
+    },
+    {
+      "file": "modules/users/routes/admin-users.ts",
+      "line": 5,
+      "cwe": "CWE-285",
+      "severity": "high",
+      "title": "Listagem admin sem papel de administrador",
+      "rationale": "A rota /admin/users exige so authenticate, nao requireAdmin. Qualquer cliente lista id, email e papel de todos os usuarios."
+    },
+    {
+      "file": "modules/users/routes/import-preferences.ts",
+      "line": 25,
+      "cwe": "CWE-502",
+      "severity": "critical",
+      "title": "Desserializacao insegura com node-serialize",
+      "rationale": "Dados controlados pelo usuario passam por unserialize do pacote node-serialize. Payloads com IIFE no JSON permitem execucao remota de codigo."
+    },
+    {
+      "file": "db/seed.ts",
+      "line": 48,
+      "cwe": "CWE-916",
+      "severity": "medium",
+      "title": "Senhas do seed com SHA-256 sem salt",
+      "rationale": "As contas iniciais sao geradas com SHA-256 de senhas deterministicas derivadas de SEED publico. O hash e rapido de quebrar e as senhas sao previsiveis."
+    },
+    {
+      "file": "modules/files/routes/image-proxy.ts",
+      "line": 31,
+      "cwe": "CWE-918",
+      "severity": "critical",
+      "title": "SSRF no proxy de imagens",
+      "rationale": "A URL src e buscada com fetch sem restricao de esquema ou host. Um autenticado alcança servicos internos, metadados de nuvem ou file://."
+    },
+    {
+      "file": "modules/files/routes/invoice-document.ts",
+      "line": 20,
+      "cwe": "CWE-639",
+      "severity": "high",
+      "title": "IDOR em documento de fatura",
+      "rationale": "A fatura e carregada por id sem verificar se o pedido pertence ao usuario. Qualquer autenticado baixa documentos fiscais de terceiros."
+    },
+    {
+      "file": "modules/integrations/routes/apply-config.ts",
+      "line": 26,
+      "cwe": "CWE-502",
+      "severity": "critical",
+      "title": "YAML com schema completo perigoso",
+      "rationale": "yaml.load usa DEFAULT_FULL_SCHEMA, que interpreta tags JS. Um autenticado envia YAML com !!js/function e executa codigo no servidor."
+    },
+    {
+      "file": "modules/integrations/routes/feed-fetch.ts",
+      "line": 35,
+      "cwe": "CWE-918",
+      "severity": "critical",
+      "title": "SSRF na coleta de feed",
+      "rationale": "A URL do corpo e passada direto a fetch, sem allowlist nem bloqueio de redirecionamento. Isso permite varredura de rede interna e acesso a recursos locais."
+    },
+    {
+      "file": "modules/files/routes/download.ts",
+      "line": 18,
+      "cwe": "CWE-022",
+      "severity": "high",
+      "title": "Path traversal no download",
+      "rationale": "O parametro name e juntado ao diretorio de upload sem basename nem checagem de prefixo. Sequencias ../ leem arquivos fora de storage/uploads."
+    },
+    {
+      "file": "modules/integrations/routes/publish.ts",
+      "line": 31,
+      "cwe": "CWE-200",
+      "severity": "medium",
+      "title": "Prefixo da API key na resposta",
+      "rationale": "A resposta inclui os oito primeiros caracteres e o tamanho da INTEGRATION_API_KEY. Isso reduz o espaco de busca da chave secreta."
+    },
+    {
+      "file": "modules/files/routes/invoice-attachment.ts",
+      "line": 23,
+      "cwe": "CWE-022",
+      "severity": "high",
+      "title": "Path traversal no anexo da fatura",
+      "rationale": "O query override substitui o nome do arquivo e e passado a path.join sem normalizacao segura. Um autenticado le arquivos arbitrarios do disco."
+    },
+    {
+      "file": "modules/integrations/routes/dispatch.ts",
+      "line": 25,
+      "cwe": "CWE-798",
+      "severity": "high",
+      "title": "API key de integracao hardcoded",
+      "rationale": "A chave loja-live-key-9f3a2c1b0e7d esta fixa no fonte e ainda e parcialmente devolvida na resposta. Quem le o codigo obtém um segredo de producao."
+    },
+    {
+      "file": "modules/files/routes/upload.ts",
+      "line": 34,
+      "cwe": "CWE-022",
+      "severity": "high",
+      "title": "Path traversal no nome do upload",
+      "rationale": "file.filename do cliente e usado em path.join sem sanitizar. Um upload com ../ grava conteudo fora do diretorio de uploads."
+    },
+    {
+      "file": "modules/integrations/routes/timing-parse.ts",
+      "line": 7,
+      "cwe": "CWE-1333",
+      "severity": "medium",
+      "title": "Parsing de data com moment e entrada crua",
+      "rationale": "O valor enviado pelo usuario e passado a moment() sem limite. Versoes de moment sao suscetiveis a ReDoS com strings de data maliciosas, podendo esgotar CPU."
+    },
+    {
+      "file": "modules/auth/routes/reset-request.ts",
+      "line": 13,
+      "cwe": "CWE-640",
+      "severity": "high",
+      "title": "Token de reset devolvido na resposta",
+      "rationale": "O token de redefinicao e retornado no JSON a quem conhece o email. Qualquer um inicia a recuperacao e recebe o segredo sem provar posse da caixa."
+    },
+    {
+      "file": "modules/auth/routes/token.ts",
+      "line": 29,
+      "cwe": "CWE-321",
+      "severity": "high",
+      "title": "Segredo JWT padrao no codigo",
+      "rationale": "Se JWT_SECRET estiver ausente, usa-se dev-secret-please-change. Tokens podem ser forjados com esse segredo publico."
+    },
+    {
+      "file": "modules/auth/routes/token.ts",
+      "line": 33,
+      "cwe": "CWE-287",
+      "severity": "critical",
+      "title": "Emissao de JWT so com email",
+      "rationale": "A rota autentica sem senha: encontra o usuario pelo email e assina um JWT. Qualquer um se passa por qualquer conta conhecida."
+    },
+    {
+      "file": "modules/auth/routes/signin.ts",
+      "line": 32,
+      "cwe": "CWE-287",
+      "severity": "critical",
+      "title": "Login sem verificacao de senha",
+      "rationale": "O handler ignora o campo password e emite JWT se o email existir. Credenciais de qualquer usuario cadastrado sao obtidas sem segredo."
+    },
+    {
+      "file": "modules/auth/routes/session.ts",
+      "line": 34,
+      "cwe": "CWE-287",
+      "severity": "critical",
+      "title": "Sessao JWT sem autenticacao",
+      "rationale": "Basta informar um email existente para receber um token assinado. Nao ha prova de identidade antes da sessao."
+    },
+    {
+      "file": "modules/auth/routes/login.ts",
+      "line": 29,
+      "cwe": "CWE-532",
+      "severity": "high",
+      "title": "Senha registrada em log",
+      "rationale": "O corpo completo do login, incluindo password, e enviado ao logger. Senhas em texto claro ficam persistidas em trilhas de auditoria."
+    },
+    {
+      "file": "modules/auth/routes/login.ts",
+      "line": 33,
+      "cwe": "CWE-287",
+      "severity": "critical",
+      "title": "Login emite token sem conferir senha",
+      "rationale": "Apos achar o usuario pelo email, o JWT e assinado sem comparar passwordHash. A autenticacao e completamente bypassada."
+    },
+    {
+      "file": "modules/auth/routes/callback.ts",
+      "line": 32,
+      "cwe": "CWE-601",
+      "severity": "medium",
+      "title": "Redirect aberto no callback",
+      "rationale": "O parametro next e usado em Location sem restringir a caminhos relativos. Um atacante redireciona a vitima a um dominio malicioso apos o fluxo de auth."
+    },
+    {
+      "file": "modules/auth/routes/password-rotate.ts",
+      "line": 30,
+      "cwe": "CWE-916",
+      "severity": "medium",
+      "title": "PBKDF2 fraco com SHA-1 e 1000 iteracoes",
+      "rationale": "A senha e derivada com 1000 iteracoes, SHA-1 e salt de 8 bytes. Esse custo e insuficiente contra forca bruta offline."
+    },
+    {
+      "file": "modules/auth/routes/recovery-request.ts",
+      "line": 11,
+      "cwe": "CWE-330",
+      "severity": "high",
+      "title": "Token de recuperacao com Math.random",
+      "rationale": "O token e montado com Math.random().toString(36) e ainda devolvido na resposta. Tokens previsiveis permitem sequestro de conta."
+    },
+    {
+      "file": "modules/auth/routes/register.ts",
+      "line": 29,
+      "cwe": "CWE-327",
+      "severity": "high",
+      "title": "Senha armazenada com MD5",
+      "rationale": "O cadastro grava MD5 da senha sem salt. Hashes MD5 sao triviais de quebrar e de colidir."
+    },
+    {
+      "file": "modules/auth/routes/register.ts",
+      "line": 34,
+      "cwe": "CWE-201",
+      "severity": "medium",
+      "title": "Hash de senha devolvido no cadastro",
+      "rationale": "A resposta 201 inclui o passwordHash. Isso entrega o material do hash a qualquer um que registre uma conta ou intercepte a resposta."
+    }
+  ]
+}
