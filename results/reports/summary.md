@@ -1,8 +1,26 @@
 # SecBench-TS — pontuação
 
-Gerado em 2026-09-10T21:57:33.091Z a partir de results/normalized/all.json e results/normalized/assistant-sessions.json.
+Gerado em 2026-09-10T22:17:23.059Z a partir de results/normalized/all.json e results/normalized/assistant-sessions.json.
 
 Casos vulneráveis: 30. Casos protegidos: 30. Janela de linhas: ±5. Identidade de achado: `file|line|cwe`.
+
+## Legenda das colunas
+
+| Coluna | Significado |
+| --- | --- |
+| Achados | achados considerados na variante |
+| VP | verdadeiro positivo (§4.1): arquivo do caso vulnerável, linha em ±5 do sink, CWE no conjunto de equivalência (§7.3); no máximo um por caso e por instrumento |
+| FP par | falso positivo de par (§4.2): achado no intervalo do membro protegido do par, com CWE equivalente |
+| FN | falso negativo (§4.4): caso vulnerável sem verdadeiro positivo |
+| Fora de escopo | §4.3: achado que não corresponde a caso declarado; fora do cálculo da precisão |
+| Redundantes | §4.1: achados excedentes sobre caso já contado como verdadeiro positivo |
+| Sem localização | §4.5: achado sem linha ou com linha zero |
+| Não mapeados | §4.6: CWE não resolvido pela ordem do §7.1 |
+| Precisão | VP ÷ (VP + FP par) |
+| Revocação | VP ÷ 30 (casos vulneráveis) |
+| F1 | média harmônica de precisão e revocação |
+| VP−FP | (VP ÷ casos vulneráveis) − (FP par ÷ casos protegidos); índice de Youden |
+| Variante | execucao = uma sessão; principal = união das três (§6.7); maioria = em ao menos duas (§6.7); unanimidade = nas três (fora do protocolo) |
 
 ## Resultado principal por instrumento
 
@@ -16,7 +34,9 @@ Casos vulneráveis: 30. Casos protegidos: 30. Janela de linhas: ±5. Identidade 
 | claude-code | principal | 59 | 29 | 0 | 1 | 23 | 7 | 0 | 0 | 1.000 | 0.967 | 0.983 | 0.967 |
 | cursor | principal | 73 | 28 | 0 | 2 | 36 | 9 | 0 | 0 | 1.000 | 0.933 | 0.966 | 0.933 |
 
-## Assistentes: por execução, união e maioria
+## Assistentes: por execução, união, maioria e unanimidade
+
+A variante `unanimidade` (achado presente nas três execuções) **não** faz parte do protocolo, que fixa em §6.7 união, execução individual e maioria. Ela consta como análise exploratória complementar (§12) e não substitui o resultado principal, que é a união.
 
 | Instrumento | Variante | Achados | VP | FP par | FN | Fora de escopo | Redundantes | Sem localização | Não mapeados | Precisão | Revocação | F1 | VP−FP |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -25,16 +45,38 @@ Casos vulneráveis: 30. Casos protegidos: 30. Janela de linhas: ±5. Identidade 
 | antigravity run2 | execucao | 0 | 0 | 0 | 30 | 0 | 0 | 0 | 0 | 0.000 | 0.000 | 0.000 | 0.000 |
 | antigravity run3 | execucao | 0 | 0 | 0 | 30 | 0 | 0 | 0 | 0 | 0.000 | 0.000 | 0.000 | 0.000 |
 | antigravity | maioria | 0 | 0 | 0 | 30 | 0 | 0 | 0 | 0 | 0.000 | 0.000 | 0.000 | 0.000 |
+| antigravity | unanimidade | 0 | 0 | 0 | 30 | 0 | 0 | 0 | 0 | 0.000 | 0.000 | 0.000 | 0.000 |
 | claude-code | principal | 59 | 29 | 0 | 1 | 23 | 7 | 0 | 0 | 1.000 | 0.967 | 0.983 | 0.967 |
 | claude-code run1 | execucao | 45 | 29 | 0 | 1 | 16 | 0 | 0 | 0 | 1.000 | 0.967 | 0.983 | 0.967 |
 | claude-code run2 | execucao | 32 | 27 | 0 | 3 | 5 | 0 | 0 | 0 | 1.000 | 0.900 | 0.947 | 0.900 |
 | claude-code run3 | execucao | 36 | 28 | 0 | 2 | 8 | 0 | 0 | 0 | 1.000 | 0.933 | 0.966 | 0.933 |
 | claude-code | maioria | 32 | 26 | 0 | 4 | 6 | 0 | 0 | 0 | 1.000 | 0.867 | 0.929 | 0.867 |
+| claude-code | unanimidade | 22 | 22 | 0 | 8 | 0 | 0 | 0 | 0 | 1.000 | 0.733 | 0.846 | 0.733 |
 | cursor | principal | 73 | 28 | 0 | 2 | 36 | 9 | 0 | 0 | 1.000 | 0.933 | 0.966 | 0.933 |
 | cursor run1 | execucao | 48 | 27 | 0 | 3 | 21 | 0 | 0 | 0 | 1.000 | 0.900 | 0.947 | 0.900 |
 | cursor run2 | execucao | 42 | 25 | 0 | 5 | 17 | 0 | 0 | 0 | 1.000 | 0.833 | 0.909 | 0.833 |
 | cursor run3 | execucao | 47 | 25 | 0 | 5 | 22 | 0 | 0 | 0 | 1.000 | 0.833 | 0.909 | 0.833 |
 | cursor | maioria | 41 | 24 | 0 | 6 | 17 | 0 | 0 | 0 | 1.000 | 0.800 | 0.889 | 0.800 |
+| cursor | unanimidade | 23 | 16 | 0 | 14 | 7 | 0 | 0 | 0 | 1.000 | 0.533 | 0.696 | 0.533 |
+
+## Consolidação por caso sob unanimidade — análise exploratória complementar
+
+Critério: o caso conta como detectado apenas se foi detectado em **todas** as execuções do
+assistente, ainda que a linha ou o CWE do achado variem entre elas. Não faz parte do protocolo
+(§6.7 fixa união, execução individual e maioria) e não substitui o resultado principal.
+Ferramenta determinística tem execução única e não admite este critério.
+
+| Assistente | Execuções | Casos em todas | Casos em 2 | Casos em 1 | VP | FP par | FN | Precisão | Revocação | F1 | VP−FP |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| antigravity | 3 | 0 | 0 | 0 | 0 | 0 | 30 | 0.000 | 0.000 | 0.000 | 0.000 |
+| claude-code | 3 | 27 | 1 | 1 | 27 | 0 | 3 | 1.000 | 0.900 | 0.947 | 0.900 |
+| cursor | 3 | 24 | 1 | 3 | 24 | 0 | 6 | 1.000 | 0.800 | 0.889 | 0.800 |
+
+Casos detectados em parte das execuções, por assistente:
+
+- antigravity — em duas execuções: —; em uma execução: —
+- claude-code — em duas execuções: C-434-01-V; em uma execução: C-089-01-V
+- cursor — em duas execuções: C-327-02-V; em uma execução: C-089-01-V, C-327-01-V, C-338-02-V
 
 ## Estabilidade dos assistentes (§6.8)
 

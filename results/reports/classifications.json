@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "total": 926,
+  "total": 1023,
   "classifications": [
     {
       "instrument": "semgrep",
@@ -7419,6 +7419,546 @@
       "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
     },
     {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/files/routes/download.ts",
+      "line": 19,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-022-01-V",
+      "caseCwe": "CWE-22",
+      "caseSinkLine": 19,
+      "caseRange": [
+        18,
+        19
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/files/routes/invoice-attachment.ts",
+      "line": 25,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-022-02-V",
+      "caseCwe": "CWE-22",
+      "caseSinkLine": 25,
+      "caseRange": [
+        23,
+        25
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/reports/routes/convert-report.ts",
+      "line": 35,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-078-01-V",
+      "caseCwe": "CWE-78",
+      "caseSinkLine": 35,
+      "caseRange": [
+        33,
+        35
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/system/routes/diagnostics.ts",
+      "line": 31,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-078-02-V",
+      "caseCwe": "CWE-78",
+      "caseSinkLine": 31,
+      "caseRange": [
+        29,
+        31
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/orders/routes/receipt.ts",
+      "line": 34,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-079-01-V",
+      "caseCwe": "CWE-79",
+      "caseSinkLine": 34,
+      "caseRange": [
+        31,
+        36
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/orders/routes/preview.ts",
+      "line": 30,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-079-02-V",
+      "caseCwe": "CWE-79",
+      "caseSinkLine": 30,
+      "caseRange": [
+        27,
+        30
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/orders/routes/search-orders.ts",
+      "line": 33,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-089-01-V",
+      "caseCwe": "CWE-89",
+      "caseSinkLine": 33,
+      "caseRange": [
+        27,
+        33
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/users/routes/lookup-user.ts",
+      "line": 29,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-089-02-V",
+      "caseCwe": "CWE-89",
+      "caseSinkLine": 29,
+      "caseRange": [
+        26,
+        29
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/reports/routes/formula.ts",
+      "line": 133,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-094-01-V",
+      "caseCwe": "CWE-94",
+      "caseSinkLine": 133,
+      "caseRange": [
+        133,
+        133
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/integrations/routes/timing-parse.ts",
+      "line": 7,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-1104-01-V",
+      "caseCwe": "CWE-1104",
+      "caseSinkLine": 7,
+      "caseRange": [
+        7,
+        7
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/users/routes/profile-validate.ts",
+      "line": 28,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-1333-01-V",
+      "caseCwe": "CWE-1333",
+      "caseSinkLine": 28,
+      "caseRange": [
+        25,
+        28
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/system/routes/report.ts",
+      "line": 36,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-209-01-V",
+      "caseCwe": "CWE-209",
+      "caseSinkLine": 36,
+      "caseRange": [
+        26,
+        37
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/users/routes/admin-users.ts",
+      "line": 6,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-284-01-V",
+      "caseCwe": "CWE-284",
+      "caseSinkLine": 6,
+      "caseRange": [
+        6,
+        6
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/system/routes/purge.ts",
+      "line": 8,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-306-01-V",
+      "caseCwe": "CWE-306",
+      "caseSinkLine": 8,
+      "caseRange": [
+        8,
+        10
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/register.ts",
+      "line": 32,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-327-01-V",
+      "caseCwe": "CWE-327",
+      "caseSinkLine": 32,
+      "caseRange": [
+        29,
+        32
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/users/routes/store-document.ts",
+      "line": 23,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-327-02-V",
+      "caseCwe": "CWE-327",
+      "caseSinkLine": 23,
+      "caseRange": [
+        20,
+        23
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/recovery-request.ts",
+      "line": 11,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-338-01-V",
+      "caseCwe": "CWE-338",
+      "caseSinkLine": 11,
+      "caseRange": [
+        9,
+        13
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/orders/routes/tracking-generate.ts",
+      "line": 30,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-338-02-V",
+      "caseCwe": "CWE-338",
+      "caseSinkLine": 30,
+      "caseRange": [
+        28,
+        30
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/files/routes/upload.ts",
+      "line": 35,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-434-01-V",
+      "caseCwe": "CWE-434",
+      "caseSinkLine": 35,
+      "caseRange": [
+        34,
+        35
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/users/routes/import-preferences.ts",
+      "line": 25,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-502-01-V",
+      "caseCwe": "CWE-502",
+      "caseSinkLine": 25,
+      "caseRange": [
+        24,
+        25
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/integrations/routes/apply-config.ts",
+      "line": 26,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-502-02-V",
+      "caseCwe": "CWE-502",
+      "caseSinkLine": 26,
+      "caseRange": [
+        25,
+        26
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/login.ts",
+      "line": 29,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-532-01-V",
+      "caseCwe": "CWE-532",
+      "caseSinkLine": 29,
+      "caseRange": [
+        27,
+        29
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/orders/routes/payment.ts",
+      "line": 31,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-532-02-V",
+      "caseCwe": "CWE-532",
+      "caseSinkLine": 31,
+      "caseRange": [
+        29,
+        31
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/callback.ts",
+      "line": 32,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-601-01-V",
+      "caseCwe": "CWE-601",
+      "caseSinkLine": 32,
+      "caseRange": [
+        32,
+        32
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/orders/routes/get-order.ts",
+      "line": 7,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-639-01-V",
+      "caseCwe": "CWE-639",
+      "caseSinkLine": 7,
+      "caseRange": [
+        7,
+        7
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/integrations/routes/dispatch.ts",
+      "line": 26,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-798-01-V",
+      "caseCwe": "CWE-798",
+      "caseSinkLine": 26,
+      "caseRange": [
+        25,
+        26
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/token.ts",
+      "line": 33,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-798-02-V",
+      "caseCwe": "CWE-798",
+      "caseSinkLine": 33,
+      "caseRange": [
+        29,
+        33
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/password-rotate.ts",
+      "line": 30,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-916-01-V",
+      "caseCwe": "CWE-916",
+      "caseSinkLine": 30,
+      "caseRange": [
+        28,
+        30
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/integrations/routes/feed-fetch.ts",
+      "line": 35,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-918-01-V",
+      "caseCwe": "CWE-918",
+      "caseSinkLine": 35,
+      "caseRange": [
+        35,
+        35
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/files/routes/image-proxy.ts",
+      "line": 31,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-918-02-V",
+      "caseCwe": "CWE-918",
+      "caseSinkLine": 31,
+      "caseRange": [
+        31,
+        31
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
       "instrument": "claude-code",
       "variant": "principal",
       "category": "verdadeiro-positivo",
@@ -11111,6 +11651,546 @@
       "caseRange": [
         34,
         35
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/reports/routes/formula.ts",
+      "line": 133,
+      "cwe": "CWE-94",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-094-01-V",
+      "caseCwe": "CWE-94",
+      "caseSinkLine": 133,
+      "caseRange": [
+        133,
+        133
+      ],
+      "message": "Execucao de codigo via new Function com entrada do usuario"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/users/routes/import-preferences.ts",
+      "line": 25,
+      "cwe": "CWE-502",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-502-01-V",
+      "caseCwe": "CWE-502",
+      "caseSinkLine": 25,
+      "caseRange": [
+        24,
+        25
+      ],
+      "message": "Desserializacao insegura com node-serialize"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/integrations/routes/apply-config.ts",
+      "line": 26,
+      "cwe": "CWE-502",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-502-02-V",
+      "caseCwe": "CWE-502",
+      "caseSinkLine": 26,
+      "caseRange": [
+        25,
+        26
+      ],
+      "message": "Parsing de YAML com schema inseguro (DEFAULT_FULL_SCHEMA)"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/users/routes/lookup-user.ts",
+      "line": 28,
+      "cwe": "CWE-89",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-089-02-V",
+      "caseCwe": "CWE-89",
+      "caseSinkLine": 29,
+      "caseRange": [
+        26,
+        29
+      ],
+      "message": "SQL Injection na busca de usuario por e-mail"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/system/routes/purge.ts",
+      "line": 6,
+      "cwe": "CWE-306",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-306-01-V",
+      "caseCwe": "CWE-306",
+      "caseSinkLine": 8,
+      "caseRange": [
+        8,
+        10
+      ],
+      "message": "Rota destrutiva de manutencao sem autenticacao"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/users/routes/admin-users.ts",
+      "line": 5,
+      "cwe": "CWE-862",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-284-01-V",
+      "caseCwe": "CWE-284",
+      "caseSinkLine": 6,
+      "caseRange": [
+        6,
+        6
+      ],
+      "message": "Rota administrativa sem verificacao de papel"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/files/routes/download.ts",
+      "line": 18,
+      "cwe": "CWE-22",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-022-01-V",
+      "caseCwe": "CWE-22",
+      "caseSinkLine": 19,
+      "caseRange": [
+        18,
+        19
+      ],
+      "message": "Path traversal no download de arquivos"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/files/routes/invoice-attachment.ts",
+      "line": 24,
+      "cwe": "CWE-22",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-022-02-V",
+      "caseCwe": "CWE-22",
+      "caseSinkLine": 25,
+      "caseRange": [
+        23,
+        25
+      ],
+      "message": "Path traversal via parametro override do anexo"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/files/routes/image-proxy.ts",
+      "line": 31,
+      "cwe": "CWE-918",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-918-02-V",
+      "caseCwe": "CWE-918",
+      "caseSinkLine": 31,
+      "caseRange": [
+        31,
+        31
+      ],
+      "message": "SSRF no proxy de imagens"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/integrations/routes/feed-fetch.ts",
+      "line": 35,
+      "cwe": "CWE-918",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-918-01-V",
+      "caseCwe": "CWE-918",
+      "caseSinkLine": 35,
+      "caseRange": [
+        35,
+        35
+      ],
+      "message": "SSRF na busca de feed de integracao"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/auth/routes/password-rotate.ts",
+      "line": 30,
+      "cwe": "CWE-916",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-916-01-V",
+      "caseCwe": "CWE-916",
+      "caseSinkLine": 30,
+      "caseRange": [
+        28,
+        30
+      ],
+      "message": "Derivacao de senha com PBKDF2 fraco"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/auth/routes/recovery-request.ts",
+      "line": 11,
+      "cwe": "CWE-338",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-338-01-V",
+      "caseCwe": "CWE-338",
+      "caseSinkLine": 11,
+      "caseRange": [
+        9,
+        13
+      ],
+      "message": "Token de recuperacao gerado com Math.random"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/auth/routes/login.ts",
+      "line": 29,
+      "cwe": "CWE-532",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-532-01-V",
+      "caseCwe": "CWE-532",
+      "caseSinkLine": 29,
+      "caseRange": [
+        27,
+        29
+      ],
+      "message": "Senha em texto claro gravada no log"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/orders/routes/payment.ts",
+      "line": 31,
+      "cwe": "CWE-532",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-532-02-V",
+      "caseCwe": "CWE-532",
+      "caseSinkLine": 31,
+      "caseRange": [
+        29,
+        31
+      ],
+      "message": "Dados de cartao gravados no log"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/integrations/routes/dispatch.ts",
+      "line": 25,
+      "cwe": "CWE-798",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-798-01-V",
+      "caseCwe": "CWE-798",
+      "caseSinkLine": 26,
+      "caseRange": [
+        25,
+        26
+      ],
+      "message": "Chave de API embutida no codigo"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/users/routes/store-document.ts",
+      "line": 20,
+      "cwe": "CWE-327",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-327-02-V",
+      "caseCwe": "CWE-327",
+      "caseSinkLine": 23,
+      "caseRange": [
+        20,
+        23
+      ],
+      "message": "Uso do modo de cifra ECB"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/orders/routes/receipt.ts",
+      "line": 33,
+      "cwe": "CWE-79",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-079-01-V",
+      "caseCwe": "CWE-79",
+      "caseSinkLine": 34,
+      "caseRange": [
+        31,
+        36
+      ],
+      "message": "XSS refletido no recibo"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/auth/routes/callback.ts",
+      "line": 32,
+      "cwe": "CWE-601",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-601-01-V",
+      "caseCwe": "CWE-601",
+      "caseSinkLine": 32,
+      "caseRange": [
+        32,
+        32
+      ],
+      "message": "Redirecionamento aberto no callback de autenticacao"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/users/routes/profile-validate.ts",
+      "line": 25,
+      "cwe": "CWE-1333",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-1333-01-V",
+      "caseCwe": "CWE-1333",
+      "caseSinkLine": 28,
+      "caseRange": [
+        25,
+        28
+      ],
+      "message": "Expressao regular vulneravel a ReDoS"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/system/routes/report.ts",
+      "line": 36,
+      "cwe": "CWE-209",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-209-01-V",
+      "caseCwe": "CWE-209",
+      "caseSinkLine": 36,
+      "caseRange": [
+        26,
+        37
+      ],
+      "message": "Stack trace exposto na resposta de erro"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/orders/routes/get-order.ts",
+      "line": 7,
+      "cwe": "CWE-639",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-639-01-V",
+      "caseCwe": "CWE-639",
+      "caseSinkLine": 7,
+      "caseRange": [
+        7,
+        7
+      ],
+      "message": "Referencia direta insegura a pedido de outro usuario"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/orders/routes/tracking-generate.ts",
+      "line": 29,
+      "cwe": "CWE-338",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-338-02-V",
+      "caseCwe": "CWE-338",
+      "caseSinkLine": 30,
+      "caseRange": [
+        28,
+        30
+      ],
+      "message": "Codigo de rastreio gerado com Math.random"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/reports/routes/convert-report.ts",
+      "line": 35,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-078-01-V",
+      "caseCwe": "CWE-78",
+      "caseSinkLine": 35,
+      "caseRange": [
+        33,
+        35
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/system/routes/diagnostics.ts",
+      "line": 31,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-078-02-V",
+      "caseCwe": "CWE-78",
+      "caseSinkLine": 31,
+      "caseRange": [
+        29,
+        31
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/orders/routes/preview.ts",
+      "line": 30,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-079-02-V",
+      "caseCwe": "CWE-79",
+      "caseSinkLine": 30,
+      "caseRange": [
+        27,
+        30
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/orders/routes/search-orders.ts",
+      "line": 33,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-089-01-V",
+      "caseCwe": "CWE-89",
+      "caseSinkLine": 33,
+      "caseRange": [
+        27,
+        33
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/integrations/routes/timing-parse.ts",
+      "line": 7,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-1104-01-V",
+      "caseCwe": "CWE-1104",
+      "caseSinkLine": 7,
+      "caseRange": [
+        7,
+        7
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/register.ts",
+      "line": 32,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-327-01-V",
+      "caseCwe": "CWE-327",
+      "caseSinkLine": 32,
+      "caseRange": [
+        29,
+        32
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/files/routes/upload.ts",
+      "line": 35,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-434-01-V",
+      "caseCwe": "CWE-434",
+      "caseSinkLine": 35,
+      "caseRange": [
+        34,
+        35
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/token.ts",
+      "line": 33,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-798-02-V",
+      "caseCwe": "CWE-798",
+      "caseSinkLine": 33,
+      "caseRange": [
+        29,
+        33
       ],
       "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
     },
@@ -15668,6 +16748,651 @@
       "caseRange": [
         34,
         35
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "fora-de-escopo",
+      "file": "server.ts",
+      "line": 11,
+      "cwe": "CWE-798",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": null,
+      "caseCwe": null,
+      "caseSinkLine": null,
+      "caseRange": null,
+      "message": "Credenciais criptograficas padrao embutidas"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/reports/routes/formula.ts",
+      "line": 133,
+      "cwe": "CWE-94",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-094-01-V",
+      "caseCwe": "CWE-94",
+      "caseSinkLine": 133,
+      "caseRange": [
+        133,
+        133
+      ],
+      "message": "Injecao de codigo via new Function"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/reports/routes/convert-report.ts",
+      "line": 34,
+      "cwe": "CWE-78",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-078-01-V",
+      "caseCwe": "CWE-78",
+      "caseSinkLine": 35,
+      "caseRange": [
+        33,
+        35
+      ],
+      "message": "Injecao de comando no convert de relatorio"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/orders/routes/get-order.ts",
+      "line": 7,
+      "cwe": "CWE-639",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-639-01-V",
+      "caseCwe": "CWE-639",
+      "caseSinkLine": 7,
+      "caseRange": [
+        7,
+        7
+      ],
+      "message": "IDOR na consulta de pedido"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "fora-de-escopo",
+      "file": "modules/orders/routes/tracking-issue.ts",
+      "line": 27,
+      "cwe": "CWE-639",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": null,
+      "caseCwe": null,
+      "caseSinkLine": null,
+      "caseRange": null,
+      "message": "IDOR na emissao de tracking"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "fora-de-escopo",
+      "file": "modules/orders/routes/tracking-generate.ts",
+      "line": 26,
+      "cwe": "CWE-639",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": null,
+      "caseCwe": null,
+      "caseSinkLine": null,
+      "caseRange": null,
+      "message": "IDOR na geracao de tracking"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/orders/routes/receipt.ts",
+      "line": 33,
+      "cwe": "CWE-79",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-079-01-V",
+      "caseCwe": "CWE-79",
+      "caseSinkLine": 34,
+      "caseRange": [
+        31,
+        36
+      ],
+      "message": "XSS refletido no recibo HTML"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "fora-de-escopo",
+      "file": "modules/orders/routes/settle.ts",
+      "line": 27,
+      "cwe": "CWE-639",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": null,
+      "caseCwe": null,
+      "caseSinkLine": null,
+      "caseRange": null,
+      "message": "IDOR na liquidacao de pedido"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "fora-de-escopo",
+      "file": "modules/orders/routes/payment.ts",
+      "line": 27,
+      "cwe": "CWE-639",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": null,
+      "caseCwe": null,
+      "caseSinkLine": null,
+      "caseRange": null,
+      "message": "IDOR no pagamento de pedido"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/system/routes/diagnostics.ts",
+      "line": 30,
+      "cwe": "CWE-78",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-078-02-V",
+      "caseCwe": "CWE-78",
+      "caseSinkLine": 31,
+      "caseRange": [
+        29,
+        31
+      ],
+      "message": "Injecao de comando no diagnostico"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/system/routes/purge.ts",
+      "line": 6,
+      "cwe": "CWE-306",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-306-01-V",
+      "caseCwe": "CWE-306",
+      "caseSinkLine": 8,
+      "caseRange": [
+        8,
+        10
+      ],
+      "message": "Purge sem autenticacao"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/orders/routes/preview.ts",
+      "line": 29,
+      "cwe": "CWE-79",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-079-02-V",
+      "caseCwe": "CWE-79",
+      "caseSinkLine": 30,
+      "caseRange": [
+        27,
+        30
+      ],
+      "message": "XSS refletido na previa de pedidos"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/system/routes/report.ts",
+      "line": 36,
+      "cwe": "CWE-209",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-209-01-V",
+      "caseCwe": "CWE-209",
+      "caseSinkLine": 36,
+      "caseRange": [
+        26,
+        37
+      ],
+      "message": "Pilha de erro exposta na resposta"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/users/routes/lookup-user.ts",
+      "line": 28,
+      "cwe": "CWE-89",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-089-02-V",
+      "caseCwe": "CWE-89",
+      "caseSinkLine": 29,
+      "caseRange": [
+        26,
+        29
+      ],
+      "message": "Injecao SQL na busca de email"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/users/routes/profile-validate.ts",
+      "line": 25,
+      "cwe": "CWE-1333",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-1333-01-V",
+      "caseCwe": "CWE-1333",
+      "caseSinkLine": 28,
+      "caseRange": [
+        25,
+        28
+      ],
+      "message": "ReDoS no nome comercial"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/users/routes/import-preferences.ts",
+      "line": 25,
+      "cwe": "CWE-502",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-502-01-V",
+      "caseCwe": "CWE-502",
+      "caseSinkLine": 25,
+      "caseRange": [
+        24,
+        25
+      ],
+      "message": "Desserializacao insegura com node-serialize"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/files/routes/image-proxy.ts",
+      "line": 31,
+      "cwe": "CWE-918",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-918-02-V",
+      "caseCwe": "CWE-918",
+      "caseSinkLine": 31,
+      "caseRange": [
+        31,
+        31
+      ],
+      "message": "SSRF no proxy de imagens"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/integrations/routes/feed-fetch.ts",
+      "line": 35,
+      "cwe": "CWE-918",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-918-01-V",
+      "caseCwe": "CWE-918",
+      "caseSinkLine": 35,
+      "caseRange": [
+        35,
+        35
+      ],
+      "message": "SSRF na coleta de feed"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/files/routes/download.ts",
+      "line": 18,
+      "cwe": "CWE-22",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-022-01-V",
+      "caseCwe": "CWE-22",
+      "caseSinkLine": 19,
+      "caseRange": [
+        18,
+        19
+      ],
+      "message": "Path traversal no download"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/integrations/routes/dispatch.ts",
+      "line": 25,
+      "cwe": "CWE-798",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-798-01-V",
+      "caseCwe": "CWE-798",
+      "caseSinkLine": 26,
+      "caseRange": [
+        25,
+        26
+      ],
+      "message": "API key de integracao hardcoded"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "fora-de-escopo",
+      "file": "modules/files/routes/upload.ts",
+      "line": 34,
+      "cwe": "CWE-22",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": null,
+      "caseCwe": null,
+      "caseSinkLine": null,
+      "caseRange": null,
+      "message": "Path traversal no nome do upload"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "verdadeiro-positivo",
+      "file": "modules/auth/routes/callback.ts",
+      "line": 32,
+      "cwe": "CWE-601",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": "C-601-01-V",
+      "caseCwe": "CWE-601",
+      "caseSinkLine": 32,
+      "caseRange": [
+        32,
+        32
+      ],
+      "message": "Redirect aberto no callback"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "fora-de-escopo",
+      "file": "modules/auth/routes/register.ts",
+      "line": 34,
+      "cwe": "CWE-201",
+      "ruleId": "assistant-finding",
+      "runId": "run1",
+      "caseId": null,
+      "caseCwe": null,
+      "caseSinkLine": null,
+      "caseRange": null,
+      "message": "Hash de senha devolvido no cadastro"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/files/routes/invoice-attachment.ts",
+      "line": 25,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-022-02-V",
+      "caseCwe": "CWE-22",
+      "caseSinkLine": 25,
+      "caseRange": [
+        23,
+        25
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/orders/routes/search-orders.ts",
+      "line": 33,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-089-01-V",
+      "caseCwe": "CWE-89",
+      "caseSinkLine": 33,
+      "caseRange": [
+        27,
+        33
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/integrations/routes/timing-parse.ts",
+      "line": 7,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-1104-01-V",
+      "caseCwe": "CWE-1104",
+      "caseSinkLine": 7,
+      "caseRange": [
+        7,
+        7
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/users/routes/admin-users.ts",
+      "line": 6,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-284-01-V",
+      "caseCwe": "CWE-284",
+      "caseSinkLine": 6,
+      "caseRange": [
+        6,
+        6
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/register.ts",
+      "line": 32,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-327-01-V",
+      "caseCwe": "CWE-327",
+      "caseSinkLine": 32,
+      "caseRange": [
+        29,
+        32
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/users/routes/store-document.ts",
+      "line": 23,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-327-02-V",
+      "caseCwe": "CWE-327",
+      "caseSinkLine": 23,
+      "caseRange": [
+        20,
+        23
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/recovery-request.ts",
+      "line": 11,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-338-01-V",
+      "caseCwe": "CWE-338",
+      "caseSinkLine": 11,
+      "caseRange": [
+        9,
+        13
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/orders/routes/tracking-generate.ts",
+      "line": 30,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-338-02-V",
+      "caseCwe": "CWE-338",
+      "caseSinkLine": 30,
+      "caseRange": [
+        28,
+        30
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/files/routes/upload.ts",
+      "line": 35,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-434-01-V",
+      "caseCwe": "CWE-434",
+      "caseSinkLine": 35,
+      "caseRange": [
+        34,
+        35
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/integrations/routes/apply-config.ts",
+      "line": 26,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-502-02-V",
+      "caseCwe": "CWE-502",
+      "caseSinkLine": 26,
+      "caseRange": [
+        25,
+        26
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/login.ts",
+      "line": 29,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-532-01-V",
+      "caseCwe": "CWE-532",
+      "caseSinkLine": 29,
+      "caseRange": [
+        27,
+        29
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/orders/routes/payment.ts",
+      "line": 31,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-532-02-V",
+      "caseCwe": "CWE-532",
+      "caseSinkLine": 31,
+      "caseRange": [
+        29,
+        31
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/token.ts",
+      "line": 33,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-798-02-V",
+      "caseCwe": "CWE-798",
+      "caseSinkLine": 33,
+      "caseRange": [
+        29,
+        33
+      ],
+      "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+    },
+    {
+      "instrument": "cursor",
+      "variant": "unanimidade",
+      "category": "falso-negativo",
+      "file": "modules/auth/routes/password-rotate.ts",
+      "line": 30,
+      "cwe": null,
+      "ruleId": "—",
+      "runId": "—",
+      "caseId": "C-916-01-V",
+      "caseCwe": "CWE-916",
+      "caseSinkLine": 30,
+      "caseRange": [
+        28,
+        30
       ],
       "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
     }

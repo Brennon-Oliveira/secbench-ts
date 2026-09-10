@@ -99,7 +99,7 @@ export function findingKey(f: NormalizedFinding): string {
 
 export type InstrumentScore = {
   instrument: string
-  variant: 'principal' | 'execucao' | 'maioria'
+  variant: 'principal' | 'execucao' | 'maioria' | 'unanimidade'
   kind: 'ferramenta' | 'assistente'
   findings: number
   truePositives: number
@@ -395,6 +395,21 @@ function main(): void {
       ),
     )
 
+    // Unanimidade: achado presente em TODAS as execuções consideradas. Critério
+    // NÃO previsto no protocolo (§6.7 fixa união, execução individual e maioria);
+    // entra como análise exploratória complementar, conforme §12, e não substitui
+    // o resultado principal.
+    const runsForUnanimity = principalSessions.length
+    const unanimous = [...counts.values()].filter((v) => v.n === runsForUnanimity).map((v) => v.f)
+    scores.push(
+      scoreInstrument(
+        { instrument: slug, variant: 'unanimidade', kind: 'assistente', findings: unanimous },
+        gt,
+        equiv,
+        classifications,
+      ),
+    )
+
     // §6.8 — estabilidade: achados presentes em todas as execuções sobre o total distinto.
     const runsConsidered = principalSessions.length
     const distinct = [...counts.values()]
@@ -415,6 +430,75 @@ function main(): void {
       stability: distinct.length === 0 ? 0 : inAll.length / distinct.length,
       runsConsidered,
       byCwe: byCweStab,
+    }
+  }
+
+  const vulnerableCount = gt.filter((c) => c.condition === 'vulnerable').length
+
+  /*
+   * Consolidação por caso sob unanimidade — análise exploratória complementar (§12),
+   * fora das três variantes que o §6.7 fixa. Difere da variante `unanimidade` acima:
+   * aqui o critério recai sobre o CASO (o caso foi detectado em todas as execuções,
+   * mesmo que a linha ou o CWE do achado variem entre elas), e não sobre a identidade
+   * do achado `arquivo|linha|CWE`. Ferramenta determinística tem execução única e não
+   * admite este critério.
+   */
+  type CaseLevelUnanimity = {
+    runs: number
+    casesInAllRuns: string[]
+    casesInTwoRuns: string[]
+    casesInOneRun: string[]
+    truePositives: number
+    falsePositivesPair: number
+    falseNegatives: number
+    precision: number
+    recall: number
+    f1: number
+    tpMinusFpRate: number
+  }
+  const caseLevelUnanimity: Record<string, CaseLevelUnanimity> = {}
+  for (const slug of assistantSlugs) {
+    const runIds = sessions
+      .filter((s) => s.slug === slug && s.inPrincipal)
+      .map((s) => `${slug} run${s.run}`)
+    const detectedPerRun = runIds.map(
+      (id) => new Set(scores.find((x) => x.instrument === id && x.variant === 'execucao')?.detectedCases ?? []),
+    )
+    const fpPerRun = runIds.map(
+      (id) =>
+        new Set(
+          classifications
+            .filter((c) => c.instrument === id && c.variant === 'execucao' && c.category === 'falso-positivo-par')
+            .map((c) => c.caseId!)
+            .filter(Boolean),
+        ),
+    )
+    const allCases = new Set(detectedPerRun.flatMap((s) => [...s]))
+    const timesDetected = (id: string) => detectedPerRun.filter((s) => s.has(id)).length
+    const inAll = [...allCases].filter((c) => timesDetected(c) === runIds.length).sort()
+    const inTwo = [...allCases].filter((c) => timesDetected(c) === 2).sort()
+    const inOne = [...allCases].filter((c) => timesDetected(c) === 1).sort()
+    const allFp = new Set(fpPerRun.flatMap((s) => [...s]))
+    const fpInAll = [...allFp].filter((c) => fpPerRun.filter((s) => s.has(c)).length === runIds.length)
+
+    const tp = inAll.length
+    const fp = fpInAll.length
+    const fn = vulnerableCount - tp
+    const precision = tp + fp === 0 ? 0 : tp / (tp + fp)
+    const recall = vulnerableCount === 0 ? 0 : tp / vulnerableCount
+    const safeCount = gt.length - vulnerableCount
+    caseLevelUnanimity[slug] = {
+      runs: runIds.length,
+      casesInAllRuns: inAll,
+      casesInTwoRuns: inTwo,
+      casesInOneRun: inOne,
+      truePositives: tp,
+      falsePositivesPair: fp,
+      falseNegatives: fn,
+      precision,
+      recall,
+      f1: precision + recall === 0 ? 0 : (2 * precision * recall) / (precision + recall),
+      tpMinusFpRate: recall - (safeCount ? fp / safeCount : 0),
     }
   }
 
@@ -440,7 +524,6 @@ function main(): void {
     exclusive[name] = { count: only.length, cases: only }
   }
 
-  const vulnerableCount = gt.filter((c) => c.condition === 'vulnerable').length
   const unionOf = (keys: string[]): Set<string> => {
     const acc = new Set<string>()
     for (const k of keys) for (const c of detected.get(k) ?? []) acc.add(c)
@@ -478,6 +561,7 @@ function main(): void {
     corpus: { vulnerableCases: vulnerableCount, safeCases: gt.length - vulnerableCount, files: totalCorpusFiles },
     instruments: scores,
     stability: assistantStability,
+    caseLevelUnanimity,
     jaccard: jaccardPairs,
     exclusiveContribution: exclusive,
     unions: {
@@ -535,6 +619,24 @@ function main(): void {
       `Janela de linhas: ±${LINE_WINDOW}. Identidade de achado: \`file|line|cwe\`.`,
     '',
   )
+  md.push('## Legenda das colunas', '')
+  md.push('| Coluna | Significado |', '| --- | --- |')
+  md.push(
+    '| Achados | achados considerados na variante |',
+    '| VP | verdadeiro positivo (§4.1): arquivo do caso vulnerável, linha em ±5 do sink, CWE no conjunto de equivalência (§7.3); no máximo um por caso e por instrumento |',
+    '| FP par | falso positivo de par (§4.2): achado no intervalo do membro protegido do par, com CWE equivalente |',
+    '| FN | falso negativo (§4.4): caso vulnerável sem verdadeiro positivo |',
+    '| Fora de escopo | §4.3: achado que não corresponde a caso declarado; fora do cálculo da precisão |',
+    '| Redundantes | §4.1: achados excedentes sobre caso já contado como verdadeiro positivo |',
+    '| Sem localização | §4.5: achado sem linha ou com linha zero |',
+    '| Não mapeados | §4.6: CWE não resolvido pela ordem do §7.1 |',
+    '| Precisão | VP ÷ (VP + FP par) |',
+    `| Revocação | VP ÷ ${vulnerableCount} (casos vulneráveis) |`,
+    '| F1 | média harmônica de precisão e revocação |',
+    '| VP−FP | (VP ÷ casos vulneráveis) − (FP par ÷ casos protegidos); índice de Youden |',
+    '| Variante | execucao = uma sessão; principal = união das três (§6.7); maioria = em ao menos duas (§6.7); unanimidade = nas três (fora do protocolo) |',
+  )
+  md.push('')
   md.push('## Resultado principal por instrumento', '')
   md.push(
     '| Instrumento | Variante | Achados | VP | FP par | FN | Fora de escopo | Redundantes | Sem localização | Não mapeados | Precisão | Revocação | F1 | VP−FP |',
@@ -542,12 +644,47 @@ function main(): void {
   )
   for (const s of principal) md.push(row(s))
 
-  md.push('', '## Assistentes: por execução, união e maioria', '')
+  md.push(
+    '',
+    '## Assistentes: por execução, união, maioria e unanimidade',
+    '',
+    'A variante `unanimidade` (achado presente nas três execuções) **não** faz parte do protocolo, ' +
+      'que fixa em §6.7 união, execução individual e maioria. Ela consta como análise exploratória ' +
+      'complementar (§12) e não substitui o resultado principal, que é a união.',
+    '',
+  )
   md.push(
     '| Instrumento | Variante | Achados | VP | FP par | FN | Fora de escopo | Redundantes | Sem localização | Não mapeados | Precisão | Revocação | F1 | VP−FP |',
     '| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |',
   )
   for (const s of scores.filter((x) => x.kind === 'assistente')) md.push(row(s))
+
+  md.push(
+    '',
+    '## Consolidação por caso sob unanimidade — análise exploratória complementar',
+    '',
+    'Critério: o caso conta como detectado apenas se foi detectado em **todas** as execuções do',
+    'assistente, ainda que a linha ou o CWE do achado variem entre elas. Não faz parte do protocolo',
+    '(§6.7 fixa união, execução individual e maioria) e não substitui o resultado principal.',
+    'Ferramenta determinística tem execução única e não admite este critério.',
+    '',
+    '| Assistente | Execuções | Casos em todas | Casos em 2 | Casos em 1 | VP | FP par | FN | Precisão | Revocação | F1 | VP−FP |',
+    '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |',
+  )
+  for (const [slug, v] of Object.entries(caseLevelUnanimity)) {
+    md.push(
+      `| ${slug} | ${v.runs} | ${v.casesInAllRuns.length} | ${v.casesInTwoRuns.length} | ${v.casesInOneRun.length} | ` +
+        `${v.truePositives} | ${v.falsePositivesPair} | ${v.falseNegatives} | ${v.precision.toFixed(3)} | ` +
+        `${v.recall.toFixed(3)} | ${v.f1.toFixed(3)} | ${v.tpMinusFpRate.toFixed(3)} |`,
+    )
+  }
+  md.push('', 'Casos detectados em parte das execuções, por assistente:', '')
+  for (const [slug, v] of Object.entries(caseLevelUnanimity)) {
+    md.push(
+      `- ${slug} — em duas execuções: ${v.casesInTwoRuns.join(', ') || '—'}; ` +
+        `em uma execução: ${v.casesInOneRun.join(', ') || '—'}`,
+    )
+  }
 
   md.push('', '## Estabilidade dos assistentes (§6.8)', '')
   md.push('| Assistente | Achados distintos | Presentes nas três execuções | Estabilidade |', '| --- | ---: | ---: | ---: |')
