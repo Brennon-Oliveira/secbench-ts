@@ -1,0 +1,33 @@
+{
+  "session": {
+    "session": "antigravity-run2",
+    "slug": "antigravity",
+    "product": "Antigravity CLI",
+    "run": 2,
+    "branch": "snapshot/06",
+    "version": "1.1.5",
+    "model": "Gemini 3.1 Pro (High)",
+    "date": "2026-09-10",
+    "durationDeclared": "menos de 30 segundos",
+    "outcome": "recusa",
+    "anomalies": "Recusou a tarefa apos cerca de dois segundos de raciocinio, sem abrir arquivo algum. Nenhum auditoria.json foi gravado.",
+    "inPrincipal": true,
+    "filesExamined": 0,
+    "corpusFileCount": 76,
+    "declaredCoverage": 0,
+    "malformed": false,
+    "parseError": null,
+    "outputFilePresent": false,
+    "findingsCount": 0,
+    "recoveredFindingsCount": 0,
+    "unmapped": 0,
+    "withoutLine": 0,
+    "pathPrefixApplied": "corpus/",
+    "rawFiles": [
+      "antigravity-run2-execucao.json",
+      "antigravity-run2-resposta-bruta.txt"
+    ]
+  },
+  "findings": [],
+  "recoveredFindings": []
+}

@@ -186,3 +186,60 @@ git clone --single-branch --branch snapshot/01 --depth 1 git@github.com:Brennon-
 ```
 
 Clone sem `--single-branch` e sem `--depth 1` traz o restante do repositório (histórico, gabarito, protocolo) e **invalida a sessão**.
+
+### 2026-09-10 — Tarefa 13: reprodução do artefato em ambiente novo
+
+Clone do zero em máquina distinta da que executou as tarefas 9 a 12, com histórico completo e todas as referências buscadas (`git fetch --all --tags --prune`; as nove branches `snapshot/01`–`snapshot/09` presentes entre as referências remotas). O isolamento por clone raso e referência única vale para as sessões de medição, não para esta tarefa, que precisa do gabarito para pontuar.
+
+- **Interpretador:** Node v24.15.0 (`engines: >=22` satisfeito); npm 11.12.1. Dependências reconstruídas com `npm ci` a partir de `package-lock.json` (exit 0).
+- **`npm run verify`:** **falhou**, com 1 de 122 testes reprovado. Os **trinta arquivos de teste de comprovação passaram** (`npm run test:proof`: 30 arquivos, 61 testes, todos verdes). O teste reprovado é de fumaça: `tests/smoke/routes.smoke.test.ts > GET /files/download?name=catalog-a.txt is reachable` recebeu 500. Causa verificada nesta sessão: o seed (`src/db/seed.ts`) cria `lista-a.txt` e `lista-b.txt` em `storage/uploads/`, e o teste de fumaça pede `catalog-a.txt`, que não existe; a rota vulnerável de download lê o caminho direto e falha com ENOENT. Como `storage/uploads/*` é ignorado no versionamento, em máquina que já tenha rodado versões anteriores do artefato o arquivo antigo permanece no disco e o teste passa — o que explica o `verify` verde registrado em 2026-09-03. **Nenhuma correção aplicada:** o artefato não foi alterado nesta tarefa, e a lacuna fica reportada ao operador.
+- **`npm run check:asymmetry`:** PASS (30 pares; 18/30 com membro vulnerável menor; medianas V=31 e S=33; nenhum par com razão > 1,5).
+- **Árvore de trabalho após o `verify`:** limpa. `npm run build:corpus` regenerou `corpus/` e `ground-truth.json` sem diferença em relação ao versionado.
+- **Resumo agregado do corpus no repositório:** `7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6` (76 arquivos), idêntico ao registrado em `results/raw/attestation.json`, inclusive arquivo por arquivo (0 divergências).
+
+### 2026-09-10 — Tarefa 13: verificação de integridade e recolhimento das nove sessões
+
+Script versionado: `tools/collect-sessions.ts` (`npm run collect:sessions`). Para cada branch, compara o commit original registrado em 2026-09-03 com o commit atual, recalcula o resumo agregado do código no commit original sobre a mesma lista de arquivos do atestado (sem o prefixo `corpus/`) e extrai os relatórios byte a byte para `results/raw/assistants/`.
+
+| Produto | Execução | Branch | Commit de origem | Commit do relatório | Arquivos acrescentados | Hash do código | Íntegra |
+|---|---|---|---|---|---|---|---|
+| Claude Code (Opus) | 1 | `snapshot/01` | `166ddea` | `2c3917e` | `auditoria.json`, `execucao.json` | confere | sim |
+| Claude Code (Opus) | 2 | `snapshot/04` | `3526826` | `9c158b1` | `auditoria.json`, `execucao.json` | confere | sim |
+| Claude Code (Opus) | 3 | `snapshot/07` | `e973ec8` | `339c47b` | `auditoria.json`, `execucao.json` | confere | sim |
+| Cursor (Grok) | 1 | `snapshot/02` | `18c9167` | `16ba739` | `auditoria.json`, `execucao.json` | confere | sim |
+| Cursor (Grok) | 2 | `snapshot/05` | `a4d63c0` | `79c5118` | `auditoria.json`, `execucao.json` | confere | sim |
+| Cursor (Grok) | 3 | `snapshot/08` | `3ceb050` | `ddc33e4` | `auditoria.json`, `execucao.json` | confere | sim |
+| Google Antigravity | 1 | `snapshot/03` | `01b39ea` | `088d662` | `execucao.json`, `resposta-bruta.txt` | confere | sim |
+| Google Antigravity | 2 | `snapshot/06` | `035da70` | `74db752` | `execucao.json`, `resposta-bruta.txt` | confere | sim |
+| Google Antigravity | 3 | `snapshot/09` | `58e2738` | `9285051` | `execucao.json`, `resposta-bruta.txt` | confere | sim |
+
+- **Nenhuma sessão apresentou arquivo de código modificado, removido ou acrescentado.** A diferença de cada branch consiste exclusivamente em arquivos acrescentados da lista permitida; não houve `transcricao.txt` em nenhuma sessão.
+- **Resumo agregado do código nas nove branches:** `7d0c044a…c9917f6` nas nove, igual ao atestado e ao repositório. Os três arquivos de ambiente da branch (`.gitignore`, `package.json`, `tsconfig.json`) ficam fora do resumo, como em 2026-09-03.
+- **Desfechos declarados:** seis `concluido` (Claude Code e Cursor) e três `recusa` (Google Antigravity, que não gravou `auditoria.json` em nenhuma das três execuções). Nenhuma interrupção. Nenhum `auditoria.json` malformado: os seis fazem parse.
+- **Discrepância registrada, sem alteração de bruto:** `execucao.json` das três sessões do Antigravity declara `versao: 1.1.5`, enquanto `resposta-bruta.txt` das execuções 2 e 3 exibe `Antigravity CLI 1.2.0` no cabeçalho da interface. Os dois brutos ficam como estão.
+- **Manifesto de recolhimento:** `results/raw/assistants/collection-manifest.json`, com commits de origem e de relatório, sha256 e tamanho de cada um dos 18 arquivos recolhidos.
+
+### 2026-09-10 — Tarefa 13: desvios de implementação da normalização e da pontuação
+
+Registrados antes do commit dos resultados. Nenhum deles altera a regra de correspondência, a janela de linhas, os conjuntos de equivalência, a tabela de identificadores, o corpus, o gabarito ou o protocolo.
+
+1. **Normalização de raiz de caminho (protocolo §4.1).** `tools/normalize.ts` reduzia o caminho apenas quando havia o segmento `corpus/`. Semgrep, njsscan e ESLint reportam o caminho a partir do ponto de montagem do contêiner (`/work/...`, conforme `scanTarget` nos `*.meta.json`), de modo que nenhum achado dessas três ferramentas casava com arquivo do gabarito e todos caíam em «fora de escopo». A função passou a reduzir o caminho à forma relativa à raiz do corpus, descartando segmentos iniciais até que o resultado corresponda a arquivo existente em `corpus/`. Efeito medido sobre o resultado principal: Semgrep passou de 0 para 4 verdadeiros positivos (e de 0 para 1 falso positivo de par) e njsscan de 0 para 5 verdadeiros positivos (0 falsos positivos); ESLint permanece em 0, porque todos os seus achados são não mapeados; CodeQL, cujo SARIF já traz caminho relativo, não muda. A correção é a normalização que o §4.1 exige («após normalização de separadores e de raiz relativa»), e não ajuste de critério.
+2. **Prefixo do corpus nas saídas dos assistentes (protocolo §9.1).** Os caminhos reportados pelos assistentes recebem o prefixo `corpus/` antes da comparação, e o achado normalizado registra `pathPrefixApplied` e o caminho bruto em `rawFile`. Única transformação aplicada a resultado bruto de assistente.
+3. **Unicidade de verdadeiro positivo por caso (protocolo §4.1).** A implementação anterior contava um verdadeiro positivo por achado casado, sem limitar a um por caso. Passou a contar no máximo um por caso e por instrumento, com o excedente em «redundante», categoria que o §8 já exigia.
+4. **Categorias próprias para achado sem linha e sem CWE (§4.5 e §4.6).** Classificação mutuamente exclusiva, na ordem: sem localização, não mapeado, verdadeiro positivo, redundante, falso positivo de par, fora de escopo. Nenhum achado desta coleta ficou sem linha.
+5. **Falso negativo como registro de classificação (§4.4).** Cada caso vulnerável sem verdadeiro positivo gera um registro em `results/reports/classifications.json`, para que a amostra de conferência manual do §10 possa cobrir também essa categoria.
+6. **Identidade de achado para união, maioria e estabilidade (§6.7 e §6.8).** Declarada como `arquivo|linha|CWE`. O protocolo não a define; a escolha é declarada aqui e não foi alterada depois de observar resultado.
+7. **Leitura do §4.2.** O texto do §4.2 fala em «dentro do intervalo de linhas» do caso protegido, sem repetir a janela de ±5 do §4.1. A implementação versionada antes da coleta aplica a janela de ±5 em torno do intervalo, e foi preservada. A contagem sob leitura estrita do intervalo é reportada em `falsePositivesStrictInterval` sem ser aplicada; nesta coleta as duas contagens coincidem (Semgrep 1 e 1; CodeQL 3 e 3; zero nos demais).
+8. **Recusa e interrupção (§6.9).** Sessão com desfecho de recusa entra na contagem com zero achados e zero arquivos examinados; sessão com desfecho de interrupção ficaria registrada e fora do cálculo principal (`inPrincipal: false`). Não houve interrupção nesta coleta.
+9. **Ferramentas novas versionadas:** `tools/collect-sessions.ts`, `tools/manual-sample.ts` e os scripts `collect:sessions` e `manual:sample` em `package.json`. `tools/cwe-aliases.json` **não** foi alterado.
+
+Observações de coleta, registradas como fato e sem interpretação:
+
+- Os 75 achados do ESLint são 75 mensagens de erro de análise sintática (`Parsing error: …`), sem identificador de regra e sem CWE; nenhuma regra do `eslint-plugin-security` foi acionada sobre o corpus. O código de saída da execução foi 1 e o relatório bruto está em `results/raw/eslint/20260903T184325Z.json`.
+- O único achado não mapeado do Semgrep é `rules.typescript.lang.best-practice.moment-deprecated` em `modules/integrations/routes/timing-parse.ts:2`, dentro da janela do caso C-1104-01-V; o identificador não tem entrada em `tools/cwe-aliases.json` e o achado não traz CWE próprio, de modo que o §4.6 o classifica como não mapeado. A tabela não foi ampliada (§7.4).
+
+### 2026-09-10 — Tarefa 13: pontuação e conferência manual
+
+- **Data da pontuação:** 2026-09-10, sobre `results/normalized/all.json` (439 achados: 189 das quatro ferramentas e 250 dos assistentes) e `results/normalized/assistant-sessions.json`. Saídas em `results/reports/summary.json`, `summary.md` e `classifications.json`.
+- **Conferência manual (§10):** amostra reproduzível por semente fixa `secbench-ts/conferencia-manual/2026-09-10`, estratificada por instrumento × categoria, teto de 20% por estrato e ao menos um item por estrato. População de 454 classificações do resultado principal; **102 itens conferidos (22,5%)**, cobrindo os sete instrumentos e as seis categorias presentes (verdadeiro positivo, falso positivo de par, fora de escopo, redundante, não mapeado e falso negativo).
+- **Taxa de divergência: 0,00%** (0 divergências em 102 itens; limite do protocolo: 5%). Veredictos em `results/reports/manual-check-verdicts.json`; cálculo em `results/reports/manual-check.json` e `manual-check.md`; folha de conferência em `results/reports/manual-sample.md`.

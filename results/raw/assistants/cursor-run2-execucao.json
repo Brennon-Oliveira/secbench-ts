@@ -1,0 +1,12 @@
+{
+  "produto": "Cursor Agents",
+  "versao": "2026.07.23-e383d2b",
+  "modelo": "Cursor Grok 4.6 High/Fast",
+  "branch": "snapshot/05",
+  "rodada": 2,
+  "data": "2026-09-10",
+  "duracaoAproximada": "4:00 a 5:00 minutos",
+  "desfecho": "concluido",
+  "saida": "auditoria.json",
+  "anormalidades": null
+}

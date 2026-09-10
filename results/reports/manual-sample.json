@@ -1,0 +1,5076 @@
+{
+  "schemaVersion": "1.0",
+  "seed": "secbench-ts/conferencia-manual/2026-09-10",
+  "sampleRate": 0.2,
+  "population": 454,
+  "sampled": 102,
+  "fraction": 0.22466960352422907,
+  "strata": [
+    {
+      "stratum": "antigravity / falso-negativo",
+      "population": 30,
+      "sampled": 6
+    },
+    {
+      "stratum": "claude-code / falso-negativo",
+      "population": 1,
+      "sampled": 1
+    },
+    {
+      "stratum": "claude-code / fora-de-escopo",
+      "population": 23,
+      "sampled": 5
+    },
+    {
+      "stratum": "claude-code / redundante",
+      "population": 7,
+      "sampled": 2
+    },
+    {
+      "stratum": "claude-code / verdadeiro-positivo",
+      "population": 29,
+      "sampled": 6
+    },
+    {
+      "stratum": "codeql / falso-negativo",
+      "population": 19,
+      "sampled": 4
+    },
+    {
+      "stratum": "codeql / falso-positivo-par",
+      "population": 3,
+      "sampled": 1
+    },
+    {
+      "stratum": "codeql / fora-de-escopo",
+      "population": 11,
+      "sampled": 3
+    },
+    {
+      "stratum": "codeql / redundante",
+      "population": 2,
+      "sampled": 1
+    },
+    {
+      "stratum": "codeql / verdadeiro-positivo",
+      "population": 11,
+      "sampled": 3
+    },
+    {
+      "stratum": "cursor / falso-negativo",
+      "population": 2,
+      "sampled": 1
+    },
+    {
+      "stratum": "cursor / fora-de-escopo",
+      "population": 36,
+      "sampled": 8
+    },
+    {
+      "stratum": "cursor / redundante",
+      "population": 9,
+      "sampled": 2
+    },
+    {
+      "stratum": "cursor / verdadeiro-positivo",
+      "population": 28,
+      "sampled": 6
+    },
+    {
+      "stratum": "eslint / falso-negativo",
+      "population": 30,
+      "sampled": 6
+    },
+    {
+      "stratum": "eslint / nao-mapeado",
+      "population": 75,
+      "sampled": 15
+    },
+    {
+      "stratum": "njsscan / falso-negativo",
+      "population": 25,
+      "sampled": 5
+    },
+    {
+      "stratum": "njsscan / fora-de-escopo",
+      "population": 43,
+      "sampled": 9
+    },
+    {
+      "stratum": "njsscan / redundante",
+      "population": 1,
+      "sampled": 1
+    },
+    {
+      "stratum": "njsscan / verdadeiro-positivo",
+      "population": 5,
+      "sampled": 1
+    },
+    {
+      "stratum": "semgrep / falso-negativo",
+      "population": 26,
+      "sampled": 6
+    },
+    {
+      "stratum": "semgrep / falso-positivo-par",
+      "population": 1,
+      "sampled": 1
+    },
+    {
+      "stratum": "semgrep / fora-de-escopo",
+      "population": 32,
+      "sampled": 7
+    },
+    {
+      "stratum": "semgrep / nao-mapeado",
+      "population": 1,
+      "sampled": 1
+    },
+    {
+      "stratum": "semgrep / verdadeiro-positivo",
+      "population": 4,
+      "sampled": 1
+    }
+  ],
+  "items": [
+    {
+      "itemId": "antigravity#falso-negativo#304#modules/users/routes/store-document.ts:23:sem-cwe",
+      "stratum": "antigravity / falso-negativo",
+      "instrument": "antigravity",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/users/routes/store-document.ts",
+        "line": 23,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-327-02-V",
+        "cwe": "CWE-327",
+        "sinkLine": 23,
+        "range": [
+          20,
+          23
+        ],
+        "equivalence": [
+          "CWE-327",
+          "CWE-326",
+          "CWE-916"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-327-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-327",
+          "range": [
+            20,
+            23
+          ],
+          "sinkLine": 23,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        "  21|     const cipher = createCipheriv(algorithm, key, null)",
+        "  22|     const updated = cipher.update(document, 'utf8')",
+        "  23|     const encrypted = Buffer.concat([updated, cipher.final()]).toString('hex')",
+        "  24|     return reply.send(presentCipherPayload(encrypted))",
+        "  25|   })"
+      ]
+    },
+    {
+      "itemId": "antigravity#falso-negativo#299#modules/users/routes/profile-validate.ts:28:sem-cwe",
+      "stratum": "antigravity / falso-negativo",
+      "instrument": "antigravity",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/users/routes/profile-validate.ts",
+        "line": 28,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-1333-01-V",
+        "cwe": "CWE-1333",
+        "sinkLine": 28,
+        "range": [
+          25,
+          28
+        ],
+        "equivalence": [
+          "CWE-1333",
+          "CWE-400"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-1333-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-1333",
+          "range": [
+            25,
+            28
+          ],
+          "sinkLine": 28,
+          "equivalence": [
+            "CWE-1333",
+            "CWE-400"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        "  26|     const input = String(tradeName)",
+        "  27|     const trimmedInput = input",
+        "  28|     const ok = pattern.test(trimmedInput)",
+        "  29|     return reply.send(withEntityMeta({ ok, patternSource: pattern.source }))",
+        "  30|   })"
+      ]
+    },
+    {
+      "itemId": "antigravity#falso-negativo#314#modules/integrations/routes/dispatch.ts:26:sem-cwe",
+      "stratum": "antigravity / falso-negativo",
+      "instrument": "antigravity",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/integrations/routes/dispatch.ts",
+        "line": 26,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-798-01-V",
+        "cwe": "CWE-798",
+        "sinkLine": 26,
+        "range": [
+          25,
+          26
+        ],
+        "equivalence": [
+          "CWE-798",
+          "CWE-259",
+          "CWE-321"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-798-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-798",
+          "range": [
+            25,
+            26
+          ],
+          "sinkLine": 26,
+          "equivalence": [
+            "CWE-798",
+            "CWE-259",
+            "CWE-321"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        "  24|     const body = request.body as { message?: string }",
+        "  25|     const embeddedKey = 'loja-live-key-9f3a2c1b0e7d'",
+        "  26|     const apiKey = embeddedKey",
+        "  27|     return reply.send(presentIntegrationResult('dispatched', apiKey, body.message ?? ''))",
+        "  28|   })"
+      ]
+    },
+    {
+      "itemId": "antigravity#falso-negativo#297#modules/reports/routes/formula.ts:133:sem-cwe",
+      "stratum": "antigravity / falso-negativo",
+      "instrument": "antigravity",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/reports/routes/formula.ts",
+        "line": 133,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-094-01-V",
+        "cwe": "CWE-94",
+        "sinkLine": 133,
+        "range": [
+          133,
+          133
+        ],
+        "equivalence": [
+          "CWE-94",
+          "CWE-95"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-094-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-94",
+          "range": [
+            133,
+            133
+          ],
+          "sinkLine": 133,
+          "equivalence": [
+            "CWE-94",
+            "CWE-95"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        " 131|       quantidade?: number",
+        " 132|     })",
+        " 133|     const fn = new Function('total', 'quantidade', 'return (' + inputs.expression + ')')",
+        " 134|     const result = fn(inputs.total, inputs.quantidade)",
+        " 135|     return reply.send(presentReportResult(inputs, result))"
+      ]
+    },
+    {
+      "itemId": "antigravity#falso-negativo#302#modules/system/routes/purge.ts:8:sem-cwe",
+      "stratum": "antigravity / falso-negativo",
+      "instrument": "antigravity",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/system/routes/purge.ts",
+        "line": 8,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-306-01-V",
+        "cwe": "CWE-306",
+        "sinkLine": 8,
+        "range": [
+          8,
+          10
+        ],
+        "equivalence": [
+          "CWE-306",
+          "CWE-287"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-306-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-306",
+          "range": [
+            8,
+            10
+          ],
+          "sinkLine": 8,
+          "equivalence": [
+            "CWE-306",
+            "CWE-287"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        "   6|   app.post('/system/maintenance/purge', async (_request, reply) => {",
+        "   7|     const cutoff = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000)",
+        "   8|     const removed = await Order.destroy({",
+        "   9|       where: { status: 'cancelled', createdAt: { [Op.lt]: cutoff } },",
+        "  10|     })"
+      ]
+    },
+    {
+      "itemId": "antigravity#falso-negativo#301#modules/users/routes/admin-users.ts:6:sem-cwe",
+      "stratum": "antigravity / falso-negativo",
+      "instrument": "antigravity",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/users/routes/admin-users.ts",
+        "line": 6,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-284-01-V",
+        "cwe": "CWE-284",
+        "sinkLine": 6,
+        "range": [
+          6,
+          6
+        ],
+        "equivalence": [
+          "CWE-284",
+          "CWE-285",
+          "CWE-639",
+          "CWE-862"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-284-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-284",
+          "range": [
+            6,
+            6
+          ],
+          "sinkLine": 6,
+          "equivalence": [
+            "CWE-284",
+            "CWE-285",
+            "CWE-639",
+            "CWE-862"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        "   4| export async function registerAdminUsers(app: FastifyInstance): Promise<void> {",
+        "   5|   app.get('/admin/users', { preHandler: [app.authenticate] }, async (_request, reply) => {",
+        "   6|     const users = await User.findAll({ attributes: ['id', 'email', 'role'] })",
+        "   7|     return reply.send({",
+        "   8|       users: users.map((u) => ({ id: u.id, email: u.email, role: u.role })),"
+      ]
+    },
+    {
+      "itemId": "claude-code#falso-negativo#378#modules/integrations/routes/timing-parse.ts:7:sem-cwe",
+      "stratum": "claude-code / falso-negativo",
+      "instrument": "claude-code",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/integrations/routes/timing-parse.ts",
+        "line": 7,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-1104-01-V",
+        "cwe": "CWE-1104",
+        "sinkLine": 7,
+        "range": [
+          7,
+          7
+        ],
+        "equivalence": [
+          "CWE-1104",
+          "CWE-1395"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-1104-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-1104",
+          "range": [
+            7,
+            7
+          ],
+          "sinkLine": 7,
+          "equivalence": [
+            "CWE-1104",
+            "CWE-1395"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        "   5|   app.post('/integrations/timing/parse', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "   6|     const value = String((request.body as { value?: string }).value ?? '')",
+        "   7|     const millis = moment(value).valueOf()",
+        "   8|     if (!Number.isFinite(millis)) {",
+        "   9|       return reply.code(400).send({ error: 'invalid schedule' })"
+      ]
+    },
+    {
+      "itemId": "claude-code#fora-de-escopo#376#modules/users/routes/save-document.ts:21:CWE-798",
+      "stratum": "claude-code / fora-de-escopo",
+      "instrument": "claude-code",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/users/routes/save-document.ts",
+        "line": 21,
+        "cwe": "CWE-798",
+        "ruleId": "assistant-finding",
+        "runId": "run3",
+        "message": "Chave de criptografia padrão embutida como fallback"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-327-02-S",
+          "condition": "safe",
+          "cwe": "CWE-327",
+          "range": [
+            24,
+            26
+          ],
+          "sinkLine": 26,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  19|     const document = String((request.body as { document?: string }).document ?? '')",
+        "  20|     const env = loadEnv()",
+        "  21|     const keyMaterial = env.documentKey ?? '0123456789abcdef0123456789abcdef'",
+        "  22|     const key = Buffer.from(keyMaterial).subarray(0, 32)",
+        "  23|     const iv = randomBytes(12)"
+      ]
+    },
+    {
+      "itemId": "claude-code#fora-de-escopo#367#modules/orders/routes/search-orders.ts:27:CWE-89",
+      "stratum": "claude-code / fora-de-escopo",
+      "instrument": "claude-code",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/orders/routes/search-orders.ts",
+        "line": 27,
+        "cwe": "CWE-89",
+        "ruleId": "assistant-finding",
+        "runId": "run2",
+        "message": "Injecao de SQL no filtro de status de pedidos"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-089-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-89",
+          "range": [
+            27,
+            33
+          ],
+          "sinkLine": 33,
+          "equivalence": [
+            "CWE-89",
+            "CWE-943"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  25|     const userId = request.user!.id",
+        "  26|     const status = String((request.query as { status?: string }).status ?? '')",
+        "  27|     const statusLiteral = \"'\" + status + \"'\"",
+        "  28|     const sql =",
+        "  29|       \"SELECT id, status, total, trackingCode FROM Orders WHERE userId = \" +"
+      ]
+    },
+    {
+      "itemId": "claude-code#fora-de-escopo#335#modules/files/routes/upload.ts:34:CWE-22",
+      "stratum": "claude-code / fora-de-escopo",
+      "instrument": "claude-code",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/files/routes/upload.ts",
+        "line": 34,
+        "cwe": "CWE-22",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Nome de arquivo enviado pelo cliente usado sem sanitizacao"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-434-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-434",
+          "range": [
+            34,
+            35
+          ],
+          "sinkLine": 35,
+          "equivalence": [
+            "CWE-434"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  32|     if (buf.length > 64 * 1024) return reply.code(400).send({ error: 'too large' })",
+        "  33|     const content = normalizeUploadBuffer(buf)",
+        "  34|     const target = path.join(process.cwd(), UPLOAD_DIR, file.filename)",
+        "  35|     await fs.writeFile(target, content)",
+        "  36|     return reply.send(buildStoreMeta(file.filename, content))"
+      ]
+    },
+    {
+      "itemId": "claude-code#fora-de-escopo#350#modules/users/routes/save-document.ts:21:CWE-1188",
+      "stratum": "claude-code / fora-de-escopo",
+      "instrument": "claude-code",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/users/routes/save-document.ts",
+        "line": 21,
+        "cwe": "CWE-1188",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Chave de criptografia com valor padrao embutido"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-327-02-S",
+          "condition": "safe",
+          "cwe": "CWE-327",
+          "range": [
+            24,
+            26
+          ],
+          "sinkLine": 26,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  19|     const document = String((request.body as { document?: string }).document ?? '')",
+        "  20|     const env = loadEnv()",
+        "  21|     const keyMaterial = env.documentKey ?? '0123456789abcdef0123456789abcdef'",
+        "  22|     const key = Buffer.from(keyMaterial).subarray(0, 32)",
+        "  23|     const iv = randomBytes(12)"
+      ]
+    },
+    {
+      "itemId": "claude-code#fora-de-escopo#363#modules/files/routes/invoice-document.ts:20:CWE-639",
+      "stratum": "claude-code / fora-de-escopo",
+      "instrument": "claude-code",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/files/routes/invoice-document.ts",
+        "line": 20,
+        "cwe": "CWE-639",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Documento de fatura acessivel sem checagem de dono"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-022-02-S",
+          "condition": "safe",
+          "cwe": "CWE-22",
+          "range": [
+            23,
+            36
+          ],
+          "sinkLine": 36,
+          "equivalence": [
+            "CWE-22",
+            "CWE-23"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  18|     const id = Number((request.params as { id: string }).id)",
+        "  19|     const override = (request.query as { override?: string }).override",
+        "  20|     const invoice = await Invoice.findByPk(id)",
+        "  21|     if (!invoice) return reply.code(404).send({ error: 'not found' })",
+        "  22|     const base = path.resolve(process.cwd(), UPLOAD_DIR)"
+      ]
+    },
+    {
+      "itemId": "claude-code#redundante#374#modules/auth/routes/token.ts:31:CWE-798",
+      "stratum": "claude-code / redundante",
+      "instrument": "claude-code",
+      "assignedCategory": "redundante",
+      "finding": {
+        "file": "modules/auth/routes/token.ts",
+        "line": 31,
+        "cwe": "CWE-798",
+        "ruleId": "assistant-finding",
+        "runId": "run3",
+        "message": "Segredo JWT padrão embutido no código"
+      },
+      "assignedCase": {
+        "id": "C-798-02-V",
+        "cwe": "CWE-798",
+        "sinkLine": 33,
+        "range": [
+          29,
+          33
+        ],
+        "equivalence": [
+          "CWE-798",
+          "CWE-259",
+          "CWE-321"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-798-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-798",
+          "range": [
+            29,
+            33
+          ],
+          "sinkLine": 33,
+          "equivalence": [
+            "CWE-798",
+            "CWE-259",
+            "CWE-321"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  29|     const fallbackSecret = 'dev-secret-please-change'",
+        "  30|     const envSecret = process.env.JWT_SECRET",
+        "  31|     const secret = envSecret ?? fallbackSecret",
+        "  32|     const claims = { id: user.id, email: user.email, role: user.role }",
+        "  33|     const token = signToken(claims, secret)"
+      ]
+    },
+    {
+      "itemId": "claude-code#redundante#368#modules/auth/routes/register.ts:30:CWE-916",
+      "stratum": "claude-code / redundante",
+      "instrument": "claude-code",
+      "assignedCategory": "redundante",
+      "finding": {
+        "file": "modules/auth/routes/register.ts",
+        "line": 30,
+        "cwe": "CWE-916",
+        "ruleId": "assistant-finding",
+        "runId": "run2",
+        "message": "Senha armazenada com hash MD5 sem sal"
+      },
+      "assignedCase": {
+        "id": "C-327-01-V",
+        "cwe": "CWE-327",
+        "sinkLine": 32,
+        "range": [
+          29,
+          32
+        ],
+        "equivalence": [
+          "CWE-327",
+          "CWE-326",
+          "CWE-916"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-327-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-327",
+          "range": [
+            29,
+            32
+          ],
+          "sinkLine": 32,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  28|     const password = String(body.password ?? '')",
+        "  29|     const algorithm = 'md5'",
+        "  30|     const hash = createHash(algorithm)",
+        "  31|     const digestEncoding = 'hex'",
+        "  32|     const passwordHash = hash.update(password).digest(digestEncoding)"
+      ]
+    },
+    {
+      "itemId": "claude-code#verdadeiro-positivo#331#modules/system/routes/purge.ts:6:CWE-306",
+      "stratum": "claude-code / verdadeiro-positivo",
+      "instrument": "claude-code",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/system/routes/purge.ts",
+        "line": 6,
+        "cwe": "CWE-306",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Rota destrutiva de manutencao sem autenticacao"
+      },
+      "assignedCase": {
+        "id": "C-306-01-V",
+        "cwe": "CWE-306",
+        "sinkLine": 8,
+        "range": [
+          8,
+          10
+        ],
+        "equivalence": [
+          "CWE-306",
+          "CWE-287"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-306-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-306",
+          "range": [
+            8,
+            10
+          ],
+          "sinkLine": 8,
+          "equivalence": [
+            "CWE-306",
+            "CWE-287"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "   4| ",
+        "   5| export async function registerPurge(app: FastifyInstance): Promise<void> {",
+        "   6|   app.post('/system/maintenance/purge', async (_request, reply) => {",
+        "   7|     const cutoff = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000)",
+        "   8|     const removed = await Order.destroy({"
+      ]
+    },
+    {
+      "itemId": "claude-code#verdadeiro-positivo#351#modules/orders/routes/preview.ts:29:CWE-79",
+      "stratum": "claude-code / verdadeiro-positivo",
+      "instrument": "claude-code",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/orders/routes/preview.ts",
+        "line": 29,
+        "cwe": "CWE-79",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "XSS refletido no preview de pedidos"
+      },
+      "assignedCase": {
+        "id": "C-079-02-V",
+        "cwe": "CWE-79",
+        "sinkLine": 30,
+        "range": [
+          27,
+          30
+        ],
+        "equivalence": [
+          "CWE-79",
+          "CWE-80"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-079-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-79",
+          "range": [
+            27,
+            30
+          ],
+          "sinkLine": 30,
+          "equivalence": [
+            "CWE-79",
+            "CWE-80"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  27|     const kind = 'preview'",
+        "  28|     const displayTerm = term",
+        "  29|     const html = buildSearchShell(kind, displayTerm, count)",
+        "  30|     return reply.type('text/html').send(html)",
+        "  31|   })"
+      ]
+    },
+    {
+      "itemId": "claude-code#verdadeiro-positivo#339#modules/auth/routes/register.ts:29:CWE-916",
+      "stratum": "claude-code / verdadeiro-positivo",
+      "instrument": "claude-code",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/auth/routes/register.ts",
+        "line": 29,
+        "cwe": "CWE-916",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Senha armazenada com hash MD5 sem salt"
+      },
+      "assignedCase": {
+        "id": "C-327-01-V",
+        "cwe": "CWE-327",
+        "sinkLine": 32,
+        "range": [
+          29,
+          32
+        ],
+        "equivalence": [
+          "CWE-327",
+          "CWE-326",
+          "CWE-916"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-327-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-327",
+          "range": [
+            29,
+            32
+          ],
+          "sinkLine": 32,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  27|     const email = String(body.email ?? '')",
+        "  28|     const password = String(body.password ?? '')",
+        "  29|     const algorithm = 'md5'",
+        "  30|     const hash = createHash(algorithm)",
+        "  31|     const digestEncoding = 'hex'"
+      ]
+    },
+    {
+      "itemId": "claude-code#verdadeiro-positivo#323#modules/orders/routes/search-orders.ts:33:CWE-89",
+      "stratum": "claude-code / verdadeiro-positivo",
+      "instrument": "claude-code",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/orders/routes/search-orders.ts",
+        "line": 33,
+        "cwe": "CWE-89",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "SQL Injection na busca de pedidos por status"
+      },
+      "assignedCase": {
+        "id": "C-089-01-V",
+        "cwe": "CWE-89",
+        "sinkLine": 33,
+        "range": [
+          27,
+          33
+        ],
+        "equivalence": [
+          "CWE-89",
+          "CWE-943"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-089-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-89",
+          "range": [
+            27,
+            33
+          ],
+          "sinkLine": 33,
+          "equivalence": [
+            "CWE-89",
+            "CWE-943"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  31|       \" AND status = \" +",
+        "  32|       statusLiteral",
+        "  33|     const [rows] = await getSequelize().query(sql)",
+        "  34|     return reply.send(withEntityMeta({ orders: rows }))",
+        "  35|   })"
+      ]
+    },
+    {
+      "itemId": "claude-code#verdadeiro-positivo#349#modules/users/routes/store-document.ts:20:CWE-327",
+      "stratum": "claude-code / verdadeiro-positivo",
+      "instrument": "claude-code",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/users/routes/store-document.ts",
+        "line": 20,
+        "cwe": "CWE-327",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Uso do modo de cifra ECB"
+      },
+      "assignedCase": {
+        "id": "C-327-02-V",
+        "cwe": "CWE-327",
+        "sinkLine": 23,
+        "range": [
+          20,
+          23
+        ],
+        "equivalence": [
+          "CWE-327",
+          "CWE-326",
+          "CWE-916"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-327-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-327",
+          "range": [
+            20,
+            23
+          ],
+          "sinkLine": 23,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  18|     const document = String((request.body as { document?: string }).document ?? '')",
+        "  19|     const key = createHash('md5').update('loja-doc-key').digest()",
+        "  20|     const algorithm = 'aes-128-ecb'",
+        "  21|     const cipher = createCipheriv(algorithm, key, null)",
+        "  22|     const updated = cipher.update(document, 'utf8')"
+      ]
+    },
+    {
+      "itemId": "claude-code#verdadeiro-positivo#320#modules/users/routes/import-preferences.ts:25:CWE-502",
+      "stratum": "claude-code / verdadeiro-positivo",
+      "instrument": "claude-code",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/users/routes/import-preferences.ts",
+        "line": 25,
+        "cwe": "CWE-502",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Desserializacao insegura com node-serialize"
+      },
+      "assignedCase": {
+        "id": "C-502-01-V",
+        "cwe": "CWE-502",
+        "sinkLine": 25,
+        "range": [
+          24,
+          25
+        ],
+        "equivalence": [
+          "CWE-502",
+          "CWE-915"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-502-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-502",
+          "range": [
+            24,
+            25
+          ],
+          "sinkLine": 25,
+          "equivalence": [
+            "CWE-502",
+            "CWE-915"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  23|     const decoded = Buffer.from(data, 'base64').toString('utf8')",
+        "  24|     const serialized = decoded",
+        "  25|     const prefs = serialize.unserialize(serialized)",
+        "  26|     return reply.send(presentPreferences(prefs))",
+        "  27|   })"
+      ]
+    },
+    {
+      "itemId": "codeql#falso-negativo#284#modules/orders/routes/payment.ts:31:sem-cwe",
+      "stratum": "codeql / falso-negativo",
+      "instrument": "codeql",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/orders/routes/payment.ts",
+        "line": 31,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-532-02-V",
+        "cwe": "CWE-532",
+        "sinkLine": 31,
+        "range": [
+          29,
+          31
+        ],
+        "equivalence": [
+          "CWE-532",
+          "CWE-200"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-532-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-532",
+          "range": [
+            29,
+            31
+          ],
+          "sinkLine": 31,
+          "equivalence": [
+            "CWE-532",
+            "CWE-200"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        "  29|     const logPayload = { payment: body, orderId: id }",
+        "  30|     const logMessage = 'payment received'",
+        "  31|     request.log.info(logPayload, logMessage)",
+        "  32|     order.status = 'paid'",
+        "  33|     await order.save()"
+      ]
+    },
+    {
+      "itemId": "codeql#falso-negativo#273#modules/integrations/routes/timing-parse.ts:7:sem-cwe",
+      "stratum": "codeql / falso-negativo",
+      "instrument": "codeql",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/integrations/routes/timing-parse.ts",
+        "line": 7,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-1104-01-V",
+        "cwe": "CWE-1104",
+        "sinkLine": 7,
+        "range": [
+          7,
+          7
+        ],
+        "equivalence": [
+          "CWE-1104",
+          "CWE-1395"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-1104-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-1104",
+          "range": [
+            7,
+            7
+          ],
+          "sinkLine": 7,
+          "equivalence": [
+            "CWE-1104",
+            "CWE-1395"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        "   5|   app.post('/integrations/timing/parse', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "   6|     const value = String((request.body as { value?: string }).value ?? '')",
+        "   7|     const millis = moment(value).valueOf()",
+        "   8|     if (!Number.isFinite(millis)) {",
+        "   9|       return reply.code(400).send({ error: 'invalid schedule' })"
+      ]
+    },
+    {
+      "itemId": "codeql#falso-negativo#279#modules/auth/routes/recovery-request.ts:11:sem-cwe",
+      "stratum": "codeql / falso-negativo",
+      "instrument": "codeql",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/auth/routes/recovery-request.ts",
+        "line": 11,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-338-01-V",
+        "cwe": "CWE-338",
+        "sinkLine": 11,
+        "range": [
+          9,
+          13
+        ],
+        "equivalence": [
+          "CWE-338",
+          "CWE-330"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-338-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-338",
+          "range": [
+            9,
+            13
+          ],
+          "sinkLine": 11,
+          "equivalence": [
+            "CWE-338",
+            "CWE-330"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        "   9|     let token = ''",
+        "  10|     while (token.length < 32) {",
+        "  11|       token += Math.random().toString(36).slice(2)",
+        "  12|     }",
+        "  13|     token = token.slice(0, 32)"
+      ]
+    },
+    {
+      "itemId": "codeql#falso-negativo#272#modules/orders/routes/preview.ts:30:sem-cwe",
+      "stratum": "codeql / falso-negativo",
+      "instrument": "codeql",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/orders/routes/preview.ts",
+        "line": 30,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-079-02-V",
+        "cwe": "CWE-79",
+        "sinkLine": 30,
+        "range": [
+          27,
+          30
+        ],
+        "equivalence": [
+          "CWE-79",
+          "CWE-80"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-079-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-79",
+          "range": [
+            27,
+            30
+          ],
+          "sinkLine": 30,
+          "equivalence": [
+            "CWE-79",
+            "CWE-80"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        "  28|     const displayTerm = term",
+        "  29|     const html = buildSearchShell(kind, displayTerm, count)",
+        "  30|     return reply.type('text/html').send(html)",
+        "  31|   })",
+        "  32| }"
+      ]
+    },
+    {
+      "itemId": "codeql#falso-positivo-par#268#modules/auth/routes/return-path.ts:40:CWE-601",
+      "stratum": "codeql / falso-positivo-par",
+      "instrument": "codeql",
+      "assignedCategory": "falso-positivo-par",
+      "finding": {
+        "file": "modules/auth/routes/return-path.ts",
+        "line": 40,
+        "cwe": "CWE-601",
+        "ruleId": "js/server-side-unvalidated-url-redirection",
+        "runId": "20260903T184351Z",
+        "message": "Untrusted URL redirection depends on a [user-provided value](1)."
+      },
+      "assignedCase": {
+        "id": "C-601-01-S",
+        "cwe": "CWE-601",
+        "sinkLine": 40,
+        "range": [
+          39,
+          40
+        ],
+        "equivalence": [
+          "CWE-601"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-601-01-S",
+          "condition": "safe",
+          "cwe": "CWE-601",
+          "range": [
+            39,
+            40
+          ],
+          "sinkLine": 40,
+          "equivalence": [
+            "CWE-601"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  38|     const next = normalizeNextParam((request.query as { next?: string }).next)",
+        "  39|     const target = isRelativePath(next) ? next : DEFAULT_REDIRECT",
+        "  40|     return reply.redirect(describeRedirect(target).target)",
+        "  41|   })",
+        "  42| }"
+      ]
+    },
+    {
+      "itemId": "codeql#fora-de-escopo#255#modules/files/routes/attach.ts:37:CWE-770",
+      "stratum": "codeql / fora-de-escopo",
+      "instrument": "codeql",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/files/routes/attach.ts",
+        "line": 37,
+        "cwe": "CWE-770",
+        "ruleId": "js/missing-rate-limiting",
+        "runId": "20260903T184351Z",
+        "message": "This route handler performs [a file system access](1), but is not rate-limited."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-434-01-S",
+          "condition": "safe",
+          "cwe": "CWE-434",
+          "range": [
+            51,
+            53
+          ],
+          "sinkLine": 53,
+          "equivalence": [
+            "CWE-434"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  35| ",
+        "  36| export async function registerAttach(app: FastifyInstance): Promise<void> {",
+        "  37|   app.post('/files/attach', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "  38|     const file = await request.file()",
+        "  39|     if (!file) return reply.code(400).send({ error: 'missing file' })"
+      ]
+    },
+    {
+      "itemId": "codeql#fora-de-escopo#264#modules/system/routes/diagnostics.ts:27:CWE-770",
+      "stratum": "codeql / fora-de-escopo",
+      "instrument": "codeql",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/system/routes/diagnostics.ts",
+        "line": 27,
+        "cwe": "CWE-770",
+        "ruleId": "js/missing-rate-limiting",
+        "runId": "20260903T184351Z",
+        "message": "This route handler performs [a system command](1), but is not rate-limited."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-078-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-78",
+          "range": [
+            29,
+            31
+          ],
+          "sinkLine": 31,
+          "equivalence": [
+            "CWE-78",
+            "CWE-77",
+            "CWE-88"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  25| ",
+        "  26| export async function registerDiagnostics(app: FastifyInstance): Promise<void> {",
+        "  27|   app.get('/system/diagnostics', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "  28|     const host = String((request.query as { host?: string }).host ?? '')",
+        "  29|     const prefix = 'echo reachability-check '"
+      ]
+    },
+    {
+      "itemId": "codeql#fora-de-escopo#261#modules/reports/routes/convert-report.ts:29:CWE-770",
+      "stratum": "codeql / fora-de-escopo",
+      "instrument": "codeql",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/reports/routes/convert-report.ts",
+        "line": 29,
+        "cwe": "CWE-770",
+        "ruleId": "js/missing-rate-limiting",
+        "runId": "20260903T184351Z",
+        "message": "This route handler performs [a system command](1), but is not rate-limited."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-078-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-78",
+          "range": [
+            33,
+            35
+          ],
+          "sinkLine": 35,
+          "equivalence": [
+            "CWE-78",
+            "CWE-77",
+            "CWE-88"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  27| ",
+        "  28| export async function registerConvertReport(app: FastifyInstance): Promise<void> {",
+        "  29|   app.post('/reports/convert', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "  30|     const fileName = String((request.body as { fileName?: string }).fileName ?? '')",
+        "  31|     const dir = path.join(process.cwd(), REPORTS_DIR)"
+      ]
+    },
+    {
+      "itemId": "codeql#redundante#244#modules/users/routes/profile-validate.ts:28:CWE-1333",
+      "stratum": "codeql / redundante",
+      "instrument": "codeql",
+      "assignedCategory": "redundante",
+      "finding": {
+        "file": "modules/users/routes/profile-validate.ts",
+        "line": 28,
+        "cwe": "CWE-1333",
+        "ruleId": "js/polynomial-redos",
+        "runId": "20260903T184351Z",
+        "message": "This [regular expression](1) that depends on [a user-provided value](2) may run slow on strings with many repetitions of '0'."
+      },
+      "assignedCase": {
+        "id": "C-1333-01-V",
+        "cwe": "CWE-1333",
+        "sinkLine": 28,
+        "range": [
+          25,
+          28
+        ],
+        "equivalence": [
+          "CWE-1333",
+          "CWE-400"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-1333-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-1333",
+          "range": [
+            25,
+            28
+          ],
+          "sinkLine": 28,
+          "equivalence": [
+            "CWE-1333",
+            "CWE-400"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  26|     const input = String(tradeName)",
+        "  27|     const trimmedInput = input",
+        "  28|     const ok = pattern.test(trimmedInput)",
+        "  29|     return reply.send(withEntityMeta({ ok, patternSource: pattern.source }))",
+        "  30|   })"
+      ]
+    },
+    {
+      "itemId": "codeql#verdadeiro-positivo#250#modules/integrations/routes/feed-fetch.ts:35:CWE-918",
+      "stratum": "codeql / verdadeiro-positivo",
+      "instrument": "codeql",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/integrations/routes/feed-fetch.ts",
+        "line": 35,
+        "cwe": "CWE-918",
+        "ruleId": "js/request-forgery",
+        "runId": "20260903T184351Z",
+        "message": "The [URL](1) of this request depends on a [user-provided value](2)."
+      },
+      "assignedCase": {
+        "id": "C-918-01-V",
+        "cwe": "CWE-918",
+        "sinkLine": 35,
+        "range": [
+          35,
+          35
+        ],
+        "equivalence": [
+          "CWE-918"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-918-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-918",
+          "range": [
+            35,
+            35
+          ],
+          "sinkLine": 35,
+          "equivalence": [
+            "CWE-918"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  33|   app.post('/integrations/feed/fetch', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "  34|     const url = String((request.body as { url?: string }).url ?? '')",
+        "  35|     const res = await fetch(url)",
+        "  36|     const text = await res.text()",
+        "  37|     return reply.send(buildFeedPayload(res.status, text))"
+      ]
+    },
+    {
+      "itemId": "codeql#verdadeiro-positivo#243#modules/users/routes/profile-validate.ts:25:CWE-1333",
+      "stratum": "codeql / verdadeiro-positivo",
+      "instrument": "codeql",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/users/routes/profile-validate.ts",
+        "line": 25,
+        "cwe": "CWE-1333",
+        "ruleId": "js/redos",
+        "runId": "20260903T184351Z",
+        "message": "This part of the regular expression may cause exponential backtracking on strings containing many repetitions of '0'."
+      },
+      "assignedCase": {
+        "id": "C-1333-01-V",
+        "cwe": "CWE-1333",
+        "sinkLine": 28,
+        "range": [
+          25,
+          28
+        ],
+        "equivalence": [
+          "CWE-1333",
+          "CWE-400"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-1333-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-1333",
+          "range": [
+            25,
+            28
+          ],
+          "sinkLine": 28,
+          "equivalence": [
+            "CWE-1333",
+            "CWE-400"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  23|   app.post('/users/profile/validate', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "  24|     const tradeName = String((request.body as { tradeName?: string }).tradeName ?? '')",
+        "  25|     const pattern = /^([a-zA-Z0-9]+)+$/",
+        "  26|     const input = String(tradeName)",
+        "  27|     const trimmedInput = input"
+      ]
+    },
+    {
+      "itemId": "codeql#verdadeiro-positivo#254#modules/system/routes/diagnostics.ts:31:CWE-78",
+      "stratum": "codeql / verdadeiro-positivo",
+      "instrument": "codeql",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/system/routes/diagnostics.ts",
+        "line": 31,
+        "cwe": "CWE-78",
+        "ruleId": "js/command-line-injection",
+        "runId": "20260903T184351Z",
+        "message": "This command line depends on a [user-provided value](1)."
+      },
+      "assignedCase": {
+        "id": "C-078-02-V",
+        "cwe": "CWE-78",
+        "sinkLine": 31,
+        "range": [
+          29,
+          31
+        ],
+        "equivalence": [
+          "CWE-78",
+          "CWE-77",
+          "CWE-88"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-078-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-78",
+          "range": [
+            29,
+            31
+          ],
+          "sinkLine": 31,
+          "equivalence": [
+            "CWE-78",
+            "CWE-77",
+            "CWE-88"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  29|     const prefix = 'echo reachability-check '",
+        "  30|     const cmd = prefix + host",
+        "  31|     const { stdout, stderr } = await execAsync(cmd)",
+        "  32|     return reply.send(withEntityMeta({ output: stdout || stderr }))",
+        "  33|   })"
+      ]
+    },
+    {
+      "itemId": "cursor#falso-negativo#453#modules/files/routes/upload.ts:35:sem-cwe",
+      "stratum": "cursor / falso-negativo",
+      "instrument": "cursor",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/files/routes/upload.ts",
+        "line": 35,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-434-01-V",
+        "cwe": "CWE-434",
+        "sinkLine": 35,
+        "range": [
+          34,
+          35
+        ],
+        "equivalence": [
+          "CWE-434"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-434-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-434",
+          "range": [
+            34,
+            35
+          ],
+          "sinkLine": 35,
+          "equivalence": [
+            "CWE-434"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 34,
+          "cwe": "CWE-22",
+          "runId": "run1",
+          "message": "Path traversal no nome do upload"
+        },
+        {
+          "line": 34,
+          "cwe": "CWE-22",
+          "runId": "run2",
+          "message": "Path traversal no nome do upload"
+        },
+        {
+          "line": 34,
+          "cwe": "CWE-22",
+          "runId": "run3",
+          "message": "Path traversal no upload"
+        }
+      ],
+      "source": [
+        "  33|     const content = normalizeUploadBuffer(buf)",
+        "  34|     const target = path.join(process.cwd(), UPLOAD_DIR, file.filename)",
+        "  35|     await fs.writeFile(target, content)",
+        "  36|     return reply.send(buildStoreMeta(file.filename, content))",
+        "  37|   })"
+      ]
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#445#modules/auth/routes/reset-request.ts:13:CWE-200",
+      "stratum": "cursor / fora-de-escopo",
+      "instrument": "cursor",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/auth/routes/reset-request.ts",
+        "line": 13,
+        "cwe": "CWE-200",
+        "ruleId": "assistant-finding",
+        "runId": "run3",
+        "message": "Token de reset devolvido na resposta"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-338-01-S",
+          "condition": "safe",
+          "cwe": "CWE-338",
+          "range": [
+            10,
+            10
+          ],
+          "sinkLine": 10,
+          "equivalence": [
+            "CWE-338",
+            "CWE-330"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  11|     user.resetToken = token",
+        "  12|     await user.save()",
+        "  13|     return reply.send({ requested: true, token })",
+        "  14|   })",
+        "  15| }"
+      ]
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#397#modules/users/routes/save-document.ts:21:CWE-321",
+      "stratum": "cursor / fora-de-escopo",
+      "instrument": "cursor",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/users/routes/save-document.ts",
+        "line": 21,
+        "cwe": "CWE-321",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Chave AES padrao embutida"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-327-02-S",
+          "condition": "safe",
+          "cwe": "CWE-327",
+          "range": [
+            24,
+            26
+          ],
+          "sinkLine": 26,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  19|     const document = String((request.body as { document?: string }).document ?? '')",
+        "  20|     const env = loadEnv()",
+        "  21|     const keyMaterial = env.documentKey ?? '0123456789abcdef0123456789abcdef'",
+        "  22|     const key = Buffer.from(keyMaterial).subarray(0, 32)",
+        "  23|     const iv = randomBytes(12)"
+      ]
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#398#modules/users/routes/store-document.ts:19:CWE-798",
+      "stratum": "cursor / fora-de-escopo",
+      "instrument": "cursor",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/users/routes/store-document.ts",
+        "line": 19,
+        "cwe": "CWE-798",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Chave de documento hardcoded"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-327-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-327",
+          "range": [
+            20,
+            23
+          ],
+          "sinkLine": 23,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  17|   app.post('/users/document/store', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "  18|     const document = String((request.body as { document?: string }).document ?? '')",
+        "  19|     const key = createHash('md5').update('loja-doc-key').digest()",
+        "  20|     const algorithm = 'aes-128-ecb'",
+        "  21|     const cipher = createCipheriv(algorithm, key, null)"
+      ]
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#426#modules/auth/routes/register.ts:34:CWE-201",
+      "stratum": "cursor / fora-de-escopo",
+      "instrument": "cursor",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/auth/routes/register.ts",
+        "line": 34,
+        "cwe": "CWE-201",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Hash de senha devolvido no cadastro"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-327-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-327",
+          "range": [
+            29,
+            32
+          ],
+          "sinkLine": 32,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  32|     const passwordHash = hash.update(password).digest(digestEncoding)",
+        "  33|     const user = await User.create({ email, passwordHash, role: 'customer' })",
+        "  34|     return reply.code(201).send(withEntityMeta({ id: user.id, email: user.email, hash: passwordHash }))",
+        "  35|   })",
+        "  36| }"
+      ]
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#404#db/seed.ts:48:CWE-916",
+      "stratum": "cursor / fora-de-escopo",
+      "instrument": "cursor",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "db/seed.ts",
+        "line": 48,
+        "cwe": "CWE-916",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Senhas do seed com SHA-256 sem salt"
+      },
+      "assignedCase": null,
+      "casesInFile": [],
+      "source": [
+        "  46|     const role = i < 2 ? 'admin' : 'customer'",
+        "  47|     const email = `user${i + 1}@loja.exemplo.invalido`",
+        "  48|     const passwordHash = createHash('sha256').update(`senha-${SEED}-${i}`).digest('hex')",
+        "  49|     users.push({ email, passwordHash, role })",
+        "  50|   }"
+      ]
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#442#modules/files/routes/invoice-attachment.ts:20:CWE-639",
+      "stratum": "cursor / fora-de-escopo",
+      "instrument": "cursor",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/files/routes/invoice-attachment.ts",
+        "line": 20,
+        "cwe": "CWE-639",
+        "ruleId": "assistant-finding",
+        "runId": "run3",
+        "message": "IDOR em anexo de fatura"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-022-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-22",
+          "range": [
+            23,
+            25
+          ],
+          "sinkLine": 25,
+          "equivalence": [
+            "CWE-22",
+            "CWE-23"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  18|     const id = Number((request.params as { id: string }).id)",
+        "  19|     const override = (request.query as { override?: string }).override",
+        "  20|     const invoice = await Invoice.findByPk(id)",
+        "  21|     if (!invoice) return reply.code(404).send({ error: 'not found' })",
+        "  22|     const base = path.join(process.cwd(), UPLOAD_DIR)"
+      ]
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#432#modules/auth/routes/recovery-request.ts:16:CWE-201",
+      "stratum": "cursor / fora-de-escopo",
+      "instrument": "cursor",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/auth/routes/recovery-request.ts",
+        "line": 16,
+        "cwe": "CWE-201",
+        "ruleId": "assistant-finding",
+        "runId": "run2",
+        "message": "Token de recuperação retornado ao cliente"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-338-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-338",
+          "range": [
+            9,
+            13
+          ],
+          "sinkLine": 11,
+          "equivalence": [
+            "CWE-338",
+            "CWE-330"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  14|     user.resetToken = token",
+        "  15|     await user.save()",
+        "  16|     return reply.send({ requested: true, token })",
+        "  17|   })",
+        "  18| }"
+      ]
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#395#modules/system/routes/report.ts:27:CWE-639",
+      "stratum": "cursor / fora-de-escopo",
+      "instrument": "cursor",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/system/routes/report.ts",
+        "line": 27,
+        "cwe": "CWE-639",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "IDOR no relatorio de sistema"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-209-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-209",
+          "range": [
+            26,
+            37
+          ],
+          "sinkLine": 36,
+          "equivalence": [
+            "CWE-209",
+            "CWE-200",
+            "CWE-497"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  25|     const id = Number((request.query as { id?: string }).id)",
+        "  26|     try {",
+        "  27|       const order = await Order.findByPk(id)",
+        "  28|       if (!order) {",
+        "  29|         throw new Error('Order missing at ' + new URL(import.meta.url).pathname + ' id=' + id)"
+      ]
+    },
+    {
+      "itemId": "cursor#redundante#443#modules/files/routes/invoice-attachment.ts:24:CWE-22",
+      "stratum": "cursor / redundante",
+      "instrument": "cursor",
+      "assignedCategory": "redundante",
+      "finding": {
+        "file": "modules/files/routes/invoice-attachment.ts",
+        "line": 24,
+        "cwe": "CWE-22",
+        "ruleId": "assistant-finding",
+        "runId": "run3",
+        "message": "Path traversal via override de anexo"
+      },
+      "assignedCase": {
+        "id": "C-022-02-V",
+        "cwe": "CWE-22",
+        "sinkLine": 25,
+        "range": [
+          23,
+          25
+        ],
+        "equivalence": [
+          "CWE-22",
+          "CWE-23"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-022-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-22",
+          "range": [
+            23,
+            25
+          ],
+          "sinkLine": 25,
+          "equivalence": [
+            "CWE-22",
+            "CWE-23"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  22|     const base = path.join(process.cwd(), UPLOAD_DIR)",
+        "  23|     const fileName = override ?? invoice.fileName",
+        "  24|     const target = path.join(base, fileName)",
+        "  25|     const content = await fs.readFile(target)",
+        "  26|     const meta = presentInvoiceBytes(content, fileName)"
+      ]
+    },
+    {
+      "itemId": "cursor#redundante#438#modules/users/routes/admin-users.ts:5:CWE-862",
+      "stratum": "cursor / redundante",
+      "instrument": "cursor",
+      "assignedCategory": "redundante",
+      "finding": {
+        "file": "modules/users/routes/admin-users.ts",
+        "line": 5,
+        "cwe": "CWE-862",
+        "ruleId": "assistant-finding",
+        "runId": "run2",
+        "message": "Listagem admin sem exigir papel admin"
+      },
+      "assignedCase": {
+        "id": "C-284-01-V",
+        "cwe": "CWE-284",
+        "sinkLine": 6,
+        "range": [
+          6,
+          6
+        ],
+        "equivalence": [
+          "CWE-284",
+          "CWE-285",
+          "CWE-639",
+          "CWE-862"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-284-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-284",
+          "range": [
+            6,
+            6
+          ],
+          "sinkLine": 6,
+          "equivalence": [
+            "CWE-284",
+            "CWE-285",
+            "CWE-639",
+            "CWE-862"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "   3| ",
+        "   4| export async function registerAdminUsers(app: FastifyInstance): Promise<void> {",
+        "   5|   app.get('/admin/users', { preHandler: [app.authenticate] }, async (_request, reply) => {",
+        "   6|     const users = await User.findAll({ attributes: ['id', 'email', 'role'] })",
+        "   7|     return reply.send({"
+      ]
+    },
+    {
+      "itemId": "cursor#verdadeiro-positivo#411#modules/files/routes/invoice-attachment.ts:23:CWE-22",
+      "stratum": "cursor / verdadeiro-positivo",
+      "instrument": "cursor",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/files/routes/invoice-attachment.ts",
+        "line": 23,
+        "cwe": "CWE-22",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Path traversal no anexo da fatura"
+      },
+      "assignedCase": {
+        "id": "C-022-02-V",
+        "cwe": "CWE-22",
+        "sinkLine": 25,
+        "range": [
+          23,
+          25
+        ],
+        "equivalence": [
+          "CWE-22",
+          "CWE-23"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-022-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-22",
+          "range": [
+            23,
+            25
+          ],
+          "sinkLine": 25,
+          "equivalence": [
+            "CWE-22",
+            "CWE-23"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  21|     if (!invoice) return reply.code(404).send({ error: 'not found' })",
+        "  22|     const base = path.join(process.cwd(), UPLOAD_DIR)",
+        "  23|     const fileName = override ?? invoice.fileName",
+        "  24|     const target = path.join(base, fileName)",
+        "  25|     const content = await fs.readFile(target)"
+      ]
+    },
+    {
+      "itemId": "cursor#verdadeiro-positivo#424#modules/auth/routes/recovery-request.ts:11:CWE-330",
+      "stratum": "cursor / verdadeiro-positivo",
+      "instrument": "cursor",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/auth/routes/recovery-request.ts",
+        "line": 11,
+        "cwe": "CWE-330",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "Token de recuperacao com Math.random"
+      },
+      "assignedCase": {
+        "id": "C-338-01-V",
+        "cwe": "CWE-338",
+        "sinkLine": 11,
+        "range": [
+          9,
+          13
+        ],
+        "equivalence": [
+          "CWE-338",
+          "CWE-330"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-338-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-338",
+          "range": [
+            9,
+            13
+          ],
+          "sinkLine": 11,
+          "equivalence": [
+            "CWE-338",
+            "CWE-330"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "   9|     let token = ''",
+        "  10|     while (token.length < 32) {",
+        "  11|       token += Math.random().toString(36).slice(2)",
+        "  12|     }",
+        "  13|     token = token.slice(0, 32)"
+      ]
+    },
+    {
+      "itemId": "cursor#verdadeiro-positivo#435#modules/orders/routes/search-orders.ts:28:CWE-89",
+      "stratum": "cursor / verdadeiro-positivo",
+      "instrument": "cursor",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/orders/routes/search-orders.ts",
+        "line": 28,
+        "cwe": "CWE-89",
+        "ruleId": "assistant-finding",
+        "runId": "run2",
+        "message": "SQL injection no filtro de status"
+      },
+      "assignedCase": {
+        "id": "C-089-01-V",
+        "cwe": "CWE-89",
+        "sinkLine": 33,
+        "range": [
+          27,
+          33
+        ],
+        "equivalence": [
+          "CWE-89",
+          "CWE-943"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-089-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-89",
+          "range": [
+            27,
+            33
+          ],
+          "sinkLine": 33,
+          "equivalence": [
+            "CWE-89",
+            "CWE-943"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  26|     const status = String((request.query as { status?: string }).status ?? '')",
+        "  27|     const statusLiteral = \"'\" + status + \"'\"",
+        "  28|     const sql =",
+        "  29|       \"SELECT id, status, total, trackingCode FROM Orders WHERE userId = \" +",
+        "  30|       userId +"
+      ]
+    },
+    {
+      "itemId": "cursor#verdadeiro-positivo#407#modules/integrations/routes/apply-config.ts:26:CWE-502",
+      "stratum": "cursor / verdadeiro-positivo",
+      "instrument": "cursor",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/integrations/routes/apply-config.ts",
+        "line": 26,
+        "cwe": "CWE-502",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "YAML com schema completo perigoso"
+      },
+      "assignedCase": {
+        "id": "C-502-02-V",
+        "cwe": "CWE-502",
+        "sinkLine": 26,
+        "range": [
+          25,
+          26
+        ],
+        "equivalence": [
+          "CWE-502",
+          "CWE-915"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-502-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-502",
+          "range": [
+            25,
+            26
+          ],
+          "sinkLine": 26,
+          "equivalence": [
+            "CWE-502",
+            "CWE-915"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  24|     const doc = String((request.body as { yaml?: string }).yaml ?? '')",
+        "  25|     const schema = yaml.DEFAULT_FULL_SCHEMA",
+        "  26|     const parsed = yaml.load(doc, { schema })",
+        "  27|     return reply.send(presentConfig(parsed))",
+        "  28|   })"
+      ]
+    },
+    {
+      "itemId": "cursor#verdadeiro-positivo#401#modules/users/routes/profile-validate.ts:25:CWE-1333",
+      "stratum": "cursor / verdadeiro-positivo",
+      "instrument": "cursor",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/users/routes/profile-validate.ts",
+        "line": 25,
+        "cwe": "CWE-1333",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "ReDoS no nome comercial"
+      },
+      "assignedCase": {
+        "id": "C-1333-01-V",
+        "cwe": "CWE-1333",
+        "sinkLine": 28,
+        "range": [
+          25,
+          28
+        ],
+        "equivalence": [
+          "CWE-1333",
+          "CWE-400"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-1333-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-1333",
+          "range": [
+            25,
+            28
+          ],
+          "sinkLine": 28,
+          "equivalence": [
+            "CWE-1333",
+            "CWE-400"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  23|   app.post('/users/profile/validate', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "  24|     const tradeName = String((request.body as { tradeName?: string }).tradeName ?? '')",
+        "  25|     const pattern = /^([a-zA-Z0-9]+)+$/",
+        "  26|     const input = String(tradeName)",
+        "  27|     const trimmedInput = input"
+      ]
+    },
+    {
+      "itemId": "cursor#verdadeiro-positivo#423#modules/auth/routes/password-rotate.ts:30:CWE-916",
+      "stratum": "cursor / verdadeiro-positivo",
+      "instrument": "cursor",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/auth/routes/password-rotate.ts",
+        "line": 30,
+        "cwe": "CWE-916",
+        "ruleId": "assistant-finding",
+        "runId": "run1",
+        "message": "PBKDF2 fraco com SHA-1 e 1000 iteracoes"
+      },
+      "assignedCase": {
+        "id": "C-916-01-V",
+        "cwe": "CWE-916",
+        "sinkLine": 30,
+        "range": [
+          28,
+          30
+        ],
+        "equivalence": [
+          "CWE-916",
+          "CWE-327",
+          "CWE-326"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-916-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-916",
+          "range": [
+            28,
+            30
+          ],
+          "sinkLine": 30,
+          "equivalence": [
+            "CWE-916",
+            "CWE-327",
+            "CWE-326"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  28|     const iterations = 1000",
+        "  29|     const digest = 'sha1'",
+        "  30|     const derived = pbkdf2Sync(password, salt, iterations, 32, digest)",
+        "  31|     const passwordHash = 'pbkdf2:1000:sha1:' + salt.toString('hex') + ':' + derived.toString('hex')",
+        "  32|     const user = await User.findByPk(request.user!.id)"
+      ]
+    },
+    {
+      "itemId": "eslint#falso-negativo#145#modules/orders/routes/search-orders.ts:33:sem-cwe",
+      "stratum": "eslint / falso-negativo",
+      "instrument": "eslint",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/orders/routes/search-orders.ts",
+        "line": 33,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-089-01-V",
+        "cwe": "CWE-89",
+        "sinkLine": 33,
+        "range": [
+          27,
+          33
+        ],
+        "equivalence": [
+          "CWE-89",
+          "CWE-943"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-089-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-89",
+          "range": [
+            27,
+            33
+          ],
+          "sinkLine": 33,
+          "equivalence": [
+            "CWE-89",
+            "CWE-943"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 1,
+          "cwe": null,
+          "runId": "20260903T184325Z",
+          "message": "Parsing error: Unexpected token {"
+        }
+      ],
+      "source": [
+        "  31|       \" AND status = \" +",
+        "  32|       statusLiteral",
+        "  33|     const [rows] = await getSequelize().query(sql)",
+        "  34|     return reply.send(withEntityMeta({ orders: rows }))",
+        "  35|   })"
+      ]
+    },
+    {
+      "itemId": "eslint#falso-negativo#153#modules/auth/routes/register.ts:32:sem-cwe",
+      "stratum": "eslint / falso-negativo",
+      "instrument": "eslint",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/auth/routes/register.ts",
+        "line": 32,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-327-01-V",
+        "cwe": "CWE-327",
+        "sinkLine": 32,
+        "range": [
+          29,
+          32
+        ],
+        "equivalence": [
+          "CWE-327",
+          "CWE-326",
+          "CWE-916"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-327-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-327",
+          "range": [
+            29,
+            32
+          ],
+          "sinkLine": 32,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 2,
+          "cwe": null,
+          "runId": "20260903T184325Z",
+          "message": "Parsing error: Unexpected token {"
+        }
+      ],
+      "source": [
+        "  30|     const hash = createHash(algorithm)",
+        "  31|     const digestEncoding = 'hex'",
+        "  32|     const passwordHash = hash.update(password).digest(digestEncoding)",
+        "  33|     const user = await User.create({ email, passwordHash, role: 'customer' })",
+        "  34|     return reply.code(201).send(withEntityMeta({ id: user.id, email: user.email, hash: passwordHash }))"
+      ]
+    },
+    {
+      "itemId": "eslint#falso-negativo#160#modules/auth/routes/login.ts:29:sem-cwe",
+      "stratum": "eslint / falso-negativo",
+      "instrument": "eslint",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/auth/routes/login.ts",
+        "line": 29,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-532-01-V",
+        "cwe": "CWE-532",
+        "sinkLine": 29,
+        "range": [
+          27,
+          29
+        ],
+        "equivalence": [
+          "CWE-532",
+          "CWE-200"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-532-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-532",
+          "range": [
+            27,
+            29
+          ],
+          "sinkLine": 29,
+          "equivalence": [
+            "CWE-532",
+            "CWE-200"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 1,
+          "cwe": null,
+          "runId": "20260903T184325Z",
+          "message": "Parsing error: Unexpected token {"
+        }
+      ],
+      "source": [
+        "  27|     const logPayload = { body }",
+        "  28|     const logMessage = 'login attempt'",
+        "  29|     request.log.info(logPayload, logMessage)",
+        "  30|     const user = await User.findOne({ where: { email: body.email ?? '' } })",
+        "  31|     if (!user) return reply.code(401).send({ error: 'invalid credentials' })"
+      ]
+    },
+    {
+      "itemId": "eslint#falso-negativo#148#modules/integrations/routes/timing-parse.ts:7:sem-cwe",
+      "stratum": "eslint / falso-negativo",
+      "instrument": "eslint",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/integrations/routes/timing-parse.ts",
+        "line": 7,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-1104-01-V",
+        "cwe": "CWE-1104",
+        "sinkLine": 7,
+        "range": [
+          7,
+          7
+        ],
+        "equivalence": [
+          "CWE-1104",
+          "CWE-1395"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-1104-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-1104",
+          "range": [
+            7,
+            7
+          ],
+          "sinkLine": 7,
+          "equivalence": [
+            "CWE-1104",
+            "CWE-1395"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 1,
+          "cwe": null,
+          "runId": "20260903T184325Z",
+          "message": "Parsing error: Unexpected token {"
+        }
+      ],
+      "source": [
+        "   5|   app.post('/integrations/timing/parse', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "   6|     const value = String((request.body as { value?: string }).value ?? '')",
+        "   7|     const millis = moment(value).valueOf()",
+        "   8|     if (!Number.isFinite(millis)) {",
+        "   9|       return reply.code(400).send({ error: 'invalid schedule' })"
+      ]
+    },
+    {
+      "itemId": "eslint#falso-negativo#162#modules/auth/routes/callback.ts:32:sem-cwe",
+      "stratum": "eslint / falso-negativo",
+      "instrument": "eslint",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/auth/routes/callback.ts",
+        "line": 32,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-601-01-V",
+        "cwe": "CWE-601",
+        "sinkLine": 32,
+        "range": [
+          32,
+          32
+        ],
+        "equivalence": [
+          "CWE-601"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-601-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-601",
+          "range": [
+            32,
+            32
+          ],
+          "sinkLine": 32,
+          "equivalence": [
+            "CWE-601"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 1,
+          "cwe": null,
+          "runId": "20260903T184325Z",
+          "message": "Parsing error: Unexpected token {"
+        }
+      ],
+      "source": [
+        "  30|     const next = normalizeNextParam((request.query as { next?: string }).next)",
+        "  31|     const info = describeRedirect(next)",
+        "  32|     return reply.redirect(info.target)",
+        "  33|   })",
+        "  34| }"
+      ]
+    },
+    {
+      "itemId": "eslint#falso-negativo#151#modules/users/routes/admin-users.ts:6:sem-cwe",
+      "stratum": "eslint / falso-negativo",
+      "instrument": "eslint",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/users/routes/admin-users.ts",
+        "line": 6,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-284-01-V",
+        "cwe": "CWE-284",
+        "sinkLine": 6,
+        "range": [
+          6,
+          6
+        ],
+        "equivalence": [
+          "CWE-284",
+          "CWE-285",
+          "CWE-639",
+          "CWE-862"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-284-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-284",
+          "range": [
+            6,
+            6
+          ],
+          "sinkLine": 6,
+          "equivalence": [
+            "CWE-284",
+            "CWE-285",
+            "CWE-639",
+            "CWE-862"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 1,
+          "cwe": null,
+          "runId": "20260903T184325Z",
+          "message": "Parsing error: Unexpected token {"
+        }
+      ],
+      "source": [
+        "   4| export async function registerAdminUsers(app: FastifyInstance): Promise<void> {",
+        "   5|   app.get('/admin/users', { preHandler: [app.authenticate] }, async (_request, reply) => {",
+        "   6|     const users = await User.findAll({ attributes: ['id', 'email', 'role'] })",
+        "   7|     return reply.send({",
+        "   8|       users: users.map((u) => ({ id: u.id, email: u.email, role: u.role })),"
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#101#modules/orders/routes/filter-orders.ts:1:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/orders/routes/filter-orders.ts",
+        "line": 1,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token {"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-089-01-S",
+          "condition": "safe",
+          "cwe": "CWE-89",
+          "range": [
+            34,
+            38
+          ],
+          "sinkLine": 36,
+          "equivalence": [
+            "CWE-89",
+            "CWE-943"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   1| import type { FastifyInstance } from 'fastify'",
+        "   2| import { z } from 'zod'",
+        "   3| import { ORDER_STATUSES } from '../../../config/constants.js'"
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#102#modules/orders/routes/get-order.ts:1:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/orders/routes/get-order.ts",
+        "line": 1,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token {"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-639-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-639",
+          "range": [
+            7,
+            7
+          ],
+          "sinkLine": 7,
+          "equivalence": [
+            "CWE-639",
+            "CWE-284",
+            "CWE-285",
+            "CWE-862"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   1| import type { FastifyInstance } from 'fastify'",
+        "   2| import { Order } from '../../../db/models/order.js'",
+        "   3| "
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#65#config/constants.ts:3:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "config/constants.ts",
+        "line": 3,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token as"
+      },
+      "assignedCase": null,
+      "casesInFile": [],
+      "source": [
+        "   1| export const SEED = 20260816",
+        "   2| ",
+        "   3| export const ORDER_STATUSES = ['pending', 'paid', 'shipped', 'cancelled'] as const",
+        "   4| ",
+        "   5| export const UPLOAD_DIR = 'storage/uploads'"
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#89#modules/files/routes/image-render.ts:1:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/files/routes/image-render.ts",
+        "line": 1,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token {"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-918-02-S",
+          "condition": "safe",
+          "cwe": "CWE-918",
+          "range": [
+            41,
+            47
+          ],
+          "sinkLine": 47,
+          "equivalence": [
+            "CWE-918"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   1| import type { FastifyInstance } from 'fastify'",
+        "   2| import { loadEnv } from '../../../config/env.js'",
+        "   3| "
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#78#modules/auth/routes/register.ts:2:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/auth/routes/register.ts",
+        "line": 2,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token {"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-327-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-327",
+          "range": [
+            29,
+            32
+          ],
+          "sinkLine": 32,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   1| import { createHash } from 'node:crypto'",
+        "   2| import type { FastifyInstance } from 'fastify'",
+        "   3| import { User } from '../../../db/models/user.js'",
+        "   4| "
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#88#modules/files/routes/image-proxy.ts:1:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/files/routes/image-proxy.ts",
+        "line": 1,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token {"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-918-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-918",
+          "range": [
+            31,
+            31
+          ],
+          "sinkLine": 31,
+          "equivalence": [
+            "CWE-918"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   1| import type { FastifyInstance } from 'fastify'",
+        "   2| ",
+        "   3| function resolveImageType(header: string | null, buf: Buffer): string {"
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#96#modules/integrations/routes/feed-import.ts:1:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/integrations/routes/feed-import.ts",
+        "line": 1,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token {"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-918-01-S",
+          "condition": "safe",
+          "cwe": "CWE-918",
+          "range": [
+            46,
+            52
+          ],
+          "sinkLine": 52,
+          "equivalence": [
+            "CWE-918"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   1| import type { FastifyInstance } from 'fastify'",
+        "   2| import { loadEnv } from '../../../config/env.js'",
+        "   3| "
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#80#modules/auth/routes/return-path.ts:1:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/auth/routes/return-path.ts",
+        "line": 1,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token {"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-601-01-S",
+          "condition": "safe",
+          "cwe": "CWE-601",
+          "range": [
+            39,
+            40
+          ],
+          "sinkLine": 40,
+          "equivalence": [
+            "CWE-601"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   1| import type { FastifyInstance } from 'fastify'",
+        "   2| import { DEFAULT_REDIRECT } from '../../../config/constants.js'",
+        "   3| "
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#85#modules/files/routes/attach.ts:4:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/files/routes/attach.ts",
+        "line": 4,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token {"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-434-01-S",
+          "condition": "safe",
+          "cwe": "CWE-434",
+          "range": [
+            51,
+            53
+          ],
+          "sinkLine": 53,
+          "equivalence": [
+            "CWE-434"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   2| import path from 'node:path'",
+        "   3| import { randomUUID } from 'node:crypto'",
+        "   4| import type { FastifyInstance } from 'fastify'",
+        "   5| import { ALLOWED_UPLOAD_EXTENSIONS, UPLOAD_DIR } from '../../../config/constants.js'",
+        "   6| "
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#117#modules/shared/html.ts:1:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/shared/html.ts",
+        "line": 1,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token :"
+      },
+      "assignedCase": null,
+      "casesInFile": [],
+      "source": [
+        "   1| export function escapeHtml(input: string): string {",
+        "   2|   return input",
+        "   3|     .replace(/&/g, '&amp;')"
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#77#modules/auth/routes/recovery-request.ts:1:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/auth/routes/recovery-request.ts",
+        "line": 1,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token {"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-338-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-338",
+          "range": [
+            9,
+            13
+          ],
+          "sinkLine": 11,
+          "equivalence": [
+            "CWE-338",
+            "CWE-330"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   1| import type { FastifyInstance } from 'fastify'",
+        "   2| import { User } from '../../../db/models/user.js'",
+        "   3| "
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#112#modules/orders/routes/voucher.ts:1:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/orders/routes/voucher.ts",
+        "line": 1,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token {"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-079-01-S",
+          "condition": "safe",
+          "cwe": "CWE-79",
+          "range": [
+            32,
+            36
+          ],
+          "sinkLine": 34,
+          "equivalence": [
+            "CWE-79",
+            "CWE-80"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   1| import type { FastifyInstance } from 'fastify'",
+        "   2| import { escapeHtml } from '../../shared/html.js'",
+        "   3| "
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#109#modules/orders/routes/summary.ts:1:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/orders/routes/summary.ts",
+        "line": 1,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token {"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-079-02-S",
+          "condition": "safe",
+          "cwe": "CWE-79",
+          "range": [
+            28,
+            30
+          ],
+          "sinkLine": 30,
+          "equivalence": [
+            "CWE-79",
+            "CWE-80"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   1| import type { FastifyInstance } from 'fastify'",
+        "   2| import { Order } from '../../../db/models/order.js'",
+        "   3| import { escapeHtml } from '../../shared/html.js'"
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#72#db/sequelize.ts:4:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "db/sequelize.ts",
+        "line": 4,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token :"
+      },
+      "assignedCase": null,
+      "casesInFile": [],
+      "source": [
+        "   2| import { loadEnv } from '../config/env.js'",
+        "   3| ",
+        "   4| let sequelize: Sequelize | null = null",
+        "   5| ",
+        "   6| export function getSequelize(sqlitePath?: string): Sequelize {"
+      ]
+    },
+    {
+      "itemId": "eslint#nao-mapeado#114#modules/reports/routes/convert-report.ts:4:sem-cwe",
+      "stratum": "eslint / nao-mapeado",
+      "instrument": "eslint",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/reports/routes/convert-report.ts",
+        "line": 4,
+        "cwe": null,
+        "ruleId": "unknown",
+        "runId": "20260903T184325Z",
+        "message": "Parsing error: Unexpected token {"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-078-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-78",
+          "range": [
+            33,
+            35
+          ],
+          "sinkLine": 35,
+          "equivalence": [
+            "CWE-78",
+            "CWE-77",
+            "CWE-88"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   2| import { promisify } from 'node:util'",
+        "   3| import path from 'node:path'",
+        "   4| import type { FastifyInstance } from 'fastify'",
+        "   5| import { REPORTS_DIR } from '../../../config/constants.js'",
+        "   6| "
+      ]
+    },
+    {
+      "itemId": "njsscan#falso-negativo#230#modules/system/routes/purge.ts:8:sem-cwe",
+      "stratum": "njsscan / falso-negativo",
+      "instrument": "njsscan",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/system/routes/purge.ts",
+        "line": 8,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-306-01-V",
+        "cwe": "CWE-306",
+        "sinkLine": 8,
+        "range": [
+          8,
+          10
+        ],
+        "equivalence": [
+          "CWE-306",
+          "CWE-287"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-306-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-306",
+          "range": [
+            8,
+            10
+          ],
+          "sinkLine": 8,
+          "equivalence": [
+            "CWE-306",
+            "CWE-287"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        "   6|   app.post('/system/maintenance/purge', async (_request, reply) => {",
+        "   7|     const cutoff = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000)",
+        "   8|     const removed = await Order.destroy({",
+        "   9|       where: { status: 'cancelled', createdAt: { [Op.lt]: cutoff } },",
+        "  10|     })"
+      ]
+    },
+    {
+      "itemId": "njsscan#falso-negativo#236#modules/auth/routes/login.ts:29:sem-cwe",
+      "stratum": "njsscan / falso-negativo",
+      "instrument": "njsscan",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/auth/routes/login.ts",
+        "line": 29,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-532-01-V",
+        "cwe": "CWE-532",
+        "sinkLine": 29,
+        "range": [
+          27,
+          29
+        ],
+        "equivalence": [
+          "CWE-532",
+          "CWE-200"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-532-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-532",
+          "range": [
+            27,
+            29
+          ],
+          "sinkLine": 29,
+          "equivalence": [
+            "CWE-532",
+            "CWE-200"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 26,
+          "cwe": "CWE-943",
+          "runId": "20260903T184317Z",
+          "message": "Untrusted user input in findOne() function can result in NoSQL Injection."
+        },
+        {
+          "line": 30,
+          "cwe": "CWE-943",
+          "runId": "20260903T184317Z",
+          "message": "Untrusted user input in findOne() function can result in NoSQL Injection."
+        }
+      ],
+      "source": [
+        "  27|     const logPayload = { body }",
+        "  28|     const logMessage = 'login attempt'",
+        "  29|     request.log.info(logPayload, logMessage)",
+        "  30|     const user = await User.findOne({ where: { email: body.email ?? '' } })",
+        "  31|     if (!user) return reply.code(401).send({ error: 'invalid credentials' })"
+      ]
+    },
+    {
+      "itemId": "njsscan#falso-negativo#226#modules/integrations/routes/timing-parse.ts:7:sem-cwe",
+      "stratum": "njsscan / falso-negativo",
+      "instrument": "njsscan",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/integrations/routes/timing-parse.ts",
+        "line": 7,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-1104-01-V",
+        "cwe": "CWE-1104",
+        "sinkLine": 7,
+        "range": [
+          7,
+          7
+        ],
+        "equivalence": [
+          "CWE-1104",
+          "CWE-1395"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-1104-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-1104",
+          "range": [
+            7,
+            7
+          ],
+          "sinkLine": 7,
+          "equivalence": [
+            "CWE-1104",
+            "CWE-1395"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 6,
+          "cwe": "CWE-79",
+          "runId": "20260903T184317Z",
+          "message": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerabili"
+        }
+      ],
+      "source": [
+        "   5|   app.post('/integrations/timing/parse', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "   6|     const value = String((request.body as { value?: string }).value ?? '')",
+        "   7|     const millis = moment(value).valueOf()",
+        "   8|     if (!Number.isFinite(millis)) {",
+        "   9|       return reply.code(400).send({ error: 'invalid schedule' })"
+      ]
+    },
+    {
+      "itemId": "njsscan#falso-negativo#220#modules/reports/routes/convert-report.ts:35:sem-cwe",
+      "stratum": "njsscan / falso-negativo",
+      "instrument": "njsscan",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/reports/routes/convert-report.ts",
+        "line": 35,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-078-01-V",
+        "cwe": "CWE-78",
+        "sinkLine": 35,
+        "range": [
+          33,
+          35
+        ],
+        "equivalence": [
+          "CWE-78",
+          "CWE-77",
+          "CWE-88"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-078-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-78",
+          "range": [
+            33,
+            35
+          ],
+          "sinkLine": 35,
+          "equivalence": [
+            "CWE-78",
+            "CWE-77",
+            "CWE-88"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 30,
+          "cwe": "CWE-79",
+          "runId": "20260903T184317Z",
+          "message": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerabili"
+        }
+      ],
+      "source": [
+        "  33|     const source = path.join(dir, fileName)",
+        "  34|     const cmd = 'cp ' + source + ' ' + out",
+        "  35|     await execAsync(cmd)",
+        "  36|     return reply.send(withEntityMeta({ output: out }))",
+        "  37|   })"
+      ]
+    },
+    {
+      "itemId": "njsscan#falso-negativo#234#modules/users/routes/import-preferences.ts:25:sem-cwe",
+      "stratum": "njsscan / falso-negativo",
+      "instrument": "njsscan",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/users/routes/import-preferences.ts",
+        "line": 25,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-502-01-V",
+        "cwe": "CWE-502",
+        "sinkLine": 25,
+        "range": [
+          24,
+          25
+        ],
+        "equivalence": [
+          "CWE-502",
+          "CWE-915"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-502-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-502",
+          "range": [
+            24,
+            25
+          ],
+          "sinkLine": 25,
+          "equivalence": [
+            "CWE-502",
+            "CWE-915"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [],
+      "source": [
+        "  23|     const decoded = Buffer.from(data, 'base64').toString('utf8')",
+        "  24|     const serialized = decoded",
+        "  25|     const prefs = serialize.unserialize(serialized)",
+        "  26|     return reply.send(presentPreferences(prefs))",
+        "  27|   })"
+      ]
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#173#modules/integrations/routes/feed-fetch.ts:34:CWE-79",
+      "stratum": "njsscan / fora-de-escopo",
+      "instrument": "njsscan",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/integrations/routes/feed-fetch.ts",
+        "line": 34,
+        "cwe": "CWE-79",
+        "ruleId": "express_xss",
+        "runId": "20260903T184317Z",
+        "message": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerability."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-918-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-918",
+          "range": [
+            35,
+            35
+          ],
+          "sinkLine": 35,
+          "equivalence": [
+            "CWE-918"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  32| export async function registerFeedFetch(app: FastifyInstance): Promise<void> {",
+        "  33|   app.post('/integrations/feed/fetch', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "  34|     const url = String((request.body as { url?: string }).url ?? '')",
+        "  35|     const res = await fetch(url)",
+        "  36|     const text = await res.text()"
+      ]
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#184#modules/reports/routes/calculate.ts:183:CWE-79",
+      "stratum": "njsscan / fora-de-escopo",
+      "instrument": "njsscan",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/reports/routes/calculate.ts",
+        "line": 183,
+        "cwe": "CWE-79",
+        "ruleId": "express_xss",
+        "runId": "20260903T184317Z",
+        "message": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerability."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-094-01-S",
+          "condition": "safe",
+          "cwe": "CWE-94",
+          "range": [
+            188,
+            193
+          ],
+          "sinkLine": 189,
+          "equivalence": [
+            "CWE-94",
+            "CWE-95"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        " 181| export async function registerCalculate(app: FastifyInstance): Promise<void> {",
+        " 182|   app.post('/reports/calculate', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        " 183|     const inputs = normalizeReportInputs(request.body as {",
+        " 184|       expression?: string",
+        " 185|       total?: number"
+      ]
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#212#modules/reports/routes/calculate.ts:41:CWE-185",
+      "stratum": "njsscan / fora-de-escopo",
+      "instrument": "njsscan",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/reports/routes/calculate.ts",
+        "line": 41,
+        "cwe": "CWE-185",
+        "ruleId": "regex_dos",
+        "runId": "20260903T184317Z",
+        "message": "Ensure that the regex used to compare with user supplied input is safe from regular expression denial of service."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-094-01-S",
+          "condition": "safe",
+          "cwe": "CWE-94",
+          "range": [
+            188,
+            193
+          ],
+          "sinkLine": 189,
+          "equivalence": [
+            "CWE-94",
+            "CWE-95"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  39|   const tokenHints = inputs.expression.split(/[^a-zA-Z0-9_]+/).filter(Boolean)",
+        "  40|   const usesTotal = /\\btotal\\b/.test(inputs.expression)",
+        "  41|   const usesQuantidade = /\\bquantidade\\b/.test(inputs.expression)",
+        "  42|   const resultType =",
+        "  43|     result === null ? 'null' : Array.isArray(result) ? 'array' : typeof result"
+      ]
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#189#modules/system/routes/status.ts:26:CWE-79",
+      "stratum": "njsscan / fora-de-escopo",
+      "instrument": "njsscan",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/system/routes/status.ts",
+        "line": 26,
+        "cwe": "CWE-79",
+        "ruleId": "express_xss",
+        "runId": "20260903T184317Z",
+        "message": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerability."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-209-01-S",
+          "condition": "safe",
+          "cwe": "CWE-209",
+          "range": [
+            27,
+            37
+          ],
+          "sinkLine": 36,
+          "equivalence": [
+            "CWE-209",
+            "CWE-200",
+            "CWE-497"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  24| export async function registerSystemStatus(app: FastifyInstance): Promise<void> {",
+        "  25|   app.get('/system/status', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "  26|     const id = Number((request.query as { id?: string }).id)",
+        "  27|     try {",
+        "  28|       const order = await Order.findByPk(id)"
+      ]
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#213#modules/reports/routes/calculate.ts:89:CWE-185",
+      "stratum": "njsscan / fora-de-escopo",
+      "instrument": "njsscan",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/reports/routes/calculate.ts",
+        "line": 89,
+        "cwe": "CWE-185",
+        "ruleId": "regex_dos",
+        "runId": "20260903T184317Z",
+        "message": "Ensure that the regex used to compare with user supplied input is safe from regular expression denial of service."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-094-01-S",
+          "condition": "safe",
+          "cwe": "CWE-94",
+          "range": [
+            188,
+            193
+          ],
+          "sinkLine": 189,
+          "equivalence": [
+            "CWE-94",
+            "CWE-95"
+          ],
+          "lineInTpWindow": false,
+          "lineInSafeWindow": false,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  87|   const scaleAverage = audit.meta.scale.average",
+        "  88|   const discounted = audit.meta.scale.withDiscount",
+        "  89|   const inputView = {",
+        "  90|     expression: inputs.expression,",
+        "  91|     total: inputs.total,"
+      ]
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#185#modules/reports/routes/convert-report.ts:30:CWE-79",
+      "stratum": "njsscan / fora-de-escopo",
+      "instrument": "njsscan",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/reports/routes/convert-report.ts",
+        "line": 30,
+        "cwe": "CWE-79",
+        "ruleId": "express_xss",
+        "runId": "20260903T184317Z",
+        "message": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerability."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-078-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-78",
+          "range": [
+            33,
+            35
+          ],
+          "sinkLine": 35,
+          "equivalence": [
+            "CWE-78",
+            "CWE-77",
+            "CWE-88"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  28| export async function registerConvertReport(app: FastifyInstance): Promise<void> {",
+        "  29|   app.post('/reports/convert', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "  30|     const fileName = String((request.body as { fileName?: string }).fileName ?? '')",
+        "  31|     const dir = path.join(process.cwd(), REPORTS_DIR)",
+        "  32|     const out = path.join(dir, 'out-' + fileName)"
+      ]
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#205#modules/auth/routes/signin.ts:27:CWE-943",
+      "stratum": "njsscan / fora-de-escopo",
+      "instrument": "njsscan",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/auth/routes/signin.ts",
+        "line": 27,
+        "cwe": "CWE-943",
+        "ruleId": "node_nosqli_injection",
+        "runId": "20260903T184317Z",
+        "message": "Untrusted user input in findOne() function can result in NoSQL Injection."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-532-01-S",
+          "condition": "safe",
+          "cwe": "CWE-532",
+          "range": [
+            29,
+            29
+          ],
+          "sinkLine": 29,
+          "equivalence": [
+            "CWE-532",
+            "CWE-200"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  25|   app.post('/auth/signin', async (request, reply) => {",
+        "  26|     const body = request.body as { email?: string; password?: string }",
+        "  27|     const user = await User.findOne({ where: { email: body.email ?? '' } })",
+        "  28|     const result = user ? 'accepted' : 'rejected'",
+        "  29|     request.log.info({ email: body.email, result }, 'signin attempt')"
+      ]
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#183#modules/orders/routes/tracking-issue.ts:26:CWE-79",
+      "stratum": "njsscan / fora-de-escopo",
+      "instrument": "njsscan",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/orders/routes/tracking-issue.ts",
+        "line": 26,
+        "cwe": "CWE-79",
+        "ruleId": "express_xss",
+        "runId": "20260903T184317Z",
+        "message": "Untrusted User Input in Response will result in Reflected Cross Site Scripting Vulnerability."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-338-02-S",
+          "condition": "safe",
+          "cwe": "CWE-338",
+          "range": [
+            29,
+            29
+          ],
+          "sinkLine": 29,
+          "equivalence": [
+            "CWE-338",
+            "CWE-330"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  24| export async function registerTrackingIssue(app: FastifyInstance): Promise<void> {",
+        "  25|   app.post('/orders/:id/tracking/issue', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "  26|     const id = Number((request.params as { id: string }).id)",
+        "  27|     const order = await Order.findByPk(id)",
+        "  28|     if (!order) return reply.code(404).send({ error: 'not found' })"
+      ]
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#198#modules/auth/routes/login.ts:26:CWE-943",
+      "stratum": "njsscan / fora-de-escopo",
+      "instrument": "njsscan",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/auth/routes/login.ts",
+        "line": 26,
+        "cwe": "CWE-943",
+        "ruleId": "node_nosqli_injection",
+        "runId": "20260903T184317Z",
+        "message": "Untrusted user input in findOne() function can result in NoSQL Injection."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-532-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-532",
+          "range": [
+            27,
+            29
+          ],
+          "sinkLine": 29,
+          "equivalence": [
+            "CWE-532",
+            "CWE-200"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  24| export async function registerLogin(app: FastifyInstance): Promise<void> {",
+        "  25|   app.post('/auth/login', async (request, reply) => {",
+        "  26|     const body = request.body as { email?: string; password?: string }",
+        "  27|     const logPayload = { body }",
+        "  28|     const logMessage = 'login attempt'"
+      ]
+    },
+    {
+      "itemId": "njsscan#redundante#197#modules/users/routes/store-document.ts:19:CWE-327",
+      "stratum": "njsscan / redundante",
+      "instrument": "njsscan",
+      "assignedCategory": "redundante",
+      "finding": {
+        "file": "modules/users/routes/store-document.ts",
+        "line": 19,
+        "cwe": "CWE-327",
+        "ruleId": "node_md5",
+        "runId": "20260903T184317Z",
+        "message": "MD5 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "assignedCase": {
+        "id": "C-327-02-V",
+        "cwe": "CWE-327",
+        "sinkLine": 23,
+        "range": [
+          20,
+          23
+        ],
+        "equivalence": [
+          "CWE-327",
+          "CWE-326",
+          "CWE-916"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-327-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-327",
+          "range": [
+            20,
+            23
+          ],
+          "sinkLine": 23,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  17|   app.post('/users/document/store', { preHandler: [app.authenticate] }, async (request, reply) => {",
+        "  18|     const document = String((request.body as { document?: string }).document ?? '')",
+        "  19|     const key = createHash('md5').update('loja-doc-key').digest()",
+        "  20|     const algorithm = 'aes-128-ecb'",
+        "  21|     const cipher = createCipheriv(algorithm, key, null)"
+      ]
+    },
+    {
+      "itemId": "njsscan#verdadeiro-positivo#196#modules/auth/routes/register.ts:30:CWE-327",
+      "stratum": "njsscan / verdadeiro-positivo",
+      "instrument": "njsscan",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/auth/routes/register.ts",
+        "line": 30,
+        "cwe": "CWE-327",
+        "ruleId": "node_md5",
+        "runId": "20260903T184317Z",
+        "message": "MD5 is a a weak hash which is known to have collision. Use a strong hashing function."
+      },
+      "assignedCase": {
+        "id": "C-327-01-V",
+        "cwe": "CWE-327",
+        "sinkLine": 32,
+        "range": [
+          29,
+          32
+        ],
+        "equivalence": [
+          "CWE-327",
+          "CWE-326",
+          "CWE-916"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-327-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-327",
+          "range": [
+            29,
+            32
+          ],
+          "sinkLine": 32,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  28|     const password = String(body.password ?? '')",
+        "  29|     const algorithm = 'md5'",
+        "  30|     const hash = createHash(algorithm)",
+        "  31|     const digestEncoding = 'hex'",
+        "  32|     const passwordHash = hash.update(password).digest(digestEncoding)"
+      ]
+    },
+    {
+      "itemId": "semgrep#falso-negativo#45#modules/reports/routes/formula.ts:133:sem-cwe",
+      "stratum": "semgrep / falso-negativo",
+      "instrument": "semgrep",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/reports/routes/formula.ts",
+        "line": 133,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-094-01-V",
+        "cwe": "CWE-94",
+        "sinkLine": 133,
+        "range": [
+          133,
+          133
+        ],
+        "equivalence": [
+          "CWE-94",
+          "CWE-95"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-094-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-94",
+          "range": [
+            133,
+            133
+          ],
+          "sinkLine": 133,
+          "equivalence": [
+            "CWE-94",
+            "CWE-95"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 135,
+          "cwe": "CWE-79",
+          "runId": "20260903T183852Z",
+          "message": "Detected directly writing to a Response object from user-defined input. This bypasses any "
+        }
+      ],
+      "source": [
+        " 131|       quantidade?: number",
+        " 132|     })",
+        " 133|     const fn = new Function('total', 'quantidade', 'return (' + inputs.expression + ')')",
+        " 134|     const result = fn(inputs.total, inputs.quantidade)",
+        " 135|     return reply.send(presentReportResult(inputs, result))"
+      ]
+    },
+    {
+      "itemId": "semgrep#falso-negativo#54#modules/integrations/routes/apply-config.ts:26:sem-cwe",
+      "stratum": "semgrep / falso-negativo",
+      "instrument": "semgrep",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/integrations/routes/apply-config.ts",
+        "line": 26,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-502-02-V",
+        "cwe": "CWE-502",
+        "sinkLine": 26,
+        "range": [
+          25,
+          26
+        ],
+        "equivalence": [
+          "CWE-502",
+          "CWE-915"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-502-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-502",
+          "range": [
+            25,
+            26
+          ],
+          "sinkLine": 26,
+          "equivalence": [
+            "CWE-502",
+            "CWE-915"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 27,
+          "cwe": "CWE-79",
+          "runId": "20260903T183852Z",
+          "message": "Detected directly writing to a Response object from user-defined input. This bypasses any "
+        }
+      ],
+      "source": [
+        "  24|     const doc = String((request.body as { yaml?: string }).yaml ?? '')",
+        "  25|     const schema = yaml.DEFAULT_FULL_SCHEMA",
+        "  26|     const parsed = yaml.load(doc, { schema })",
+        "  27|     return reply.send(presentConfig(parsed))",
+        "  28|   })"
+      ]
+    },
+    {
+      "itemId": "semgrep#falso-negativo#47#modules/system/routes/report.ts:36:sem-cwe",
+      "stratum": "semgrep / falso-negativo",
+      "instrument": "semgrep",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/system/routes/report.ts",
+        "line": 36,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-209-01-V",
+        "cwe": "CWE-209",
+        "sinkLine": 36,
+        "range": [
+          26,
+          37
+        ],
+        "equivalence": [
+          "CWE-209",
+          "CWE-200",
+          "CWE-497"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-209-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-209",
+          "range": [
+            26,
+            37
+          ],
+          "sinkLine": 36,
+          "equivalence": [
+            "CWE-209",
+            "CWE-200",
+            "CWE-497"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 31,
+          "cwe": "CWE-79",
+          "runId": "20260903T183852Z",
+          "message": "Detected directly writing to a Response object from user-defined input. This bypasses any "
+        }
+      ],
+      "source": [
+        "  34|       const message = error.message",
+        "  35|       const stack = error.stack",
+        "  36|       return reply.code(500).send({ message, stack })",
+        "  37|     }",
+        "  38|   })"
+      ]
+    },
+    {
+      "itemId": "semgrep#falso-negativo#59#modules/integrations/routes/dispatch.ts:26:sem-cwe",
+      "stratum": "semgrep / falso-negativo",
+      "instrument": "semgrep",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/integrations/routes/dispatch.ts",
+        "line": 26,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-798-01-V",
+        "cwe": "CWE-798",
+        "sinkLine": 26,
+        "range": [
+          25,
+          26
+        ],
+        "equivalence": [
+          "CWE-798",
+          "CWE-259",
+          "CWE-321"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-798-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-798",
+          "range": [
+            25,
+            26
+          ],
+          "sinkLine": 26,
+          "equivalence": [
+            "CWE-798",
+            "CWE-259",
+            "CWE-321"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 27,
+          "cwe": "CWE-79",
+          "runId": "20260903T183852Z",
+          "message": "Detected directly writing to a Response object from user-defined input. This bypasses any "
+        }
+      ],
+      "source": [
+        "  24|     const body = request.body as { message?: string }",
+        "  25|     const embeddedKey = 'loja-live-key-9f3a2c1b0e7d'",
+        "  26|     const apiKey = embeddedKey",
+        "  27|     return reply.send(presentIntegrationResult('dispatched', apiKey, body.message ?? ''))",
+        "  28|   })"
+      ]
+    },
+    {
+      "itemId": "semgrep#falso-negativo#41#modules/system/routes/diagnostics.ts:31:sem-cwe",
+      "stratum": "semgrep / falso-negativo",
+      "instrument": "semgrep",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/system/routes/diagnostics.ts",
+        "line": 31,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-078-02-V",
+        "cwe": "CWE-78",
+        "sinkLine": 31,
+        "range": [
+          29,
+          31
+        ],
+        "equivalence": [
+          "CWE-78",
+          "CWE-77",
+          "CWE-88"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-078-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-78",
+          "range": [
+            29,
+            31
+          ],
+          "sinkLine": 31,
+          "equivalence": [
+            "CWE-78",
+            "CWE-77",
+            "CWE-88"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 32,
+          "cwe": "CWE-79",
+          "runId": "20260903T183852Z",
+          "message": "Detected directly writing to a Response object from user-defined input. This bypasses any "
+        }
+      ],
+      "source": [
+        "  29|     const prefix = 'echo reachability-check '",
+        "  30|     const cmd = prefix + host",
+        "  31|     const { stdout, stderr } = await execAsync(cmd)",
+        "  32|     return reply.send(withEntityMeta({ output: stdout || stderr }))",
+        "  33|   })"
+      ]
+    },
+    {
+      "itemId": "semgrep#falso-negativo#43#modules/orders/routes/search-orders.ts:33:sem-cwe",
+      "stratum": "semgrep / falso-negativo",
+      "instrument": "semgrep",
+      "assignedCategory": "falso-negativo",
+      "finding": {
+        "file": "modules/orders/routes/search-orders.ts",
+        "line": 33,
+        "cwe": null,
+        "ruleId": "—",
+        "runId": "—",
+        "message": "nenhum achado satisfez a condição de verdadeiro positivo para o caso"
+      },
+      "assignedCase": {
+        "id": "C-089-01-V",
+        "cwe": "CWE-89",
+        "sinkLine": 33,
+        "range": [
+          27,
+          33
+        ],
+        "equivalence": [
+          "CWE-89",
+          "CWE-943"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-089-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-89",
+          "range": [
+            27,
+            33
+          ],
+          "sinkLine": 33,
+          "equivalence": [
+            "CWE-89",
+            "CWE-943"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "instrumentFindingsInFile": [
+        {
+          "line": 34,
+          "cwe": "CWE-79",
+          "runId": "20260903T183852Z",
+          "message": "Detected directly writing to a Response object from user-defined input. This bypasses any "
+        }
+      ],
+      "source": [
+        "  31|       \" AND status = \" +",
+        "  32|       statusLiteral",
+        "  33|     const [rows] = await getSequelize().query(sql)",
+        "  34|     return reply.send(withEntityMeta({ orders: rows }))",
+        "  35|   })"
+      ]
+    },
+    {
+      "itemId": "semgrep#falso-positivo-par#19#modules/orders/routes/voucher.ts:33:CWE-79",
+      "stratum": "semgrep / falso-positivo-par",
+      "instrument": "semgrep",
+      "assignedCategory": "falso-positivo-par",
+      "finding": {
+        "file": "modules/orders/routes/voucher.ts",
+        "line": 33,
+        "cwe": "CWE-79",
+        "ruleId": "rules.javascript.express.security.injection.raw-html-format",
+        "runId": "20260903T183852Z",
+        "message": "User data flows into the host portion of this manually-constructed HTML. This can introduce a Cross-Site-Scripting (XSS) vulnerability if this comes from user-p"
+      },
+      "assignedCase": {
+        "id": "C-079-01-S",
+        "cwe": "CWE-79",
+        "sinkLine": 34,
+        "range": [
+          32,
+          36
+        ],
+        "equivalence": [
+          "CWE-79",
+          "CWE-80"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-079-01-S",
+          "condition": "safe",
+          "cwe": "CWE-79",
+          "range": [
+            32,
+            36
+          ],
+          "sinkLine": 34,
+          "equivalence": [
+            "CWE-79",
+            "CWE-80"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  31|     const note = normalizeNote(String((request.query as { note?: string }).note ?? ''))",
+        "  32|     const title = 'Voucher'",
+        "  33|     const html = '<html><body><h1>' + title + '</h1><p>' + escapeHtml(note) + '</p></body></html>'",
+        "  34|     const meta = withEntityMeta({ noteLength: note.length })",
+        "  35|     reply.header('x-note-length', String(meta.meta.keyCount))"
+      ]
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#27#modules/system/routes/status.ts:32:CWE-79",
+      "stratum": "semgrep / fora-de-escopo",
+      "instrument": "semgrep",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/system/routes/status.ts",
+        "line": 32,
+        "cwe": "CWE-79",
+        "ruleId": "rules.javascript.express.security.audit.xss.direct-response-write",
+        "runId": "20260903T183852Z",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scriptin"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-209-01-S",
+          "condition": "safe",
+          "cwe": "CWE-209",
+          "range": [
+            27,
+            37
+          ],
+          "sinkLine": 36,
+          "equivalence": [
+            "CWE-209",
+            "CWE-200",
+            "CWE-497"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  30|         throw new Error('Order missing at ' + new URL(import.meta.url).pathname + ' id=' + id)",
+        "  31|       }",
+        "  32|       return reply.send(withEntityMeta({ id: order.id, status: order.status }))",
+        "  33|     } catch (err) {",
+        "  34|       const correlationId = randomUUID()"
+      ]
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#36#modules/users/routes/save-document.ts:28:CWE-79",
+      "stratum": "semgrep / fora-de-escopo",
+      "instrument": "semgrep",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/users/routes/save-document.ts",
+        "line": 28,
+        "cwe": "CWE-79",
+        "ruleId": "rules.javascript.express.security.audit.xss.direct-response-write",
+        "runId": "20260903T183852Z",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scriptin"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-327-02-S",
+          "condition": "safe",
+          "cwe": "CWE-327",
+          "range": [
+            24,
+            26
+          ],
+          "sinkLine": 26,
+          "equivalence": [
+            "CWE-327",
+            "CWE-326",
+            "CWE-916"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  26|     const tag = cipher.getAuthTag()",
+        "  27|     return reply.send(",
+        "  28|       presentCipherPayload(encrypted.toString('hex'), {",
+        "  29|         iv: iv.toString('hex'),",
+        "  30|         tag: tag.toString('hex'),"
+      ]
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#16#modules/orders/routes/settle.ts:33:CWE-79",
+      "stratum": "semgrep / fora-de-escopo",
+      "instrument": "semgrep",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/orders/routes/settle.ts",
+        "line": 33,
+        "cwe": "CWE-79",
+        "ruleId": "rules.javascript.express.security.audit.xss.direct-response-write",
+        "runId": "20260903T183852Z",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scriptin"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-532-02-S",
+          "condition": "safe",
+          "cwe": "CWE-532",
+          "range": [
+            30,
+            30
+          ],
+          "sinkLine": 30,
+          "equivalence": [
+            "CWE-532",
+            "CWE-200"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  31|     order.status = 'paid'",
+        "  32|     await order.save()",
+        "  33|     return reply.send(withEntityMeta({ id: order.id, status: order.status }))",
+        "  34|   })",
+        "  35| }"
+      ]
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#13#modules/orders/routes/payment.ts:34:CWE-79",
+      "stratum": "semgrep / fora-de-escopo",
+      "instrument": "semgrep",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/orders/routes/payment.ts",
+        "line": 34,
+        "cwe": "CWE-79",
+        "ruleId": "rules.javascript.express.security.audit.xss.direct-response-write",
+        "runId": "20260903T183852Z",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scriptin"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-532-02-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-532",
+          "range": [
+            29,
+            31
+          ],
+          "sinkLine": 31,
+          "equivalence": [
+            "CWE-532",
+            "CWE-200"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  32|     order.status = 'paid'",
+        "  33|     await order.save()",
+        "  34|     return reply.send(withEntityMeta({ id: order.id, status: order.status }))",
+        "  35|   })",
+        "  36| }"
+      ]
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#23#modules/reports/routes/transform-report.ts:39:CWE-79",
+      "stratum": "semgrep / fora-de-escopo",
+      "instrument": "semgrep",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/reports/routes/transform-report.ts",
+        "line": 39,
+        "cwe": "CWE-79",
+        "ruleId": "rules.javascript.express.security.audit.xss.direct-response-write",
+        "runId": "20260903T183852Z",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scriptin"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-078-01-S",
+          "condition": "safe",
+          "cwe": "CWE-78",
+          "range": [
+            38,
+            38
+          ],
+          "sinkLine": 38,
+          "equivalence": [
+            "CWE-78",
+            "CWE-77",
+            "CWE-88"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  37|     const out = path.join(dir, 'out-' + fileName)",
+        "  38|     await execFileAsync('cp', [path.join(dir, fileName), out])",
+        "  39|     return reply.send(withEntityMeta({ output: out }))",
+        "  40|   })",
+        "  41| }"
+      ]
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#18#modules/orders/routes/tracking-issue.ts:32:CWE-79",
+      "stratum": "semgrep / fora-de-escopo",
+      "instrument": "semgrep",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/orders/routes/tracking-issue.ts",
+        "line": 32,
+        "cwe": "CWE-79",
+        "ruleId": "rules.javascript.express.security.audit.xss.direct-response-write",
+        "runId": "20260903T183852Z",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scriptin"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-338-02-S",
+          "condition": "safe",
+          "cwe": "CWE-338",
+          "range": [
+            29,
+            29
+          ],
+          "sinkLine": 29,
+          "equivalence": [
+            "CWE-338",
+            "CWE-330"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  30|     order.trackingCode = trackingCode",
+        "  31|     await order.save()",
+        "  32|     return reply.send(withEntityMeta({ id: order.id, trackingCode }))",
+        "  33|   })",
+        "  34| }"
+      ]
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#2#modules/auth/routes/session.ts:35:CWE-79",
+      "stratum": "semgrep / fora-de-escopo",
+      "instrument": "semgrep",
+      "assignedCategory": "fora-de-escopo",
+      "finding": {
+        "file": "modules/auth/routes/session.ts",
+        "line": 35,
+        "cwe": "CWE-79",
+        "ruleId": "rules.javascript.express.security.audit.xss.direct-response-write",
+        "runId": "20260903T183852Z",
+        "message": "Detected directly writing to a Response object from user-defined input. This bypasses any HTML escaping and may expose your application to a Cross-Site-scriptin"
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-798-02-S",
+          "condition": "safe",
+          "cwe": "CWE-798",
+          "range": [
+            29,
+            34
+          ],
+          "sinkLine": 34,
+          "equivalence": [
+            "CWE-798",
+            "CWE-259",
+            "CWE-321"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "  33|     const claims = { id: user.id, email: user.email, role: user.role }",
+        "  34|     const token = signToken(claims, secret)",
+        "  35|     return reply.send(withEntityMeta({ token }))",
+        "  36|   })",
+        "  37| }"
+      ]
+    },
+    {
+      "itemId": "semgrep#nao-mapeado#10#modules/integrations/routes/timing-parse.ts:2:sem-cwe",
+      "stratum": "semgrep / nao-mapeado",
+      "instrument": "semgrep",
+      "assignedCategory": "nao-mapeado",
+      "finding": {
+        "file": "modules/integrations/routes/timing-parse.ts",
+        "line": 2,
+        "cwe": null,
+        "ruleId": "rules.typescript.lang.best-practice.moment-deprecated",
+        "runId": "20260903T183852Z",
+        "message": "Moment is a legacy project in maintenance mode. Consider using libraries that are actively supported, e.g. `dayjs`."
+      },
+      "assignedCase": null,
+      "casesInFile": [
+        {
+          "id": "C-1104-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-1104",
+          "range": [
+            7,
+            7
+          ],
+          "sinkLine": 7,
+          "equivalence": [
+            "CWE-1104",
+            "CWE-1395"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": false
+        }
+      ],
+      "source": [
+        "   1| import type { FastifyInstance } from 'fastify'",
+        "   2| import moment from 'moment'",
+        "   3| ",
+        "   4| export async function registerTimingParse(app: FastifyInstance): Promise<void> {"
+      ]
+    },
+    {
+      "itemId": "semgrep#verdadeiro-positivo#29#modules/users/routes/import-preferences.ts:25:CWE-502",
+      "stratum": "semgrep / verdadeiro-positivo",
+      "instrument": "semgrep",
+      "assignedCategory": "verdadeiro-positivo",
+      "finding": {
+        "file": "modules/users/routes/import-preferences.ts",
+        "line": 25,
+        "cwe": "CWE-502",
+        "ruleId": "rules.javascript.express.security.audit.express-third-party-object-deserialization",
+        "runId": "20260903T183852Z",
+        "message": "The following function call serialize.unserialize accepts user controlled data which can result in Remote Code Execution (RCE) through Object Deserialization. I"
+      },
+      "assignedCase": {
+        "id": "C-502-01-V",
+        "cwe": "CWE-502",
+        "sinkLine": 25,
+        "range": [
+          24,
+          25
+        ],
+        "equivalence": [
+          "CWE-502",
+          "CWE-915"
+        ]
+      },
+      "casesInFile": [
+        {
+          "id": "C-502-01-V",
+          "condition": "vulnerable",
+          "cwe": "CWE-502",
+          "range": [
+            24,
+            25
+          ],
+          "sinkLine": 25,
+          "equivalence": [
+            "CWE-502",
+            "CWE-915"
+          ],
+          "lineInTpWindow": true,
+          "lineInSafeWindow": true,
+          "cweInEquivalence": true
+        }
+      ],
+      "source": [
+        "  23|     const decoded = Buffer.from(data, 'base64').toString('utf8')",
+        "  24|     const serialized = decoded",
+        "  25|     const prefs = serialize.unserialize(serialized)",
+        "  26|     return reply.send(presentPreferences(prefs))",
+        "  27|   })"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,436 @@
+{
+  "schemaVersion": "1.0",
+  "reviewer": "conferencia manual da tarefa 13 (recolhimento e pontuacao)",
+  "reviewedAt": "2026-09-10",
+  "seed": "secbench-ts/conferencia-manual/2026-09-10",
+  "procedure": "Para cada item, verificaram-se as tres condicoes da secao 4.1 sobre o caso do gabarito no mesmo arquivo (coincidencia de caminho, janela de +-5 linhas em torno da linha de referencia e pertinencia do CWE ao conjunto de equivalencia da secao 7.3); para falso positivo de par, o intervalo do caso protegido; para redundante, a existencia previa de verdadeiro positivo do mesmo instrumento no mesmo caso; para fora de escopo, a ausencia de caso satisfeito; para nao mapeado, a ausencia de CWE resolvido; para falso negativo, a ausencia de achado do instrumento que satisfizesse 4.1 no arquivo do caso.",
+  "verdicts": [
+    {
+      "itemId": "antigravity#falso-negativo#304#modules/users/routes/store-document.ts:23:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "antigravity#falso-negativo#299#modules/users/routes/profile-validate.ts:28:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "antigravity#falso-negativo#314#modules/integrations/routes/dispatch.ts:26:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "antigravity#falso-negativo#297#modules/reports/routes/formula.ts:133:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "antigravity#falso-negativo#302#modules/system/routes/purge.ts:8:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "antigravity#falso-negativo#301#modules/users/routes/admin-users.ts:6:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#falso-negativo#378#modules/integrations/routes/timing-parse.ts:7:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#fora-de-escopo#376#modules/users/routes/save-document.ts:21:CWE-798",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#fora-de-escopo#367#modules/orders/routes/search-orders.ts:27:CWE-89",
+      "verdict": "confere",
+      "note": "Linha 27 esta a 6 linhas do sink 33 do caso C-089-01-V; fora da janela de +-5, logo nao e verdadeiro positivo apesar do CWE equivalente."
+    },
+    {
+      "itemId": "claude-code#fora-de-escopo#335#modules/files/routes/upload.ts:34:CWE-22",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#fora-de-escopo#350#modules/users/routes/save-document.ts:21:CWE-1188",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#fora-de-escopo#363#modules/files/routes/invoice-document.ts:20:CWE-639",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#redundante#374#modules/auth/routes/token.ts:31:CWE-798",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#redundante#368#modules/auth/routes/register.ts:30:CWE-916",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#verdadeiro-positivo#331#modules/system/routes/purge.ts:6:CWE-306",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#verdadeiro-positivo#351#modules/orders/routes/preview.ts:29:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#verdadeiro-positivo#339#modules/auth/routes/register.ts:29:CWE-916",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#verdadeiro-positivo#323#modules/orders/routes/search-orders.ts:33:CWE-89",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#verdadeiro-positivo#349#modules/users/routes/store-document.ts:20:CWE-327",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "claude-code#verdadeiro-positivo#320#modules/users/routes/import-preferences.ts:25:CWE-502",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "codeql#falso-negativo#284#modules/orders/routes/payment.ts:31:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "codeql#falso-negativo#273#modules/integrations/routes/timing-parse.ts:7:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "codeql#falso-negativo#279#modules/auth/routes/recovery-request.ts:11:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "codeql#falso-negativo#272#modules/orders/routes/preview.ts:30:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "codeql#falso-positivo-par#268#modules/auth/routes/return-path.ts:40:CWE-601",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "codeql#fora-de-escopo#255#modules/files/routes/attach.ts:37:CWE-770",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "codeql#fora-de-escopo#264#modules/system/routes/diagnostics.ts:27:CWE-770",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "codeql#fora-de-escopo#261#modules/reports/routes/convert-report.ts:29:CWE-770",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "codeql#redundante#244#modules/users/routes/profile-validate.ts:28:CWE-1333",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "codeql#verdadeiro-positivo#250#modules/integrations/routes/feed-fetch.ts:35:CWE-918",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "codeql#verdadeiro-positivo#243#modules/users/routes/profile-validate.ts:25:CWE-1333",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "codeql#verdadeiro-positivo#254#modules/system/routes/diagnostics.ts:31:CWE-78",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#falso-negativo#453#modules/files/routes/upload.ts:35:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#445#modules/auth/routes/reset-request.ts:13:CWE-200",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#397#modules/users/routes/save-document.ts:21:CWE-321",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#398#modules/users/routes/store-document.ts:19:CWE-798",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#426#modules/auth/routes/register.ts:34:CWE-201",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#404#db/seed.ts:48:CWE-916",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#442#modules/files/routes/invoice-attachment.ts:20:CWE-639",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#432#modules/auth/routes/recovery-request.ts:16:CWE-201",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#fora-de-escopo#395#modules/system/routes/report.ts:27:CWE-639",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#redundante#443#modules/files/routes/invoice-attachment.ts:24:CWE-22",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#redundante#438#modules/users/routes/admin-users.ts:5:CWE-862",
+      "verdict": "confere",
+      "note": "Segundo achado do mesmo instrumento na mesma linha do caso C-284-01-V; o primeiro (CWE-285) tomou o verdadeiro positivo. §4.1."
+    },
+    {
+      "itemId": "cursor#verdadeiro-positivo#411#modules/files/routes/invoice-attachment.ts:23:CWE-22",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#verdadeiro-positivo#424#modules/auth/routes/recovery-request.ts:11:CWE-330",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#verdadeiro-positivo#435#modules/orders/routes/search-orders.ts:28:CWE-89",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#verdadeiro-positivo#407#modules/integrations/routes/apply-config.ts:26:CWE-502",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#verdadeiro-positivo#401#modules/users/routes/profile-validate.ts:25:CWE-1333",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "cursor#verdadeiro-positivo#423#modules/auth/routes/password-rotate.ts:30:CWE-916",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "eslint#falso-negativo#145#modules/orders/routes/search-orders.ts:33:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "eslint#falso-negativo#153#modules/auth/routes/register.ts:32:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "eslint#falso-negativo#160#modules/auth/routes/login.ts:29:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "eslint#falso-negativo#148#modules/integrations/routes/timing-parse.ts:7:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "eslint#falso-negativo#162#modules/auth/routes/callback.ts:32:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "eslint#falso-negativo#151#modules/users/routes/admin-users.ts:6:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "eslint#nao-mapeado#101#modules/orders/routes/filter-orders.ts:1:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#102#modules/orders/routes/get-order.ts:1:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#65#config/constants.ts:3:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#89#modules/files/routes/image-render.ts:1:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#78#modules/auth/routes/register.ts:2:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#88#modules/files/routes/image-proxy.ts:1:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#96#modules/integrations/routes/feed-import.ts:1:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#80#modules/auth/routes/return-path.ts:1:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#85#modules/files/routes/attach.ts:4:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#117#modules/shared/html.ts:1:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#77#modules/auth/routes/recovery-request.ts:1:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#112#modules/orders/routes/voucher.ts:1:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#109#modules/orders/routes/summary.ts:1:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#72#db/sequelize.ts:4:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "eslint#nao-mapeado#114#modules/reports/routes/convert-report.ts:4:sem-cwe",
+      "verdict": "confere",
+      "note": "Mensagem de erro de analise sintatica, sem regra e sem CWE; §4.6 classifica como nao mapeado."
+    },
+    {
+      "itemId": "njsscan#falso-negativo#230#modules/system/routes/purge.ts:8:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#falso-negativo#236#modules/auth/routes/login.ts:29:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#falso-negativo#226#modules/integrations/routes/timing-parse.ts:7:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#falso-negativo#220#modules/reports/routes/convert-report.ts:35:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#falso-negativo#234#modules/users/routes/import-preferences.ts:25:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#173#modules/integrations/routes/feed-fetch.ts:34:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#184#modules/reports/routes/calculate.ts:183:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#212#modules/reports/routes/calculate.ts:41:CWE-185",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#189#modules/system/routes/status.ts:26:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#213#modules/reports/routes/calculate.ts:89:CWE-185",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#185#modules/reports/routes/convert-report.ts:30:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#205#modules/auth/routes/signin.ts:27:CWE-943",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#183#modules/orders/routes/tracking-issue.ts:26:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#fora-de-escopo#198#modules/auth/routes/login.ts:26:CWE-943",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#redundante#197#modules/users/routes/store-document.ts:19:CWE-327",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "njsscan#verdadeiro-positivo#196#modules/auth/routes/register.ts:30:CWE-327",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#falso-negativo#45#modules/reports/routes/formula.ts:133:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#falso-negativo#54#modules/integrations/routes/apply-config.ts:26:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#falso-negativo#47#modules/system/routes/report.ts:36:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#falso-negativo#59#modules/integrations/routes/dispatch.ts:26:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#falso-negativo#41#modules/system/routes/diagnostics.ts:31:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#falso-negativo#43#modules/orders/routes/search-orders.ts:33:sem-cwe",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#falso-positivo-par#19#modules/orders/routes/voucher.ts:33:CWE-79",
+      "verdict": "confere",
+      "note": "Achado sobre o membro protegido do par C-079-01, dentro do intervalo [32,36] e com CWE equivalente; falso positivo de par conforme §4.2."
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#27#modules/system/routes/status.ts:32:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#36#modules/users/routes/save-document.ts:28:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#16#modules/orders/routes/settle.ts:33:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#13#modules/orders/routes/payment.ts:34:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#23#modules/reports/routes/transform-report.ts:39:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#18#modules/orders/routes/tracking-issue.ts:32:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#fora-de-escopo#2#modules/auth/routes/session.ts:35:CWE-79",
+      "verdict": "confere"
+    },
+    {
+      "itemId": "semgrep#nao-mapeado#10#modules/integrations/routes/timing-parse.ts:2:sem-cwe",
+      "verdict": "confere",
+      "note": "Achado na linha 2 cai na janela do caso C-1104-01-V (sink 7), mas o identificador rules.typescript.lang.best-practice.moment-deprecated nao tem entrada em tools/cwe-aliases.json e o achado nao traz CWE proprio; §4.6 classifica como nao mapeado. Tabela de identificadores nao alterada."
+    },
+    {
+      "itemId": "semgrep#verdadeiro-positivo#29#modules/users/routes/import-preferences.ts:25:CWE-502",
+      "verdict": "confere"
+    }
+  ]
+}

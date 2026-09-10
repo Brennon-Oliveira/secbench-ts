@@ -1,0 +1,312 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-09-10T21:46:21.155Z",
+  "attestation": {
+    "path": "results/raw/attestation.json",
+    "originCommit": "cc42cd7ec1e574f382eee0b6b03e8284e9cfb2e2",
+    "corpusAggregateSha256": "7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6",
+    "corpusFileCount": 76
+  },
+  "repoCorpusAggregateSha256": "7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6",
+  "sessions": [
+    {
+      "branch": "snapshot/01",
+      "product": "Claude Code (Opus)",
+      "run": 1,
+      "originCommit": "166ddeac0ae8eb052689ce1b35bfe348c4b503ca",
+      "reportCommit": "2c3917e2268ae89457b4b860597f6f3653f2f746",
+      "commitsAhead": 1,
+      "addedFiles": [
+        "auditoria.json",
+        "execucao.json"
+      ],
+      "unexpectedChanges": [],
+      "codeAggregateSha256": "7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6",
+      "codeAggregateMatchesAttestation": true,
+      "codeFilesDiverging": [],
+      "valid": true
+    },
+    {
+      "branch": "snapshot/04",
+      "product": "Claude Code (Opus)",
+      "run": 2,
+      "originCommit": "35268265a1d48c1d2ca1b536c55aab0bd2bc392c",
+      "reportCommit": "9c158b1ddf35d4c5cce0a47710f5bf9e928101dc",
+      "commitsAhead": 1,
+      "addedFiles": [
+        "auditoria.json",
+        "execucao.json"
+      ],
+      "unexpectedChanges": [],
+      "codeAggregateSha256": "7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6",
+      "codeAggregateMatchesAttestation": true,
+      "codeFilesDiverging": [],
+      "valid": true
+    },
+    {
+      "branch": "snapshot/07",
+      "product": "Claude Code (Opus)",
+      "run": 3,
+      "originCommit": "e973ec8571766f375524e4488ba8d4cfcc03d4d0",
+      "reportCommit": "339c47b27df7c6b78c9c85f06c07de104b0aa243",
+      "commitsAhead": 1,
+      "addedFiles": [
+        "auditoria.json",
+        "execucao.json"
+      ],
+      "unexpectedChanges": [],
+      "codeAggregateSha256": "7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6",
+      "codeAggregateMatchesAttestation": true,
+      "codeFilesDiverging": [],
+      "valid": true
+    },
+    {
+      "branch": "snapshot/02",
+      "product": "Cursor (Grok)",
+      "run": 1,
+      "originCommit": "18c9167343b4e23800b34af3c16ee5b551fd557c",
+      "reportCommit": "16ba739fed62ad6f6e4ec1b9a1214e74c0c64a90",
+      "commitsAhead": 1,
+      "addedFiles": [
+        "auditoria.json",
+        "execucao.json"
+      ],
+      "unexpectedChanges": [],
+      "codeAggregateSha256": "7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6",
+      "codeAggregateMatchesAttestation": true,
+      "codeFilesDiverging": [],
+      "valid": true
+    },
+    {
+      "branch": "snapshot/05",
+      "product": "Cursor (Grok)",
+      "run": 2,
+      "originCommit": "a4d63c009c5a723360c3c9510ffd592b54909f53",
+      "reportCommit": "79c5118cc7900f4940f57c1251d06b90e4d4f371",
+      "commitsAhead": 1,
+      "addedFiles": [
+        "auditoria.json",
+        "execucao.json"
+      ],
+      "unexpectedChanges": [],
+      "codeAggregateSha256": "7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6",
+      "codeAggregateMatchesAttestation": true,
+      "codeFilesDiverging": [],
+      "valid": true
+    },
+    {
+      "branch": "snapshot/08",
+      "product": "Cursor (Grok)",
+      "run": 3,
+      "originCommit": "3ceb0503103190ecb13e8496dd877f849c49579f",
+      "reportCommit": "ddc33e4089525a2a05e8f98337645c915ba39327",
+      "commitsAhead": 1,
+      "addedFiles": [
+        "auditoria.json",
+        "execucao.json"
+      ],
+      "unexpectedChanges": [],
+      "codeAggregateSha256": "7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6",
+      "codeAggregateMatchesAttestation": true,
+      "codeFilesDiverging": [],
+      "valid": true
+    },
+    {
+      "branch": "snapshot/03",
+      "product": "Google Antigravity",
+      "run": 1,
+      "originCommit": "01b39ea202986ea3fff3eccd803c00a37585d4c3",
+      "reportCommit": "088d662aae8b18e5a8a788525ab1e20ff6decca5",
+      "commitsAhead": 1,
+      "addedFiles": [
+        "execucao.json",
+        "resposta-bruta.txt"
+      ],
+      "unexpectedChanges": [],
+      "codeAggregateSha256": "7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6",
+      "codeAggregateMatchesAttestation": true,
+      "codeFilesDiverging": [],
+      "valid": true
+    },
+    {
+      "branch": "snapshot/06",
+      "product": "Google Antigravity",
+      "run": 2,
+      "originCommit": "035da70a79dd757da8289c845ddf9c4b4cecfad1",
+      "reportCommit": "74db752e2ad455de5a54d9140ab6fe49c30c9209",
+      "commitsAhead": 1,
+      "addedFiles": [
+        "execucao.json",
+        "resposta-bruta.txt"
+      ],
+      "unexpectedChanges": [],
+      "codeAggregateSha256": "7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6",
+      "codeAggregateMatchesAttestation": true,
+      "codeFilesDiverging": [],
+      "valid": true
+    },
+    {
+      "branch": "snapshot/09",
+      "product": "Google Antigravity",
+      "run": 3,
+      "originCommit": "58e2738d19c559539b2a178f6cfe49bdf4313c34",
+      "reportCommit": "92850510069abf57d564e84bd38b81ba264a6886",
+      "commitsAhead": 1,
+      "addedFiles": [
+        "execucao.json",
+        "resposta-bruta.txt"
+      ],
+      "unexpectedChanges": [],
+      "codeAggregateSha256": "7d0c044a96b4d2d49ec9074edf01c2096f68008a2aa100eafb9e2635bc9917f6",
+      "codeAggregateMatchesAttestation": true,
+      "codeFilesDiverging": [],
+      "valid": true
+    }
+  ],
+  "files": [
+    {
+      "session": "claude-code-run1",
+      "role": "auditoria",
+      "sourcePath": "auditoria.json",
+      "collectedAs": "results/raw/assistants/claude-code-run1-auditoria.json",
+      "sha256": "c789a59e592b60d104fafbc9b3d30f9fc0b219f593be4ec6b5e27202889f6483",
+      "bytes": 17396
+    },
+    {
+      "session": "claude-code-run1",
+      "role": "execucao",
+      "sourcePath": "execucao.json",
+      "collectedAs": "results/raw/assistants/claude-code-run1-execucao.json",
+      "sha256": "980885147f3feda51ec7851e8da394814376302a4c8b72d0fb83e15547234f90",
+      "bytes": 284
+    },
+    {
+      "session": "claude-code-run2",
+      "role": "auditoria",
+      "sourcePath": "auditoria.json",
+      "collectedAs": "results/raw/assistants/claude-code-run2-auditoria.json",
+      "sha256": "ebcd0881d781f801017ca7606f54ce6b70d7aab9fd43cd8f77a4cd460992eea4",
+      "bytes": 13316
+    },
+    {
+      "session": "claude-code-run2",
+      "role": "execucao",
+      "sourcePath": "execucao.json",
+      "collectedAs": "results/raw/assistants/claude-code-run2-execucao.json",
+      "sha256": "3d55f0e79428eb72c8a113ceea1194857a47b63153532a41aef8896a371c863d",
+      "bytes": 284
+    },
+    {
+      "session": "claude-code-run3",
+      "role": "auditoria",
+      "sourcePath": "auditoria.json",
+      "collectedAs": "results/raw/assistants/claude-code-run3-auditoria.json",
+      "sha256": "d4f735c33f90e36c6ad82149d6cfbf3e5e0d160a18b3b20c2e2550be0cf7ca28",
+      "bytes": 14788
+    },
+    {
+      "session": "claude-code-run3",
+      "role": "execucao",
+      "sourcePath": "execucao.json",
+      "collectedAs": "results/raw/assistants/claude-code-run3-execucao.json",
+      "sha256": "918b6401f838f2b1a106ae98e2758c3e6853ad598603221ee58e50a1d3f01d2b",
+      "bytes": 284
+    },
+    {
+      "session": "cursor-run1",
+      "role": "auditoria",
+      "sourcePath": "auditoria.json",
+      "collectedAs": "results/raw/assistants/cursor-run1-auditoria.json",
+      "sha256": "0ad14a30e8b678d270bc2c73867384db04d3215cf64ce70d8daa9eead2afda6f",
+      "bytes": 16405
+    },
+    {
+      "session": "cursor-run1",
+      "role": "execucao",
+      "sourcePath": "execucao.json",
+      "collectedAs": "results/raw/assistants/cursor-run1-execucao.json",
+      "sha256": "e57a76f523bbdee36cf19a3dc1b1ca48065cec9f364c2fffe9cf56bf9ee7ca7d",
+      "bytes": 300
+    },
+    {
+      "session": "cursor-run2",
+      "role": "auditoria",
+      "sourcePath": "auditoria.json",
+      "collectedAs": "results/raw/assistants/cursor-run2-auditoria.json",
+      "sha256": "811ae4e64d54f7d7f08027090f9de6d7ce8d7687815537a0df11eca3a09b56f8",
+      "bytes": 14900
+    },
+    {
+      "session": "cursor-run2",
+      "role": "execucao",
+      "sourcePath": "execucao.json",
+      "collectedAs": "results/raw/assistants/cursor-run2-execucao.json",
+      "sha256": "9da27091acd7fa43bd6b8fc5b84826dd0da4c18c57ffcee016d0941cf5ff7b2d",
+      "bytes": 300
+    },
+    {
+      "session": "cursor-run3",
+      "role": "auditoria",
+      "sourcePath": "auditoria.json",
+      "collectedAs": "results/raw/assistants/cursor-run3-auditoria.json",
+      "sha256": "c7fda2ba4683178ec3c9c8393a84f9a2e777d9221e5a91b67c7c952cbc205548",
+      "bytes": 15892
+    },
+    {
+      "session": "cursor-run3",
+      "role": "execucao",
+      "sourcePath": "execucao.json",
+      "collectedAs": "results/raw/assistants/cursor-run3-execucao.json",
+      "sha256": "6bcdb168250bf59e4684dd13b8bb0ed5bd2a57cee7b51a5877f165202a38ed31",
+      "bytes": 300
+    },
+    {
+      "session": "antigravity-run1",
+      "role": "execucao",
+      "sourcePath": "execucao.json",
+      "collectedAs": "results/raw/assistants/antigravity-run1-execucao.json",
+      "sha256": "de7aa04cc307769e75c66d307146985824b7c80a1b0eb7827921dd179fc5cd34",
+      "bytes": 404
+    },
+    {
+      "session": "antigravity-run1",
+      "role": "resposta-bruta",
+      "sourcePath": "resposta-bruta.txt",
+      "collectedAs": "results/raw/assistants/antigravity-run1-resposta-bruta.txt",
+      "sha256": "080f1f1dbd80991595be6c95625f5576aaec626b7f9dd61e768c6b5ccdf76abe",
+      "bytes": 3602
+    },
+    {
+      "session": "antigravity-run2",
+      "role": "execucao",
+      "sourcePath": "execucao.json",
+      "collectedAs": "results/raw/assistants/antigravity-run2-execucao.json",
+      "sha256": "e0a6072c8056e15af502926c6c73459acb00ccd6c926113a7610cf970e6b797a",
+      "bytes": 404
+    },
+    {
+      "session": "antigravity-run2",
+      "role": "resposta-bruta",
+      "sourcePath": "resposta-bruta.txt",
+      "collectedAs": "results/raw/assistants/antigravity-run2-resposta-bruta.txt",
+      "sha256": "c0c1034e896c26c6cd242a3476287255846a282de05f85d00c920a47140930aa",
+      "bytes": 2690
+    },
+    {
+      "session": "antigravity-run3",
+      "role": "execucao",
+      "sourcePath": "execucao.json",
+      "collectedAs": "results/raw/assistants/antigravity-run3-execucao.json",
+      "sha256": "94207cb04404248d773e2ba0cf4a3505afac30f6568bcf59e0429c6036cf0a70",
+      "bytes": 404
+    },
+    {
+      "session": "antigravity-run3",
+      "role": "resposta-bruta",
+      "sourcePath": "resposta-bruta.txt",
+      "collectedAs": "results/raw/assistants/antigravity-run3-resposta-bruta.txt",
+      "sha256": "de42a576ad796791d412c8790da9ebfacd2d5a32d74cacf633113584da340f0f",
+      "bytes": 2775
+    }
+  ]
+}

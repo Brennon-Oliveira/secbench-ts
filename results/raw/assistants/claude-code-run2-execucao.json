@@ -1,0 +1,13 @@
+{
+  "produto": "Claude Code",
+  "versao": "v2.1.267",
+  "modelo": "Opus 5 (1M context)",
+  "branch": "snapshot/04",
+  "rodada": 2,
+  "data": "2026-09-10",
+  "duracaoAproximada": "4:00 a 4:30 minutos",
+  "desfecho": "concluido",
+  "saida": "auditoria.json",
+  "anormalidades": null
+}
+ 

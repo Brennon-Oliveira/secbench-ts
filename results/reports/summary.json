@@ -1,0 +1,3698 @@
+{
+  "schemaVersion": "2.0",
+  "generatedAt": "2026-09-10T21:57:33.091Z",
+  "generatedFrom": [
+    "results/normalized/all.json",
+    "results/normalized/assistant-sessions.json"
+  ],
+  "rule": {
+    "lineWindow": 5,
+    "source": "docs/PROTOCOLO-MEDICAO.md §4 e §7.3",
+    "findingIdentity": "file|line|cwe",
+    "note": "§4.2 é aplicado com a mesma janela de ±5 linhas em torno do intervalo do caso protegido, como na implementação versionada antes da coleta; a contagem sob leitura estrita do intervalo é reportada em falsePositivesStrictInterval, sem ser aplicada."
+  },
+  "corpus": {
+    "vulnerableCases": 30,
+    "safeCases": 30,
+    "files": 76
+  },
+  "instruments": [
+    {
+      "instrument": "semgrep",
+      "variant": "principal",
+      "kind": "ferramenta",
+      "findings": 38,
+      "truePositives": 4,
+      "falsePositivesPair": 1,
+      "falseNegatives": 26,
+      "outOfScope": 32,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 1,
+      "precision": 0.8,
+      "recall": 0.13333333333333333,
+      "f1": 0.2285714285714286,
+      "tpRate": 0.13333333333333333,
+      "fpRate": 0.03333333333333333,
+      "tpMinusFpRate": 0.1,
+      "detectedCases": [
+        "C-079-01-V",
+        "C-1333-01-V",
+        "C-327-01-V",
+        "C-502-01-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 1
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 1
+    },
+    {
+      "instrument": "eslint",
+      "variant": "principal",
+      "kind": "ferramenta",
+      "findings": 75,
+      "truePositives": 0,
+      "falsePositivesPair": 0,
+      "falseNegatives": 30,
+      "outOfScope": 0,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 75,
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "tpRate": 0,
+      "fpRate": 0,
+      "tpMinusFpRate": 0,
+      "detectedCases": [],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "njsscan",
+      "variant": "principal",
+      "kind": "ferramenta",
+      "findings": 49,
+      "truePositives": 5,
+      "falsePositivesPair": 0,
+      "falseNegatives": 25,
+      "outOfScope": 43,
+      "redundant": 1,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 1,
+      "recall": 0.16666666666666666,
+      "f1": 0.2857142857142857,
+      "tpRate": 0.16666666666666666,
+      "fpRate": 0,
+      "tpMinusFpRate": 0.16666666666666666,
+      "detectedCases": [
+        "C-094-01-V",
+        "C-327-01-V",
+        "C-327-02-V",
+        "C-798-01-V",
+        "C-798-02-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "codeql",
+      "variant": "principal",
+      "kind": "ferramenta",
+      "findings": 27,
+      "truePositives": 11,
+      "falsePositivesPair": 3,
+      "falseNegatives": 19,
+      "outOfScope": 11,
+      "redundant": 2,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 0.7857142857142857,
+      "recall": 0.36666666666666664,
+      "f1": 0.5,
+      "tpRate": 0.36666666666666664,
+      "fpRate": 0.1,
+      "tpMinusFpRate": 0.2666666666666666,
+      "detectedCases": [
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-089-01-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-502-02-V",
+        "C-601-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 1
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 2
+        }
+      },
+      "falsePositivesStrictInterval": 3
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "principal",
+      "kind": "assistente",
+      "findings": 0,
+      "truePositives": 0,
+      "falsePositivesPair": 0,
+      "falseNegatives": 30,
+      "outOfScope": 0,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "tpRate": 0,
+      "fpRate": 0,
+      "tpMinusFpRate": 0,
+      "detectedCases": [],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "antigravity run1",
+      "variant": "execucao",
+      "kind": "assistente",
+      "findings": 0,
+      "truePositives": 0,
+      "falsePositivesPair": 0,
+      "falseNegatives": 30,
+      "outOfScope": 0,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "tpRate": 0,
+      "fpRate": 0,
+      "tpMinusFpRate": 0,
+      "detectedCases": [],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "antigravity run2",
+      "variant": "execucao",
+      "kind": "assistente",
+      "findings": 0,
+      "truePositives": 0,
+      "falsePositivesPair": 0,
+      "falseNegatives": 30,
+      "outOfScope": 0,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "tpRate": 0,
+      "fpRate": 0,
+      "tpMinusFpRate": 0,
+      "detectedCases": [],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "antigravity run3",
+      "variant": "execucao",
+      "kind": "assistente",
+      "findings": 0,
+      "truePositives": 0,
+      "falsePositivesPair": 0,
+      "falseNegatives": 30,
+      "outOfScope": 0,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "tpRate": 0,
+      "fpRate": 0,
+      "tpMinusFpRate": 0,
+      "detectedCases": [],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "antigravity",
+      "variant": "maioria",
+      "kind": "assistente",
+      "findings": 0,
+      "truePositives": 0,
+      "falsePositivesPair": 0,
+      "falseNegatives": 30,
+      "outOfScope": 0,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "tpRate": 0,
+      "fpRate": 0,
+      "tpMinusFpRate": 0,
+      "detectedCases": [],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "principal",
+      "kind": "assistente",
+      "findings": 59,
+      "truePositives": 29,
+      "falsePositivesPair": 0,
+      "falseNegatives": 1,
+      "outOfScope": 23,
+      "redundant": 7,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 1,
+      "recall": 0.9666666666666667,
+      "f1": 0.983050847457627,
+      "tpRate": 0.9666666666666667,
+      "fpRate": 0,
+      "tpMinusFpRate": 0.9666666666666667,
+      "detectedCases": [
+        "C-022-01-V",
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-079-02-V",
+        "C-089-01-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-209-01-V",
+        "C-284-01-V",
+        "C-306-01-V",
+        "C-327-01-V",
+        "C-327-02-V",
+        "C-338-01-V",
+        "C-338-02-V",
+        "C-434-01-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-532-01-V",
+        "C-532-02-V",
+        "C-601-01-V",
+        "C-639-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-916-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "claude-code run1",
+      "variant": "execucao",
+      "kind": "assistente",
+      "findings": 45,
+      "truePositives": 29,
+      "falsePositivesPair": 0,
+      "falseNegatives": 1,
+      "outOfScope": 16,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 1,
+      "recall": 0.9666666666666667,
+      "f1": 0.983050847457627,
+      "tpRate": 0.9666666666666667,
+      "fpRate": 0,
+      "tpMinusFpRate": 0.9666666666666667,
+      "detectedCases": [
+        "C-022-01-V",
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-079-02-V",
+        "C-089-01-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-209-01-V",
+        "C-284-01-V",
+        "C-306-01-V",
+        "C-327-01-V",
+        "C-327-02-V",
+        "C-338-01-V",
+        "C-338-02-V",
+        "C-434-01-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-532-01-V",
+        "C-532-02-V",
+        "C-601-01-V",
+        "C-639-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-916-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "claude-code run2",
+      "variant": "execucao",
+      "kind": "assistente",
+      "findings": 32,
+      "truePositives": 27,
+      "falsePositivesPair": 0,
+      "falseNegatives": 3,
+      "outOfScope": 5,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 1,
+      "recall": 0.9,
+      "f1": 0.9473684210526316,
+      "tpRate": 0.9,
+      "fpRate": 0,
+      "tpMinusFpRate": 0.9,
+      "detectedCases": [
+        "C-022-01-V",
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-079-02-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-209-01-V",
+        "C-284-01-V",
+        "C-306-01-V",
+        "C-327-01-V",
+        "C-327-02-V",
+        "C-338-01-V",
+        "C-338-02-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-532-01-V",
+        "C-532-02-V",
+        "C-601-01-V",
+        "C-639-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-916-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "claude-code run3",
+      "variant": "execucao",
+      "kind": "assistente",
+      "findings": 36,
+      "truePositives": 28,
+      "falsePositivesPair": 0,
+      "falseNegatives": 2,
+      "outOfScope": 8,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 1,
+      "recall": 0.9333333333333333,
+      "f1": 0.9655172413793104,
+      "tpRate": 0.9333333333333333,
+      "fpRate": 0,
+      "tpMinusFpRate": 0.9333333333333333,
+      "detectedCases": [
+        "C-022-01-V",
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-079-02-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-209-01-V",
+        "C-284-01-V",
+        "C-306-01-V",
+        "C-327-01-V",
+        "C-327-02-V",
+        "C-338-01-V",
+        "C-338-02-V",
+        "C-434-01-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-532-01-V",
+        "C-532-02-V",
+        "C-601-01-V",
+        "C-639-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-916-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "claude-code",
+      "variant": "maioria",
+      "kind": "assistente",
+      "findings": 32,
+      "truePositives": 26,
+      "falsePositivesPair": 0,
+      "falseNegatives": 4,
+      "outOfScope": 6,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 1,
+      "recall": 0.8666666666666667,
+      "f1": 0.9285714285714286,
+      "tpRate": 0.8666666666666667,
+      "fpRate": 0,
+      "tpMinusFpRate": 0.8666666666666667,
+      "detectedCases": [
+        "C-022-01-V",
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-079-02-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-209-01-V",
+        "C-284-01-V",
+        "C-306-01-V",
+        "C-327-02-V",
+        "C-338-01-V",
+        "C-338-02-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-532-01-V",
+        "C-532-02-V",
+        "C-601-01-V",
+        "C-639-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-916-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "cursor",
+      "variant": "principal",
+      "kind": "assistente",
+      "findings": 73,
+      "truePositives": 28,
+      "falsePositivesPair": 0,
+      "falseNegatives": 2,
+      "outOfScope": 36,
+      "redundant": 9,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 1,
+      "recall": 0.9333333333333333,
+      "f1": 0.9655172413793104,
+      "tpRate": 0.9333333333333333,
+      "fpRate": 0,
+      "tpMinusFpRate": 0.9333333333333333,
+      "detectedCases": [
+        "C-022-01-V",
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-079-02-V",
+        "C-089-01-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-209-01-V",
+        "C-284-01-V",
+        "C-306-01-V",
+        "C-327-01-V",
+        "C-327-02-V",
+        "C-338-01-V",
+        "C-338-02-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-532-01-V",
+        "C-532-02-V",
+        "C-601-01-V",
+        "C-639-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-916-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "cursor run1",
+      "variant": "execucao",
+      "kind": "assistente",
+      "findings": 48,
+      "truePositives": 27,
+      "falsePositivesPair": 0,
+      "falseNegatives": 3,
+      "outOfScope": 21,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 1,
+      "recall": 0.9,
+      "f1": 0.9473684210526316,
+      "tpRate": 0.9,
+      "fpRate": 0,
+      "tpMinusFpRate": 0.9,
+      "detectedCases": [
+        "C-022-01-V",
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-079-02-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-209-01-V",
+        "C-284-01-V",
+        "C-306-01-V",
+        "C-327-01-V",
+        "C-327-02-V",
+        "C-338-01-V",
+        "C-338-02-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-532-01-V",
+        "C-532-02-V",
+        "C-601-01-V",
+        "C-639-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-916-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "cursor run2",
+      "variant": "execucao",
+      "kind": "assistente",
+      "findings": 42,
+      "truePositives": 25,
+      "falsePositivesPair": 0,
+      "falseNegatives": 5,
+      "outOfScope": 17,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 1,
+      "recall": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "tpRate": 0.8333333333333334,
+      "fpRate": 0,
+      "tpMinusFpRate": 0.8333333333333334,
+      "detectedCases": [
+        "C-022-01-V",
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-079-02-V",
+        "C-089-01-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-209-01-V",
+        "C-284-01-V",
+        "C-306-01-V",
+        "C-338-01-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-532-01-V",
+        "C-532-02-V",
+        "C-601-01-V",
+        "C-639-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-916-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "cursor run3",
+      "variant": "execucao",
+      "kind": "assistente",
+      "findings": 47,
+      "truePositives": 25,
+      "falsePositivesPair": 0,
+      "falseNegatives": 5,
+      "outOfScope": 22,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 1,
+      "recall": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "tpRate": 0.8333333333333334,
+      "fpRate": 0,
+      "tpMinusFpRate": 0.8333333333333334,
+      "detectedCases": [
+        "C-022-01-V",
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-079-02-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-209-01-V",
+        "C-284-01-V",
+        "C-306-01-V",
+        "C-327-02-V",
+        "C-338-01-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-532-01-V",
+        "C-532-02-V",
+        "C-601-01-V",
+        "C-639-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-916-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    },
+    {
+      "instrument": "cursor",
+      "variant": "maioria",
+      "kind": "assistente",
+      "findings": 41,
+      "truePositives": 24,
+      "falsePositivesPair": 0,
+      "falseNegatives": 6,
+      "outOfScope": 17,
+      "redundant": 0,
+      "withoutLocation": 0,
+      "unmapped": 0,
+      "precision": 1,
+      "recall": 0.8,
+      "f1": 0.888888888888889,
+      "tpRate": 0.8,
+      "fpRate": 0,
+      "tpMinusFpRate": 0.8,
+      "detectedCases": [
+        "C-022-01-V",
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-079-02-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-209-01-V",
+        "C-284-01-V",
+        "C-306-01-V",
+        "C-338-01-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-532-01-V",
+        "C-532-02-V",
+        "C-601-01-V",
+        "C-639-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-916-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "byCwe": {
+        "CWE-22": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-78": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-79": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-89": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-94": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-1104": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-1333": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-209": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-284": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-306": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-327": {
+          "vulnerableCases": 2,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-338": {
+          "vulnerableCases": 2,
+          "detected": 1,
+          "coverage": 0.5,
+          "falsePositives": 0
+        },
+        "CWE-434": {
+          "vulnerableCases": 1,
+          "detected": 0,
+          "coverage": 0,
+          "falsePositives": 0
+        },
+        "CWE-502": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-532": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-601": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-639": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-798": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-916": {
+          "vulnerableCases": 1,
+          "detected": 1,
+          "coverage": 1,
+          "falsePositives": 0
+        },
+        "CWE-918": {
+          "vulnerableCases": 2,
+          "detected": 2,
+          "coverage": 1,
+          "falsePositives": 0
+        }
+      },
+      "falsePositivesStrictInterval": 0
+    }
+  ],
+  "stability": {
+    "antigravity": {
+      "distinctFindings": 0,
+      "inAllRuns": 0,
+      "stability": 0,
+      "runsConsidered": 3,
+      "byCwe": {}
+    },
+    "claude-code": {
+      "distinctFindings": 59,
+      "inAllRuns": 22,
+      "stability": 0.3728813559322034,
+      "runsConsidered": 3,
+      "byCwe": {
+        "CWE-94": {
+          "distinct": 1,
+          "inAllRuns": 1,
+          "stability": 1
+        },
+        "CWE-502": {
+          "distinct": 2,
+          "inAllRuns": 2,
+          "stability": 1
+        },
+        "CWE-89": {
+          "distinct": 3,
+          "inAllRuns": 1,
+          "stability": 0.3333333333333333
+        },
+        "CWE-78": {
+          "distinct": 4,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-287": {
+          "distinct": 6,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-798": {
+          "distinct": 6,
+          "inAllRuns": 1,
+          "stability": 0.16666666666666666
+        },
+        "CWE-306": {
+          "distinct": 1,
+          "inAllRuns": 1,
+          "stability": 1
+        },
+        "CWE-862": {
+          "distinct": 1,
+          "inAllRuns": 1,
+          "stability": 1
+        },
+        "CWE-22": {
+          "distinct": 3,
+          "inAllRuns": 2,
+          "stability": 0.6666666666666666
+        },
+        "CWE-434": {
+          "distinct": 2,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-918": {
+          "distinct": 2,
+          "inAllRuns": 2,
+          "stability": 1
+        },
+        "CWE-916": {
+          "distinct": 5,
+          "inAllRuns": 1,
+          "stability": 0.2
+        },
+        "CWE-200": {
+          "distinct": 1,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-338": {
+          "distinct": 2,
+          "inAllRuns": 2,
+          "stability": 1
+        },
+        "CWE-640": {
+          "distinct": 1,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-532": {
+          "distinct": 2,
+          "inAllRuns": 2,
+          "stability": 1
+        },
+        "CWE-327": {
+          "distinct": 1,
+          "inAllRuns": 1,
+          "stability": 1
+        },
+        "CWE-1188": {
+          "distinct": 1,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-79": {
+          "distinct": 3,
+          "inAllRuns": 1,
+          "stability": 0.3333333333333333
+        },
+        "CWE-601": {
+          "distinct": 1,
+          "inAllRuns": 1,
+          "stability": 1
+        },
+        "CWE-1333": {
+          "distinct": 1,
+          "inAllRuns": 1,
+          "stability": 1
+        },
+        "CWE-209": {
+          "distinct": 1,
+          "inAllRuns": 1,
+          "stability": 1
+        },
+        "CWE-639": {
+          "distinct": 7,
+          "inAllRuns": 1,
+          "stability": 0.14285714285714285
+        },
+        "CWE-321": {
+          "distinct": 1,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-522": {
+          "distinct": 1,
+          "inAllRuns": 0,
+          "stability": 0
+        }
+      }
+    },
+    "cursor": {
+      "distinctFindings": 73,
+      "inAllRuns": 23,
+      "stability": 0.3150684931506849,
+      "runsConsidered": 3,
+      "byCwe": {
+        "CWE-798": {
+          "distinct": 6,
+          "inAllRuns": 2,
+          "stability": 0.3333333333333333
+        },
+        "CWE-94": {
+          "distinct": 1,
+          "inAllRuns": 1,
+          "stability": 1
+        },
+        "CWE-78": {
+          "distinct": 2,
+          "inAllRuns": 2,
+          "stability": 1
+        },
+        "CWE-639": {
+          "distinct": 9,
+          "inAllRuns": 5,
+          "stability": 0.5555555555555556
+        },
+        "CWE-330": {
+          "distinct": 2,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-89": {
+          "distinct": 3,
+          "inAllRuns": 1,
+          "stability": 0.3333333333333333
+        },
+        "CWE-79": {
+          "distinct": 2,
+          "inAllRuns": 2,
+          "stability": 1
+        },
+        "CWE-532": {
+          "distinct": 4,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-306": {
+          "distinct": 5,
+          "inAllRuns": 1,
+          "stability": 0.2
+        },
+        "CWE-209": {
+          "distinct": 1,
+          "inAllRuns": 1,
+          "stability": 1
+        },
+        "CWE-321": {
+          "distinct": 3,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-327": {
+          "distinct": 3,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-1333": {
+          "distinct": 2,
+          "inAllRuns": 1,
+          "stability": 0.5
+        },
+        "CWE-285": {
+          "distinct": 1,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-502": {
+          "distinct": 3,
+          "inAllRuns": 1,
+          "stability": 0.3333333333333333
+        },
+        "CWE-916": {
+          "distinct": 3,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-918": {
+          "distinct": 2,
+          "inAllRuns": 2,
+          "stability": 1
+        },
+        "CWE-22": {
+          "distinct": 4,
+          "inAllRuns": 2,
+          "stability": 0.5
+        },
+        "CWE-200": {
+          "distinct": 3,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-640": {
+          "distinct": 1,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-287": {
+          "distinct": 4,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-601": {
+          "distinct": 1,
+          "inAllRuns": 1,
+          "stability": 1
+        },
+        "CWE-201": {
+          "distinct": 3,
+          "inAllRuns": 1,
+          "stability": 0.3333333333333333
+        },
+        "CWE-328": {
+          "distinct": 2,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-338": {
+          "distinct": 1,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-862": {
+          "distinct": 1,
+          "inAllRuns": 0,
+          "stability": 0
+        },
+        "CWE-613": {
+          "distinct": 1,
+          "inAllRuns": 0,
+          "stability": 0
+        }
+      }
+    }
+  },
+  "jaccard": {
+    "semgrep|eslint": 0,
+    "semgrep|njsscan": 0.125,
+    "semgrep|codeql": 0.07142857142857142,
+    "semgrep|antigravity": 0,
+    "semgrep|claude-code": 0.13793103448275862,
+    "semgrep|cursor": 0.14285714285714285,
+    "eslint|njsscan": 0,
+    "eslint|codeql": 0,
+    "eslint|antigravity": 0,
+    "eslint|claude-code": 0,
+    "eslint|cursor": 0,
+    "njsscan|codeql": 0.06666666666666667,
+    "njsscan|antigravity": 0,
+    "njsscan|claude-code": 0.1724137931034483,
+    "njsscan|cursor": 0.17857142857142858,
+    "codeql|antigravity": 0,
+    "codeql|claude-code": 0.3793103448275862,
+    "codeql|cursor": 0.39285714285714285,
+    "antigravity|claude-code": 0,
+    "antigravity|cursor": 0,
+    "claude-code|cursor": 0.9655172413793104
+  },
+  "exclusiveContribution": {
+    "semgrep": {
+      "count": 0,
+      "cases": []
+    },
+    "eslint": {
+      "count": 0,
+      "cases": []
+    },
+    "njsscan": {
+      "count": 0,
+      "cases": []
+    },
+    "codeql": {
+      "count": 0,
+      "cases": []
+    },
+    "antigravity": {
+      "count": 0,
+      "cases": []
+    },
+    "claude-code": {
+      "count": 1,
+      "cases": [
+        "C-434-01-V"
+      ]
+    },
+    "cursor": {
+      "count": 0,
+      "cases": []
+    }
+  },
+  "unions": {
+    "deterministicTools": {
+      "instruments": [
+        "semgrep",
+        "eslint",
+        "njsscan",
+        "codeql"
+      ],
+      "cases": [
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-089-01-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-327-01-V",
+        "C-327-02-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-601-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "coverage": 0.5666666666666667
+    },
+    "assistants": {
+      "instruments": [
+        "antigravity",
+        "claude-code",
+        "cursor"
+      ],
+      "cases": [
+        "C-022-01-V",
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-079-02-V",
+        "C-089-01-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-209-01-V",
+        "C-284-01-V",
+        "C-306-01-V",
+        "C-327-01-V",
+        "C-327-02-V",
+        "C-338-01-V",
+        "C-338-02-V",
+        "C-434-01-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-532-01-V",
+        "C-532-02-V",
+        "C-601-01-V",
+        "C-639-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-916-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "coverage": 0.9666666666666667
+    },
+    "overall": {
+      "instruments": [
+        "semgrep",
+        "eslint",
+        "njsscan",
+        "codeql",
+        "antigravity",
+        "claude-code",
+        "cursor"
+      ],
+      "cases": [
+        "C-022-01-V",
+        "C-022-02-V",
+        "C-078-01-V",
+        "C-078-02-V",
+        "C-079-01-V",
+        "C-079-02-V",
+        "C-089-01-V",
+        "C-089-02-V",
+        "C-094-01-V",
+        "C-1333-01-V",
+        "C-209-01-V",
+        "C-284-01-V",
+        "C-306-01-V",
+        "C-327-01-V",
+        "C-327-02-V",
+        "C-338-01-V",
+        "C-338-02-V",
+        "C-434-01-V",
+        "C-502-01-V",
+        "C-502-02-V",
+        "C-532-01-V",
+        "C-532-02-V",
+        "C-601-01-V",
+        "C-639-01-V",
+        "C-798-01-V",
+        "C-798-02-V",
+        "C-916-01-V",
+        "C-918-01-V",
+        "C-918-02-V"
+      ],
+      "coverage": 0.9666666666666667
+    }
+  },
+  "sessions": [
+    {
+      "session": "antigravity-run1",
+      "product": "Antigravity CLI",
+      "version": "1.1.5",
+      "model": "Gemini 3.1 Pro (High)",
+      "branch": "snapshot/03",
+      "run": 1,
+      "outcome": "recusa",
+      "malformed": false,
+      "recoveredFindings": 0,
+      "inPrincipal": true
+    },
+    {
+      "session": "antigravity-run2",
+      "product": "Antigravity CLI",
+      "version": "1.1.5",
+      "model": "Gemini 3.1 Pro (High)",
+      "branch": "snapshot/06",
+      "run": 2,
+      "outcome": "recusa",
+      "malformed": false,
+      "recoveredFindings": 0,
+      "inPrincipal": true
+    },
+    {
+      "session": "antigravity-run3",
+      "product": "Antigravity CLI",
+      "version": "1.1.5",
+      "model": "Gemini 3.1 Pro (High)",
+      "branch": "snapshot/09",
+      "run": 3,
+      "outcome": "recusa",
+      "malformed": false,
+      "recoveredFindings": 0,
+      "inPrincipal": true
+    },
+    {
+      "session": "claude-code-run1",
+      "product": "Claude Code",
+      "version": "v2.1.267",
+      "model": "Opus 5 (1M context)",
+      "branch": "snapshot/01",
+      "run": 1,
+      "outcome": "concluido",
+      "malformed": false,
+      "recoveredFindings": 0,
+      "inPrincipal": true
+    },
+    {
+      "session": "claude-code-run2",
+      "product": "Claude Code",
+      "version": "v2.1.267",
+      "model": "Opus 5 (1M context)",
+      "branch": "snapshot/04",
+      "run": 2,
+      "outcome": "concluido",
+      "malformed": false,
+      "recoveredFindings": 0,
+      "inPrincipal": true
+    },
+    {
+      "session": "claude-code-run3",
+      "product": "Claude Code",
+      "version": "v2.1.267",
+      "model": "Opus 5 (1M context)",
+      "branch": "snapshot/07",
+      "run": 3,
+      "outcome": "concluido",
+      "malformed": false,
+      "recoveredFindings": 0,
+      "inPrincipal": true
+    },
+    {
+      "session": "cursor-run1",
+      "product": "Cursor Agents",
+      "version": "2026.07.23-e383d2b",
+      "model": "Cursor Grok 4.6 High/Fast",
+      "branch": "snapshot/02",
+      "run": 1,
+      "outcome": "concluido",
+      "malformed": false,
+      "recoveredFindings": 0,
+      "inPrincipal": true
+    },
+    {
+      "session": "cursor-run2",
+      "product": "Cursor Agents",
+      "version": "2026.07.23-e383d2b",
+      "model": "Cursor Grok 4.6 High/Fast",
+      "branch": "snapshot/05",
+      "run": 2,
+      "outcome": "concluido",
+      "malformed": false,
+      "recoveredFindings": 0,
+      "inPrincipal": true
+    },
+    {
+      "session": "cursor-run3",
+      "product": "Cursor Agents",
+      "version": "2026.07.23-e383d2b",
+      "model": "Cursor Grok 4.6 High/Fast",
+      "branch": "snapshot/08",
+      "run": 3,
+      "outcome": "concluido",
+      "malformed": false,
+      "recoveredFindings": 0,
+      "inPrincipal": true
+    }
+  ],
+  "declaredCoverage": [
+    {
+      "session": "antigravity-run1",
+      "product": "Antigravity CLI",
+      "run": 1,
+      "outcome": "recusa",
+      "filesExamined": 0,
+      "corpusFileCount": 76,
+      "ratio": 0,
+      "inPrincipal": true
+    },
+    {
+      "session": "antigravity-run2",
+      "product": "Antigravity CLI",
+      "run": 2,
+      "outcome": "recusa",
+      "filesExamined": 0,
+      "corpusFileCount": 76,
+      "ratio": 0,
+      "inPrincipal": true
+    },
+    {
+      "session": "antigravity-run3",
+      "product": "Antigravity CLI",
+      "run": 3,
+      "outcome": "recusa",
+      "filesExamined": 0,
+      "corpusFileCount": 76,
+      "ratio": 0,
+      "inPrincipal": true
+    },
+    {
+      "session": "claude-code-run1",
+      "product": "Claude Code",
+      "run": 1,
+      "outcome": "concluido",
+      "filesExamined": 73,
+      "corpusFileCount": 76,
+      "ratio": 0.9605263157894737,
+      "inPrincipal": true
+    },
+    {
+      "session": "claude-code-run2",
+      "product": "Claude Code",
+      "run": 2,
+      "outcome": "concluido",
+      "filesExamined": 76,
+      "corpusFileCount": 76,
+      "ratio": 1,
+      "inPrincipal": true
+    },
+    {
+      "session": "claude-code-run3",
+      "product": "Claude Code",
+      "run": 3,
+      "outcome": "concluido",
+      "filesExamined": 76,
+      "corpusFileCount": 76,
+      "ratio": 1,
+      "inPrincipal": true
+    },
+    {
+      "session": "cursor-run1",
+      "product": "Cursor Agents",
+      "run": 1,
+      "outcome": "concluido",
+      "filesExamined": 76,
+      "corpusFileCount": 76,
+      "ratio": 1,
+      "inPrincipal": true
+    },
+    {
+      "session": "cursor-run2",
+      "product": "Cursor Agents",
+      "run": 2,
+      "outcome": "concluido",
+      "filesExamined": 76,
+      "corpusFileCount": 76,
+      "ratio": 1,
+      "inPrincipal": true
+    },
+    {
+      "session": "cursor-run3",
+      "product": "Cursor Agents",
+      "run": 3,
+      "outcome": "concluido",
+      "filesExamined": 76,
+      "corpusFileCount": 76,
+      "ratio": 1,
+      "inPrincipal": true
+    }
+  ],
+  "counts": {
+    "refusals": 3,
+    "interruptions": 0,
+    "malformedResponses": 0
+  }
+}

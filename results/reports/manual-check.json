@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-09-10T21:56:59.089Z",
+  "population": 454,
+  "sampled": 102,
+  "fraction": 0.22466960352422907,
+  "reviewed": 102,
+  "divergent": 0,
+  "divergenceRate": 0,
+  "threshold": 0.05,
+  "withinThreshold": true,
+  "missingVerdicts": [],
+  "unknownVerdicts": [],
+  "divergences": []
+}

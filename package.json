@@ -25,7 +25,9 @@
     "normalize": "tsx tools/normalize.ts",
     "score": "tsx tools/score.ts",
     "check:asymmetry": "tsx tools/asymmetry-check.ts",
-    "verify": "npm run build:corpus && npm test"
+    "verify": "npm run build:corpus && npm test",
+    "collect:sessions": "tsx tools/collect-sessions.ts",
+    "manual:sample": "tsx tools/manual-sample.ts"
   },
   "dependencies": {
     "@fastify/multipart": "^9.0.3",
